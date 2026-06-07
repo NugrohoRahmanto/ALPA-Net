@@ -1,0 +1,6 @@
+dataset/ptb_xl/
+dataset/ptb_diagnostic/
+
+*.pid
+REMOTE_TRAINING.md
+output.log

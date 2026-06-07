@@ -1,0 +1,54 @@
+2026-06-07 20:55:18,009 | INFO | Loaded pretrained backbone
+2026-06-07 20:55:18,009 | INFO | Loaded weight checksum sample: 44.149082
+2026-06-07 20:55:18,010 | INFO | parameters total=562,600 trainable=498,440 frozen=64,160 trainable_pct=88.60%
+2026-06-07 20:55:18,126 | INFO | Sanity loss 1.2260
+2026-06-07 20:55:18,847 | INFO | epoch=001 train_loss=1.2030 val_loss=1.0112 val_macro_f1=0.7788
+2026-06-07 20:55:19,620 | INFO | epoch=002 train_loss=0.9770 val_loss=0.9066 val_macro_f1=0.7792
+2026-06-07 20:55:20,428 | INFO | epoch=003 train_loss=0.8931 val_loss=0.8850 val_macro_f1=0.8110
+2026-06-07 20:55:21,215 | INFO | epoch=004 train_loss=0.8625 val_loss=0.8618 val_macro_f1=0.8178
+2026-06-07 20:55:21,981 | INFO | epoch=005 train_loss=0.8326 val_loss=0.8849 val_macro_f1=0.8024
+2026-06-07 20:55:22,713 | INFO | epoch=006 train_loss=0.8085 val_loss=0.8481 val_macro_f1=0.8387
+2026-06-07 20:55:23,473 | INFO | epoch=007 train_loss=0.8030 val_loss=0.8372 val_macro_f1=0.8091
+2026-06-07 20:55:24,224 | INFO | epoch=008 train_loss=0.7727 val_loss=0.8718 val_macro_f1=0.8042
+2026-06-07 20:55:24,963 | INFO | epoch=009 train_loss=0.7358 val_loss=0.8517 val_macro_f1=0.8255
+2026-06-07 20:55:25,710 | INFO | epoch=010 train_loss=0.7270 val_loss=0.8487 val_macro_f1=0.8361
+2026-06-07 20:55:26,454 | INFO | epoch=011 train_loss=0.7045 val_loss=0.8754 val_macro_f1=0.8077
+2026-06-07 20:55:27,200 | INFO | epoch=012 train_loss=0.6731 val_loss=0.8883 val_macro_f1=0.7970
+2026-06-07 20:55:27,994 | INFO | epoch=013 train_loss=0.6816 val_loss=0.9211 val_macro_f1=0.7860
+2026-06-07 20:55:28,732 | INFO | epoch=014 train_loss=0.6528 val_loss=0.8897 val_macro_f1=0.7845
+2026-06-07 20:55:29,462 | INFO | epoch=015 train_loss=0.6202 val_loss=0.8678 val_macro_f1=0.8032
+2026-06-07 20:55:30,198 | INFO | epoch=016 train_loss=0.6241 val_loss=0.8875 val_macro_f1=0.8094
+2026-06-07 20:55:30,934 | INFO | epoch=017 train_loss=0.6113 val_loss=0.9057 val_macro_f1=0.7963
+2026-06-07 20:55:31,664 | INFO | epoch=018 train_loss=0.5997 val_loss=0.9298 val_macro_f1=0.7799
+2026-06-07 20:55:32,392 | INFO | epoch=019 train_loss=0.5902 val_loss=0.9420 val_macro_f1=0.7965
+2026-06-07 20:55:33,124 | INFO | epoch=020 train_loss=0.5904 val_loss=0.9346 val_macro_f1=0.7904
+2026-06-07 20:55:33,864 | INFO | epoch=021 train_loss=0.5829 val_loss=0.9427 val_macro_f1=0.7930
+2026-06-07 20:55:34,606 | INFO | epoch=022 train_loss=0.5804 val_loss=0.9246 val_macro_f1=0.8052
+2026-06-07 20:55:35,350 | INFO | epoch=023 train_loss=0.5701 val_loss=0.9164 val_macro_f1=0.7923
+2026-06-07 20:55:36,080 | INFO | epoch=024 train_loss=0.5617 val_loss=0.9266 val_macro_f1=0.7961
+2026-06-07 20:55:36,816 | INFO | epoch=025 train_loss=0.5623 val_loss=0.9539 val_macro_f1=0.8013
+2026-06-07 20:55:37,549 | INFO | epoch=026 train_loss=0.5546 val_loss=0.9748 val_macro_f1=0.7862
+2026-06-07 20:55:38,285 | INFO | epoch=027 train_loss=0.5602 val_loss=0.9629 val_macro_f1=0.8008
+2026-06-07 20:55:39,017 | INFO | epoch=028 train_loss=0.5549 val_loss=0.9570 val_macro_f1=0.7909
+2026-06-07 20:55:39,751 | INFO | epoch=029 train_loss=0.5467 val_loss=0.9764 val_macro_f1=0.7937
+2026-06-07 20:55:40,543 | INFO | epoch=030 train_loss=0.5479 val_loss=0.9912 val_macro_f1=0.7692
+2026-06-07 20:55:41,293 | INFO | epoch=031 train_loss=0.5405 val_loss=0.9938 val_macro_f1=0.7774
+2026-06-07 20:55:42,019 | INFO | epoch=032 train_loss=0.5508 val_loss=0.9863 val_macro_f1=0.7916
+2026-06-07 20:55:42,767 | INFO | epoch=033 train_loss=0.5354 val_loss=0.9858 val_macro_f1=0.7916
+2026-06-07 20:55:43,536 | INFO | epoch=034 train_loss=0.5345 val_loss=0.9816 val_macro_f1=0.7916
+2026-06-07 20:55:44,301 | INFO | epoch=035 train_loss=0.5383 val_loss=0.9843 val_macro_f1=0.7916
+2026-06-07 20:55:45,037 | INFO | epoch=036 train_loss=0.5482 val_loss=0.9870 val_macro_f1=0.7804
+2026-06-07 20:55:45,781 | INFO | epoch=037 train_loss=0.5419 val_loss=0.9978 val_macro_f1=0.7845
+2026-06-07 20:55:46,523 | INFO | epoch=038 train_loss=0.5491 val_loss=0.9998 val_macro_f1=0.7816
+2026-06-07 20:55:47,260 | INFO | epoch=039 train_loss=0.5319 val_loss=0.9941 val_macro_f1=0.7806
+2026-06-07 20:55:47,991 | INFO | epoch=040 train_loss=0.5357 val_loss=0.9918 val_macro_f1=0.7764
+2026-06-07 20:55:48,730 | INFO | epoch=041 train_loss=0.5399 val_loss=0.9916 val_macro_f1=0.7824
+2026-06-07 20:55:49,461 | INFO | epoch=042 train_loss=0.5372 val_loss=0.9966 val_macro_f1=0.7816
+2026-06-07 20:55:50,203 | INFO | epoch=043 train_loss=0.5300 val_loss=0.9955 val_macro_f1=0.7816
+2026-06-07 20:55:50,944 | INFO | epoch=044 train_loss=0.5370 val_loss=0.9954 val_macro_f1=0.7824
+2026-06-07 20:55:51,673 | INFO | epoch=045 train_loss=0.5336 val_loss=0.9974 val_macro_f1=0.7824
+2026-06-07 20:55:52,406 | INFO | epoch=046 train_loss=0.5510 val_loss=0.9976 val_macro_f1=0.7816
+2026-06-07 20:55:53,143 | INFO | epoch=047 train_loss=0.5346 val_loss=0.9989 val_macro_f1=0.7824
+2026-06-07 20:55:53,886 | INFO | epoch=048 train_loss=0.5311 val_loss=1.0006 val_macro_f1=0.7824
+2026-06-07 20:55:54,627 | INFO | epoch=049 train_loss=0.5298 val_loss=1.0014 val_macro_f1=0.7824
+2026-06-07 20:55:55,366 | INFO | epoch=050 train_loss=0.5288 val_loss=1.0009 val_macro_f1=0.7824

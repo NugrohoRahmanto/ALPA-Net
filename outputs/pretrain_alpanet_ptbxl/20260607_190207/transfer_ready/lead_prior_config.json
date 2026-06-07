@@ -1,0 +1,36 @@
+{
+  "lead_order": [
+    "I",
+    "aVL",
+    "II",
+    "III",
+    "aVF",
+    "aVR",
+    "V1",
+    "V2",
+    "V3",
+    "V4",
+    "V5",
+    "V6"
+  ],
+  "normal": "uniform over 12 leads",
+  "territories": {
+    "Anterior": [
+      "V1",
+      "V2",
+      "V3",
+      "V4"
+    ],
+    "Inferior": [
+      "II",
+      "III",
+      "aVF"
+    ],
+    "Lateral": [
+      "I",
+      "aVL",
+      "V5",
+      "V6"
+    ]
+  }
+}

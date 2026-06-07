@@ -1,0 +1,14 @@
+{
+  "main_label_order": [
+    "Normal",
+    "Anterior",
+    "Inferior",
+    "Lateral"
+  ],
+  "territory_order": [
+    "Anterior",
+    "Inferior",
+    "Lateral"
+  ],
+  "multi_label": true
+}

@@ -1,0 +1,67 @@
+normalized_sub_label,main_group,main_label_vector,territory_vector,ptb_xl_patient_count,ptb_diagnostic_patient_count
+anterior,Anterior,"[0, 1, 0, 0]","[1, 0, 0]",221,21
+anterior antero-septal,Anterior,"[0, 1, 0, 0]","[1, 0, 0]",9,1
+antero-septal,Anterior,"[0, 1, 0, 0]","[1, 0, 0]",1248,20
+antero-septal anterior,Anterior,"[0, 1, 0, 0]","[1, 0, 0]",0,2
+posterior antero-septal,Anterior,"[0, 1, 0, 0]","[1, 0, 0]",1,0
+anterior inferior,Anterior+Inferior,"[0, 1, 1, 0]","[1, 1, 0]",43,3
+antero-septal inferior,Anterior+Inferior,"[0, 1, 1, 0]","[1, 1, 0]",261,4
+antero-septal infero-posterior,Anterior+Inferior,"[0, 1, 1, 0]","[1, 1, 0]",0,1
+inferior anterior,Anterior+Inferior,"[0, 1, 1, 0]","[1, 1, 0]",49,1
+inferior antero-septal,Anterior+Inferior,"[0, 1, 1, 0]","[1, 1, 0]",297,0
+infero-posterior anterior,Anterior+Inferior,"[0, 1, 1, 0]","[1, 1, 0]",2,0
+infero-posterior antero-septal,Anterior+Inferior,"[0, 1, 1, 0]","[1, 1, 0]",1,0
+anterior inferior lateral,Anterior+Inferior+Lateral,"[0, 1, 1, 1]","[1, 1, 1]",1,0
+anterior infero-lateral,Anterior+Inferior+Lateral,"[0, 1, 1, 1]","[1, 1, 1]",4,0
+antero-lateral antero-septal inferior,Anterior+Inferior+Lateral,"[0, 1, 1, 1]","[1, 1, 1]",3,0
+antero-lateral inferior,Anterior+Inferior+Lateral,"[0, 1, 1, 1]","[1, 1, 1]",12,0
+antero-lateral infero-posterior,Anterior+Inferior+Lateral,"[0, 1, 1, 1]","[1, 1, 1]",1,0
+antero-septal antero-lateral inferior,Anterior+Inferior+Lateral,"[0, 1, 1, 1]","[1, 1, 1]",14,0
+antero-septal inferior antero-lateral,Anterior+Inferior+Lateral,"[0, 1, 1, 1]","[1, 1, 1]",4,0
+antero-septal inferior lateral,Anterior+Inferior+Lateral,"[0, 1, 1, 1]","[1, 1, 1]",1,0
+antero-septal infero-lateral,Anterior+Inferior+Lateral,"[0, 1, 1, 1]","[1, 1, 1]",83,0
+antero-septal infero-postero-lateral,Anterior+Inferior+Lateral,"[0, 1, 1, 1]","[1, 1, 1]",1,0
+antero-septal lateral inferior,Anterior+Inferior+Lateral,"[0, 1, 1, 1]","[1, 1, 1]",1,0
+inferior antero-lateral,Anterior+Inferior+Lateral,"[0, 1, 1, 1]","[1, 1, 1]",24,0
+inferior antero-septal antero-lateral,Anterior+Inferior+Lateral,"[0, 1, 1, 1]","[1, 1, 1]",11,0
+inferior lateral antero-septal,Anterior+Inferior+Lateral,"[0, 1, 1, 1]","[1, 1, 1]",1,0
+infero-lateral anterior,Anterior+Inferior+Lateral,"[0, 1, 1, 1]","[1, 1, 1]",6,2
+infero-lateral anterior anterior,Anterior+Inferior+Lateral,"[0, 1, 1, 1]","[1, 1, 1]",0,1
+infero-lateral antero-septal,Anterior+Inferior+Lateral,"[0, 1, 1, 1]","[1, 1, 1]",92,0
+infero-lateral antero-septal antero-lateral,Anterior+Inferior+Lateral,"[0, 1, 1, 1]","[1, 1, 1]",2,0
+infero-postero-lateral anterior,Anterior+Inferior+Lateral,"[0, 1, 1, 1]","[1, 1, 1]",1,0
+infero-postero-lateral antero-lateral,Anterior+Inferior+Lateral,"[0, 1, 1, 1]","[1, 1, 1]",1,0
+infero-postero-lateral antero-septal,Anterior+Inferior+Lateral,"[0, 1, 1, 1]","[1, 1, 1]",2,0
+lateral anterior infero-lateral,Anterior+Inferior+Lateral,"[0, 1, 1, 1]","[1, 1, 1]",1,0
+anterior antero-lateral,Anterior+Lateral,"[0, 1, 0, 1]","[1, 0, 1]",6,0
+anterior antero-septal antero-lateral,Anterior+Lateral,"[0, 1, 0, 1]","[1, 0, 1]",1,0
+anterior lateral,Anterior+Lateral,"[0, 1, 0, 1]","[1, 0, 1]",2,0
+antero-lateral,Anterior+Lateral,"[0, 1, 0, 1]","[1, 0, 1]",116,17
+antero-lateral anterior,Anterior+Lateral,"[0, 1, 0, 1]","[1, 0, 1]",0,1
+antero-lateral antero-septal,Anterior+Lateral,"[0, 1, 0, 1]","[1, 0, 1]",55,0
+antero-lateral posterior,Anterior+Lateral,"[0, 1, 0, 1]","[1, 0, 1]",1,0
+antero-septal antero-lateral,Anterior+Lateral,"[0, 1, 0, 1]","[1, 0, 1]",146,1
+antero-septal lateral,Anterior+Lateral,"[0, 1, 0, 1]","[1, 0, 1]",69,0
+antero-septo-lateral anterior,Anterior+Lateral,"[0, 1, 0, 1]","[1, 0, 1]",0,1
+lateral anterior,Anterior+Lateral,"[0, 1, 0, 1]","[1, 0, 1]",3,0
+lateral antero-septal,Anterior+Lateral,"[0, 1, 0, 1]","[1, 0, 1]",21,0
+lateral antero-septal antero-lateral,Anterior+Lateral,"[0, 1, 0, 1]","[1, 0, 1]",1,0
+inferior,Inferior,"[0, 0, 1, 0]","[0, 1, 0]",1722,33
+inferior posterior,Inferior,"[0, 0, 1, 0]","[0, 1, 0]",2,0
+infero-posterior,Inferior,"[0, 0, 1, 0]","[0, 1, 0]",23,3
+infero-posterior inferior,Inferior,"[0, 0, 1, 0]","[0, 1, 0]",0,1
+posterior inferior,Inferior,"[0, 0, 1, 0]","[0, 1, 0]",1,0
+inferior infero-lateral,Inferior+Lateral,"[0, 0, 1, 1]","[0, 1, 1]",0,1
+inferior lateral,Inferior+Lateral,"[0, 0, 1, 1]","[0, 1, 1]",1,0
+infero-latera,Inferior+Lateral,"[0, 0, 1, 1]","[0, 1, 1]",0,1
+infero-lateral,Inferior+Lateral,"[0, 0, 1, 1]","[0, 1, 1]",256,18
+infero-lateral inferior,Inferior+Lateral,"[0, 0, 1, 1]","[0, 1, 1]",0,1
+infero-lateral postero-lateral,Inferior+Lateral,"[0, 0, 1, 1]","[0, 1, 1]",0,1
+infero-poster-lateral,Inferior+Lateral,"[0, 0, 1, 1]","[0, 1, 1]",0,1
+infero-postero-lateral,Inferior+Lateral,"[0, 0, 1, 1]","[0, 1, 1]",45,8
+lateral inferior,Inferior+Lateral,"[0, 0, 1, 1]","[0, 1, 1]",1,0
+lateral infero-posterior,Inferior+Lateral,"[0, 0, 1, 1]","[0, 1, 1]",1,0
+lateral,Lateral,"[0, 0, 0, 1]","[0, 0, 1]",99,1
+posterior lateral,Lateral,"[0, 0, 0, 1]","[0, 0, 1]",1,0
+postero-lateral,Lateral,"[0, 0, 0, 1]","[0, 0, 1]",0,2
+normal,Normal,"[1, 0, 0, 0]","[0, 0, 0]",8902,52

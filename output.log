@@ -1,0 +1,101 @@
+[NbConvertApp] Converting notebook notebook/finetune_alpanet_transfer_cv.ipynb to notebook
+/home/nugee/code-program/code-thesis/hibah/myocardial-infarction-localization/.venv/lib/python3.12/site-packages/nbformat/__init__.py:96: MissingIDFieldWarning: Cell is missing an id field, this will become a hard error in future nbformat versions. You may want to use `normalize()` on your notebooks before validations (available since nbformat 5.1.4). Previous versions of nbformat are fixing this issue transparently, and will stop doing so in the future.
+  validate(nb)
+2026-06-07 20:53:47,263 | INFO | Output directory: /home/nugee/code-program/code-thesis/hibah/myocardial-infarction-localization/outputs/finetune_alpanet_ptbdiagnostic/20260607_205347
+2026-06-07 20:53:47,263 | INFO | Root live log: /home/nugee/code-program/code-thesis/hibah/myocardial-infarction-localization/output.log
+2026-06-07 20:53:47,270 | INFO | Using pretrained run: /home/nugee/code-program/code-thesis/hibah/myocardial-infarction-localization/outputs/pretrain_alpanet_ptbxl/20260607_190207
+2026-06-07 20:53:47,271 | INFO | Pretrain source sanity checks passed.
+2026-06-07 20:53:49,611 | INFO | progress fold=1 strategy=no_pretrain epoch=001 train_loss=1.4293 val_loss=1.5419 val_macro_f1=0.5401 lr=0.0005
+2026-06-07 20:53:59,009 | INFO | progress fold=1 strategy=no_pretrain epoch=010 train_loss=1.1470 val_loss=1.3684 val_macro_f1=0.6244 lr=0.0005
+2026-06-07 20:54:09,347 | INFO | progress fold=1 strategy=no_pretrain epoch=020 train_loss=0.9173 val_loss=1.0735 val_macro_f1=0.6981 lr=0.0005
+2026-06-07 20:54:19,668 | INFO | progress fold=1 strategy=no_pretrain epoch=030 train_loss=0.7403 val_loss=1.1226 val_macro_f1=0.6985 lr=0.00025
+2026-06-07 20:54:29,982 | INFO | progress fold=1 strategy=no_pretrain epoch=040 train_loss=0.6329 val_loss=1.1547 val_macro_f1=0.7235 lr=6.25e-05
+2026-06-07 20:54:40,278 | INFO | progress fold=1 strategy=no_pretrain epoch=050 train_loss=0.6055 val_loss=1.1530 val_macro_f1=0.7454 lr=1.5625e-05
+2026-06-07 20:54:41,335 | INFO | Finished fold=1 strategy=no_pretrain status=OK
+2026-06-07 20:54:42,193 | INFO | progress fold=1 strategy=frozen_backbone epoch=001 train_loss=1.2156 val_loss=1.0225 val_macro_f1=0.7839 lr=0.0005
+2026-06-07 20:54:48,609 | INFO | progress fold=1 strategy=frozen_backbone epoch=010 train_loss=0.7991 val_loss=0.8660 val_macro_f1=0.8013 lr=0.0005
+2026-06-07 20:54:55,718 | INFO | progress fold=1 strategy=frozen_backbone epoch=020 train_loss=0.7209 val_loss=0.8756 val_macro_f1=0.7996 lr=0.000125
+2026-06-07 20:55:02,792 | INFO | progress fold=1 strategy=frozen_backbone epoch=030 train_loss=0.6993 val_loss=0.8889 val_macro_f1=0.7982 lr=6.25e-05
+2026-06-07 20:55:09,865 | INFO | progress fold=1 strategy=frozen_backbone epoch=040 train_loss=0.6885 val_loss=0.8837 val_macro_f1=0.7991 lr=1.5625e-05
+2026-06-07 20:55:16,911 | INFO | progress fold=1 strategy=frozen_backbone epoch=050 train_loss=0.6962 val_loss=0.8879 val_macro_f1=0.8055 lr=3.90625e-06
+2026-06-07 20:55:17,964 | INFO | Finished fold=1 strategy=frozen_backbone status=OK
+2026-06-07 20:55:18,847 | INFO | progress fold=1 strategy=partial_finetune epoch=001 train_loss=1.2030 val_loss=1.0112 val_macro_f1=0.7788 lr=0.0005
+2026-06-07 20:55:25,711 | INFO | progress fold=1 strategy=partial_finetune epoch=010 train_loss=0.7270 val_loss=0.8487 val_macro_f1=0.8361 lr=0.0005
+2026-06-07 20:55:33,125 | INFO | progress fold=1 strategy=partial_finetune epoch=020 train_loss=0.5904 val_loss=0.9346 val_macro_f1=0.7904 lr=0.000125
+2026-06-07 20:55:40,544 | INFO | progress fold=1 strategy=partial_finetune epoch=030 train_loss=0.5479 val_loss=0.9912 val_macro_f1=0.7692 lr=6.25e-05
+2026-06-07 20:55:47,991 | INFO | progress fold=1 strategy=partial_finetune epoch=040 train_loss=0.5357 val_loss=0.9918 val_macro_f1=0.7764 lr=1.5625e-05
+2026-06-07 20:55:55,366 | INFO | progress fold=1 strategy=partial_finetune epoch=050 train_loss=0.5288 val_loss=1.0009 val_macro_f1=0.7824 lr=3.90625e-06
+2026-06-07 20:55:56,595 | INFO | Finished fold=1 strategy=partial_finetune status=OK
+2026-06-07 20:55:57,814 | INFO | progress fold=1 strategy=full_finetune epoch=001 train_loss=1.2356 val_loss=0.9402 val_macro_f1=0.7671 lr=0.0005
+2026-06-07 20:56:07,546 | INFO | progress fold=1 strategy=full_finetune epoch=010 train_loss=0.6032 val_loss=0.8451 val_macro_f1=0.8191 lr=0.0005
+2026-06-07 20:56:18,193 | INFO | progress fold=1 strategy=full_finetune epoch=020 train_loss=0.4811 val_loss=0.9728 val_macro_f1=0.7940 lr=0.000125
+2026-06-07 20:56:28,874 | INFO | progress fold=1 strategy=full_finetune epoch=030 train_loss=0.4374 val_loss=1.0078 val_macro_f1=0.7731 lr=3.125e-05
+2026-06-07 20:56:39,531 | INFO | progress fold=1 strategy=full_finetune epoch=040 train_loss=0.4353 val_loss=1.0472 val_macro_f1=0.7782 lr=1.5625e-05
+2026-06-07 20:56:50,175 | INFO | progress fold=1 strategy=full_finetune epoch=050 train_loss=0.4231 val_loss=1.0257 val_macro_f1=0.7747 lr=3.90625e-06
+2026-06-07 20:56:51,252 | INFO | Finished fold=1 strategy=full_finetune status=OK
+2026-06-07 20:56:52,454 | INFO | progress fold=2 strategy=no_pretrain epoch=001 train_loss=1.4602 val_loss=1.3971 val_macro_f1=0.5315 lr=0.0005
+2026-06-07 20:57:02,251 | INFO | progress fold=2 strategy=no_pretrain epoch=010 train_loss=1.1255 val_loss=1.1502 val_macro_f1=0.7093 lr=0.0005
+2026-06-07 20:57:13,044 | INFO | progress fold=2 strategy=no_pretrain epoch=020 train_loss=0.8662 val_loss=1.0898 val_macro_f1=0.7615 lr=0.00025
+2026-06-07 20:57:23,840 | INFO | progress fold=2 strategy=no_pretrain epoch=030 train_loss=0.7002 val_loss=1.0342 val_macro_f1=0.7901 lr=0.00025
+2026-06-07 20:57:34,582 | INFO | progress fold=2 strategy=no_pretrain epoch=040 train_loss=0.6085 val_loss=1.0191 val_macro_f1=0.7944 lr=6.25e-05
+2026-06-07 20:57:45,296 | INFO | progress fold=2 strategy=no_pretrain epoch=050 train_loss=0.5748 val_loss=1.0531 val_macro_f1=0.8118 lr=1.5625e-05
+2026-06-07 20:57:46,377 | INFO | Finished fold=2 strategy=no_pretrain status=OK
+2026-06-07 20:57:47,277 | INFO | progress fold=2 strategy=frozen_backbone epoch=001 train_loss=1.2421 val_loss=1.0887 val_macro_f1=0.7783 lr=0.0005
+2026-06-07 20:57:53,941 | INFO | progress fold=2 strategy=frozen_backbone epoch=010 train_loss=0.7359 val_loss=0.9297 val_macro_f1=0.8067 lr=0.0005
+2026-06-07 20:58:01,312 | INFO | progress fold=2 strategy=frozen_backbone epoch=020 train_loss=0.6697 val_loss=0.9576 val_macro_f1=0.8056 lr=0.000125
+2026-06-07 20:58:08,778 | INFO | progress fold=2 strategy=frozen_backbone epoch=030 train_loss=0.6306 val_loss=0.9698 val_macro_f1=0.8126 lr=3.125e-05
+2026-06-07 20:58:16,104 | INFO | progress fold=2 strategy=frozen_backbone epoch=040 train_loss=0.6330 val_loss=0.9704 val_macro_f1=0.8126 lr=1.5625e-05
+2026-06-07 20:58:23,415 | INFO | progress fold=2 strategy=frozen_backbone epoch=050 train_loss=0.6264 val_loss=0.9733 val_macro_f1=0.8056 lr=3.90625e-06
+2026-06-07 20:58:24,670 | INFO | Finished fold=2 strategy=frozen_backbone status=OK
+2026-06-07 20:58:25,558 | INFO | progress fold=2 strategy=partial_finetune epoch=001 train_loss=1.2284 val_loss=1.0641 val_macro_f1=0.7970 lr=0.0005
+2026-06-07 20:58:32,682 | INFO | progress fold=2 strategy=partial_finetune epoch=010 train_loss=0.6681 val_loss=0.9147 val_macro_f1=0.8191 lr=0.0005
+2026-06-07 20:58:40,200 | INFO | progress fold=2 strategy=partial_finetune epoch=020 train_loss=0.5456 val_loss=0.9797 val_macro_f1=0.8369 lr=0.00025
+2026-06-07 20:58:47,677 | INFO | progress fold=2 strategy=partial_finetune epoch=030 train_loss=0.4843 val_loss=1.0239 val_macro_f1=0.8609 lr=0.000125
+2026-06-07 20:58:55,131 | INFO | progress fold=2 strategy=partial_finetune epoch=040 train_loss=0.4668 val_loss=1.0410 val_macro_f1=0.8569 lr=3.125e-05
+2026-06-07 20:59:02,561 | INFO | progress fold=2 strategy=partial_finetune epoch=050 train_loss=0.4731 val_loss=1.0496 val_macro_f1=0.8563 lr=7.8125e-06
+2026-06-07 20:59:03,638 | INFO | Finished fold=2 strategy=partial_finetune status=OK
+2026-06-07 20:59:04,865 | INFO | progress fold=2 strategy=full_finetune epoch=001 train_loss=1.1221 val_loss=1.1172 val_macro_f1=0.7815 lr=0.0005
+2026-06-07 20:59:14,643 | INFO | progress fold=2 strategy=full_finetune epoch=010 train_loss=0.5621 val_loss=0.9603 val_macro_f1=0.8211 lr=0.0005
+2026-06-07 20:59:25,373 | INFO | progress fold=2 strategy=full_finetune epoch=020 train_loss=0.4225 val_loss=1.0155 val_macro_f1=0.8482 lr=0.000125
+2026-06-07 20:59:36,082 | INFO | progress fold=2 strategy=full_finetune epoch=030 train_loss=0.3987 val_loss=1.0423 val_macro_f1=0.8476 lr=3.125e-05
+2026-06-07 20:59:46,830 | INFO | progress fold=2 strategy=full_finetune epoch=040 train_loss=0.3893 val_loss=1.0553 val_macro_f1=0.8527 lr=1.5625e-05
+2026-06-07 20:59:57,578 | INFO | progress fold=2 strategy=full_finetune epoch=050 train_loss=0.3921 val_loss=1.0555 val_macro_f1=0.8540 lr=3.90625e-06
+2026-06-07 20:59:58,678 | INFO | Finished fold=2 strategy=full_finetune status=OK
+2026-06-07 20:59:59,884 | INFO | progress fold=3 strategy=no_pretrain epoch=001 train_loss=1.4255 val_loss=1.4621 val_macro_f1=0.4899 lr=0.0005
+2026-06-07 21:00:09,735 | INFO | progress fold=3 strategy=no_pretrain epoch=010 train_loss=1.1080 val_loss=1.2574 val_macro_f1=0.6671 lr=0.0005
+2026-06-07 21:00:20,534 | INFO | progress fold=3 strategy=no_pretrain epoch=020 train_loss=0.9236 val_loss=1.0743 val_macro_f1=0.7619 lr=0.0005
+2026-06-07 21:00:31,398 | INFO | progress fold=3 strategy=no_pretrain epoch=030 train_loss=0.7585 val_loss=1.0583 val_macro_f1=0.7827 lr=0.00025
+2026-06-07 21:00:42,111 | INFO | progress fold=3 strategy=no_pretrain epoch=040 train_loss=0.6572 val_loss=1.0342 val_macro_f1=0.7666 lr=0.000125
+2026-06-07 21:00:52,856 | INFO | progress fold=3 strategy=no_pretrain epoch=050 train_loss=0.6239 val_loss=1.0395 val_macro_f1=0.7691 lr=6.25e-05
+2026-06-07 21:00:53,947 | INFO | Finished fold=3 strategy=no_pretrain status=OK
+2026-06-07 21:00:54,826 | INFO | progress fold=3 strategy=frozen_backbone epoch=001 train_loss=1.2153 val_loss=1.1053 val_macro_f1=0.7379 lr=0.0005
+2026-06-07 21:01:01,414 | INFO | progress fold=3 strategy=frozen_backbone epoch=010 train_loss=0.7472 val_loss=0.9454 val_macro_f1=0.7756 lr=0.0005
+2026-06-07 21:01:08,621 | INFO | progress fold=3 strategy=frozen_backbone epoch=020 train_loss=0.7011 val_loss=0.9895 val_macro_f1=0.7773 lr=0.000125
+2026-06-07 21:01:15,849 | INFO | progress fold=3 strategy=frozen_backbone epoch=030 train_loss=0.6753 val_loss=1.0218 val_macro_f1=0.7937 lr=3.125e-05
+2026-06-07 21:01:23,071 | INFO | progress fold=3 strategy=frozen_backbone epoch=040 train_loss=0.6553 val_loss=1.0242 val_macro_f1=0.7903 lr=1.5625e-05
+2026-06-07 21:01:30,305 | INFO | progress fold=3 strategy=frozen_backbone epoch=050 train_loss=0.6566 val_loss=1.0254 val_macro_f1=0.7750 lr=3.90625e-06
+2026-06-07 21:01:31,589 | INFO | Finished fold=3 strategy=frozen_backbone status=OK
+2026-06-07 21:01:32,471 | INFO | progress fold=3 strategy=partial_finetune epoch=001 train_loss=1.2025 val_loss=1.0860 val_macro_f1=0.7454 lr=0.0005
+2026-06-07 21:01:39,144 | INFO | progress fold=3 strategy=partial_finetune epoch=010 train_loss=0.6756 val_loss=1.0208 val_macro_f1=0.7840 lr=0.00025
+2026-06-07 21:01:46,484 | INFO | progress fold=3 strategy=partial_finetune epoch=020 train_loss=0.6200 val_loss=1.0259 val_macro_f1=0.7814 lr=0.000125
+2026-06-07 21:01:53,828 | INFO | progress fold=3 strategy=partial_finetune epoch=030 train_loss=0.5945 val_loss=1.0563 val_macro_f1=0.7875 lr=3.125e-05
+2026-06-07 21:02:01,124 | INFO | progress fold=3 strategy=partial_finetune epoch=040 train_loss=0.5833 val_loss=1.0581 val_macro_f1=0.7814 lr=7.8125e-06
+2026-06-07 21:02:08,454 | INFO | progress fold=3 strategy=partial_finetune epoch=050 train_loss=0.5710 val_loss=1.0580 val_macro_f1=0.7822 lr=3.90625e-06
+2026-06-07 21:02:09,528 | INFO | Finished fold=3 strategy=partial_finetune status=OK
+2026-06-07 21:02:10,734 | INFO | progress fold=3 strategy=full_finetune epoch=001 train_loss=1.2341 val_loss=1.0771 val_macro_f1=0.7547 lr=0.0005
+2026-06-07 21:02:20,424 | INFO | progress fold=3 strategy=full_finetune epoch=010 train_loss=0.5766 val_loss=1.0056 val_macro_f1=0.8205 lr=0.00025
+2026-06-07 21:02:31,084 | INFO | progress fold=3 strategy=full_finetune epoch=020 train_loss=0.4895 val_loss=1.0567 val_macro_f1=0.8270 lr=6.25e-05
+2026-06-07 21:02:41,704 | INFO | progress fold=3 strategy=full_finetune epoch=030 train_loss=0.4643 val_loss=1.0743 val_macro_f1=0.8346 lr=3.125e-05
+2026-06-07 21:02:52,395 | INFO | progress fold=3 strategy=full_finetune epoch=040 train_loss=0.4484 val_loss=1.1059 val_macro_f1=0.8225 lr=7.8125e-06
+2026-06-07 21:03:03,042 | INFO | progress fold=3 strategy=full_finetune epoch=050 train_loss=0.4446 val_loss=1.1076 val_macro_f1=0.8243 lr=1.95313e-06
+2026-06-07 21:03:04,117 | INFO | Finished fold=3 strategy=full_finetune status=OK
+2026-06-07 21:03:05,318 | INFO | progress fold=4 strategy=no_pretrain epoch=001 train_loss=1.4409 val_loss=1.4335 val_macro_f1=0.5793 lr=0.0005
+2026-06-07 21:03:15,091 | INFO | progress fold=4 strategy=no_pretrain epoch=010 train_loss=1.0810 val_loss=1.0686 val_macro_f1=0.7398 lr=0.0005
+2026-06-07 21:03:25,939 | INFO | progress fold=4 strategy=no_pretrain epoch=020 train_loss=0.8566 val_loss=1.0118 val_macro_f1=0.7812 lr=0.0005
+2026-06-07 21:03:36,682 | INFO | progress fold=4 strategy=no_pretrain epoch=030 train_loss=0.7284 val_loss=0.8477 val_macro_f1=0.8308 lr=0.00025
+2026-06-07 21:03:47,423 | INFO | progress fold=4 strategy=no_pretrain epoch=040 train_loss=0.5952 val_loss=0.8575 val_macro_f1=0.8391 lr=0.000125
+2026-06-07 21:03:58,118 | INFO | progress fold=4 strategy=no_pretrain epoch=050 train_loss=0.5620 val_loss=0.8801 val_macro_f1=0.8598 lr=3.125e-05
+2026-06-07 21:03:59,223 | INFO | Finished fold=4 strategy=no_pretrain status=OK
+2026-06-07 21:04:00,129 | INFO | progress fold=4 strategy=frozen_backbone epoch=001 train_loss=1.1809 val_loss=1.0475 val_macro_f1=0.7595 lr=0.0005
+2026-06-07 21:04:06,775 | INFO | progress fold=4 strategy=frozen_backbone epoch=010 train_loss=0.7243 val_loss=0.9104 val_macro_f1=0.8133 lr=0.0005
+2026-06-07 21:04:14,150 | INFO | progress fold=4 strategy=frozen_backbone epoch=020 train_loss=0.6257 val_loss=0.9357 val_macro_f1=0.8238 lr=0.00025

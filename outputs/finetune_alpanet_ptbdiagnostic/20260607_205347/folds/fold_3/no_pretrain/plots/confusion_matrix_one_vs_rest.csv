@@ -1,0 +1,5 @@
+label,TN,FP,FN,TP
+Normal,72,1,1,15
+Anterior,49,2,4,34
+Inferior,43,9,3,34
+Lateral,39,24,4,22
