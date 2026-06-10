@@ -1,0 +1,9 @@
+split,label,f1_score
+val,Normal,1.0
+val,Anterior,1.0
+val,Inferior,1.0
+val,Lateral,1.0
+test,Normal,0.8519607843137255
+test,Anterior,0.4996005326231691
+test,Inferior,0.6696514230892229
+test,Lateral,0.6924731182795699

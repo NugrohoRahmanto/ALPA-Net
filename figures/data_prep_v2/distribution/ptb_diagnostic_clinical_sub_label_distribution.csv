@@ -1,0 +1,5 @@
+clinical_sub_label,main_label,record_count,patient_count,dataset_source
+normal,Normal,80,52,ptb_diagnostic
+anterior,anterior-involved MI,47,21,ptb_diagnostic
+inferior,inferior-involved MI,87,33,ptb_diagnostic
+lateral,lateral-involved MI,3,1,ptb_diagnostic

@@ -1,0 +1,7 @@
+dataset_source,split,records,beats,signal_shape,source_records_in_split,Normal_beats,Normal_records,Anterior_beats,Anterior_records,Inferior_beats,Inferior_records,Lateral_beats,Lateral_records
+ptb_xl,train,7748,86701,"(86701, 65, 12)",7749,70308,6357,5728,491,10338,874,327,26
+ptb_xl,val,1108,12531,"(12531, 65, 12)",1108,10185,909,838,70,1464,125,44,4
+ptb_xl,test,2215,24781,"(24781, 65, 12)",2215,20089,1817,1668,141,2941,250,83,7
+ptb_diagnostic,train,198,23905,"(23905, 65, 12)",198,7547,64,6148,50,9948,82,262,2
+ptb_diagnostic,val,198,3416,"(3416, 65, 12)",198,1079,64,878,50,1421,82,38,2
+ptb_diagnostic,test,51,7277,"(7277, 65, 12)",51,2032,16,1735,13,3349,21,161,1

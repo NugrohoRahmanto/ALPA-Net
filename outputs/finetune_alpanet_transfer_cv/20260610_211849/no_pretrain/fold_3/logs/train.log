@@ -1,0 +1,13 @@
+2026-06-10 21:29:46,475 | INFO | No pretrained weights loaded.
+2026-06-10 21:29:46,475 | INFO | Parameters trainable=513493 total=513493 ratio=1.0000
+2026-06-10 21:29:52,955 | INFO | Epoch 001/050 train_loss=0.54590 val_loss=0.24802 train_macro_f1=0.5988 val_macro_f1=0.8918
+2026-06-10 21:29:59,489 | INFO | Epoch 002/050 train_loss=0.14267 val_loss=0.16130 train_macro_f1=0.9118 val_macro_f1=0.9268
+2026-06-10 21:30:06,058 | INFO | Epoch 003/050 train_loss=0.04649 val_loss=0.05495 train_macro_f1=0.9823 val_macro_f1=0.9802
+2026-06-10 21:30:12,632 | INFO | Epoch 004/050 train_loss=0.03327 val_loss=0.01552 train_macro_f1=0.9853 val_macro_f1=0.9955
+2026-06-10 21:30:19,583 | INFO | Epoch 005/050 train_loss=0.02285 val_loss=0.01799 train_macro_f1=0.9932 val_macro_f1=0.9944
+2026-06-10 21:30:26,166 | INFO | Epoch 006/050 train_loss=0.01993 val_loss=0.01290 train_macro_f1=0.9953 val_macro_f1=0.9977
+2026-06-10 21:30:32,776 | INFO | Epoch 007/050 train_loss=0.01766 val_loss=0.01276 train_macro_f1=0.9948 val_macro_f1=0.9980
+2026-06-10 21:30:39,453 | INFO | Epoch 008/050 train_loss=0.01189 val_loss=0.01210 train_macro_f1=0.9970 val_macro_f1=0.9839
+2026-06-10 21:30:46,151 | INFO | Epoch 009/050 train_loss=0.01046 val_loss=0.01008 train_macro_f1=0.9969 val_macro_f1=0.9978
+2026-06-10 21:30:52,783 | INFO | Epoch 010/050 train_loss=0.00791 val_loss=0.00726 train_macro_f1=0.9973 val_macro_f1=0.9927
+2026-06-10 21:30:59,099 | INFO | Epoch 011/050 train_loss=0.00917 val_loss=0.02179 train_macro_f1=0.9971 val_macro_f1=0.9970

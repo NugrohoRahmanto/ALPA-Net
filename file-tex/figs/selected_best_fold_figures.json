@@ -1,0 +1,24 @@
+{
+  "no_gan_best_fold": {
+    "model": "LWCA full fine-tune",
+    "fold": 2,
+    "best_epoch": 94,
+    "validation_macro_f1": 0.8928,
+    "test_macro_f1": 0.9143
+  },
+  "gan_best_fold": {
+    "model": "GAN-assisted LWCA full fine-tune",
+    "fold": 2,
+    "best_epoch": 20,
+    "validation_macro_f1": 0.8889,
+    "test_macro_f1": 0.9688
+  },
+  "paths": {
+    "nogan_best_confusion_matrix.png": "figs/nogan_best_confusion_matrix.png",
+    "nogan_best_training_curve.png": "figs/nogan_best_training_curve.png",
+    "nogan_best_roc_pr_curve.png": "figs/nogan_best_roc_pr_curve.png",
+    "gan_best_confusion_matrix.png": "figs/gan_best_confusion_matrix.png",
+    "gan_best_training_curve.png": "figs/gan_best_training_curve.png",
+    "gan_best_roc_pr_curve.png": "figs/gan_best_roc_pr_curve.png"
+  }
+}

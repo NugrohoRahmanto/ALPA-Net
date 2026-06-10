@@ -1,5 +1,6 @@
 dataset/ptb_xl/
 dataset/ptb_diagnostic/
+dump_artifact/
 
 *.pid
 REMOTE_TRAINING.md

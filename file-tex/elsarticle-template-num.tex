@@ -1,0 +1,739 @@
+%% 
+%% Copyright 2007-2026 Elsevier Ltd
+%% 
+%% This file is part of the 'Elsarticle Bundle'.
+%% ---------------------------------------------
+%% 
+%% It may be distributed under the conditions of the LaTeX Project Public
+%% License, either version 1.3 of this license or (at your option) any
+%% later version.  The latest version of this license is in
+%%    http://www.latex-project.org/lppl.txt
+%% and version 1.3 or later is part of all distributions of LaTeX
+%% version 1999/12/01 or later.
+%% 
+%% The list of all files belonging to the 'Elsarticle Bundle' is
+%% given in the file `manifest.txt'.
+%% 
+%% Template article for Elsevier's document class `elsarticle'
+%% with numbered style bibliographic references
+%% SP 2008/03/01
+%% $Id: elsarticle-template-num.tex 289 2026-01-09 06:13:01Z rishi $
+%%
+\documentclass[preprint,12pt]{elsarticle}
+
+%% Use the option review to obtain double line spacing
+%% \documentclass[authoryear,preprint,review,12pt]{elsarticle}
+
+%% Use the options 1p,twocolumn; 3p; 3p,twocolumn; 5p; or 5p,twocolumn
+%% for a journal layout:
+%% \documentclass[final,1p,times]{elsarticle}
+%% \documentclass[final,1p,times,twocolumn]{elsarticle}
+%% \documentclass[final,3p,times]{elsarticle}
+%% \documentclass[final,3p,times,twocolumn]{elsarticle}
+%% \documentclass[final,5p,times]{elsarticle}
+%% \documentclass[final,5p,times,twocolumn]{elsarticle}
+
+%% For including figures, graphicx.sty has been loaded in
+%% elsarticle.cls. If you prefer to use the old commands
+%% please give \usepackage{epsfig}
+
+%% The amssymb package provides various useful mathematical symbols
+\usepackage{amssymb}
+%% The amsmath package provides various useful equation environments.
+\usepackage{amsmath}
+\usepackage{longtable}
+\usepackage{booktabs}
+\usepackage{multirow}
+\usepackage{array}%% The amsthm package provides extended theorem environments
+%% \usepackage{amsthm}
+
+%% The lineno packages adds line numbers. Start line numbering with
+%% \begin{linenumbers}, end it with \end{linenumbers}. Or switch it on
+%% for the whole article with \linenumbers.
+%% \usepackage{lineno}
+
+\journal{Nuclear Physics B}
+
+\begin{document}
+
+\begin{frontmatter}
+
+%% Title, authors and addresses
+
+%% use the tnoteref command within \title for footnotes;
+%% use the tnotetext command for theassociated footnote;
+%% use the fnref command within \author or \affiliation for footnotes;
+%% use the fntext command for theassociated footnote;
+%% use the corref command within \author for corresponding author footnotes;
+%% use the cortext command for theassociated footnote;
+%% use the ead command for the email address,
+%% and the form \ead[url] for the home page:
+%% \title{Title\tnoteref{label1}}
+%% \tnotetext[label1]{}
+%% \author{Name\corref{cor1}\fnref{label2}}
+%% \ead{email address}
+%% \ead[url]{home page}
+%% \fntext[label2]{}
+%% \cortext[cor1]{}
+%% \affiliation{organization={},
+%%             addressline={},
+%%             city={},
+%%             postcode={},
+%%             state={},
+%%             country={}}
+%% \fntext[label3]{}
+
+\title{A CNN–LSTM–SE Transfer Learning Framework for Myocardial Infarction Localization using 12-Lead Electrocardiograms}
+
+%% use optional labels to link authors explicitly to addresses:
+%% \author[label1,label2]{}
+%% \affiliation[label1]{organization={},
+%%             addressline={},
+%%             city={},
+%%             postcode={},
+%%             state={},
+%%             country={}}
+%%
+%% \affiliation[label2]{organization={},
+%%             addressline={},
+%%             city={},
+%%             postcode={},
+%%             state={},
+%%             country={}}
+
+\author[aff1,aff2]{Satria Mandala\textsuperscript{*}}
+\author[aff1]{Nugroho Rahmanto}
+\author[aff3,aff5]{Sharifah Noor Masidayu Sayed Ismail}
+\author[aff4,aff6]{Nor Azlina Ab Aziz}
+\author[aff3,aff5]{Siti Fatimah Abdul Razak}
+\author[aff1]{Jondri}
+\author[aff1]{Eko Darwiyanto}
+
+ %% Author name
+
+%% Author affiliation
+\affiliation[aff1]{organization={Telkom University},%Department and Organization
+            city={Bandung},
+            postcode={40257}, 
+            state={West Java},
+            country={Indonesia}}
+
+\affiliation[aff2]{organization={Human Centric (HUMIC) Engineering, Telkom University},%Department and Organization
+            city={Bandung},
+            postcode={40257}, 
+            state={West Java},
+            country={Indonesia}}
+
+\affiliation[aff3]{organization={Center for Intelligent Cloud Computing, COE for Advanced Cloud, Multimedia University},%Department and Organization
+            city={Melaka},
+            postcode={75450},
+            country={Malaysia}}
+
+\affiliation[aff4]{organization={Centre for Advanced Analytics, COE for Artificial Intelligence, Multimedia University},%Department and Organization
+            city={Melaka},
+            postcode={75450},
+            country={Malaysia}}
+
+\affiliation[aff5]{organization={Faculty of Information Science and Technology, Multimedia University},%Department and Organization
+            city={Melaka},
+            postcode={75450},
+            country={Malaysia}}
+
+\affiliation[aff6]{organization={Faculty of Engineering and Technology, Multimedia University},%Department and Organization
+            city={Melaka},
+            postcode={75450},
+            country={Malaysia}}
+
+
+
+            
+
+%% Abstract
+\begin{abstract}
+Accurate localization of myocardial infarction (MI) from 12-lead electrocardiograms remains challenging due to subtle and heterogeneous ischemic signatures, inter-lead variability, and pronounced class imbalance across infarct territories. This study proposes a transfer learning framework for four-class MI localization comprising normal rhythm (NORM), anterior MI (AMI), inferior MI (IMI), and lateral MI (LMI), selected to ensure label consistency and sufficient representation across datasets. The main contribution is a CNN--LSTM--SE architecture in which squeeze-and-excitation (SE) blocks serve as channel-wise attention to recalibrate lead-aware feature representations at multiple convolutional stages, followed by temporal attention pooling after recurrent sequence modeling to emphasize diagnostically salient time regions. The model is pretrained on the large-scale PTB-XL dataset to learn generalizable ECG representations and subsequently adapted to the smaller PTB Diagnostic ECG dataset using selective fine-tuning to mitigate overfitting under severe data scarcity. Extensive comparisons are conducted against multiple alternative architectures and training strategies under an identical evaluation protocol. On the PTB Diagnostic held-out test set, the tuned transfer-learned CNN--LSTM--SE model achieves the best overall performance (Acc=0.9111) with strong class-wise F1 for NORM (0.9375), AMI (0.9000), and IMI (0.8889), while correctly identifying the single available LMI case. These results indicate that domain-aligned pretraining combined with SE-based channel recalibration and temporal attention pooling improves generalization and class-balanced performance for MI localization in small and imbalanced clinical ECG datasets.
+\end{abstract}
+
+
+%%Graphical abstract
+\begin{graphicalabstract}
+%\includegraphics{grabs}
+\end{graphicalabstract}
+
+%%Research highlights
+\begin{highlights}
+\item Myocardial Infarction
+\item Cardiovascular Disesase
+\item Deep Learning
+\item Attention Mechanism
+\end{highlights}
+
+%% Keywords
+\begin{keyword}
+%% keywords here, in the form: keyword \sep keyword
+ 
+Myocarial Infarction \sep Cardiovascular Disesase \sep Deep Learning \sep  SE-based channel attention \sep Transfer Learning
+
+%% PACS codes here, in the form: \PACS code \sep code
+
+%% MSC codes here, in the form: \MSC code \sep code
+%% or \MSC[2008] code \sep code (2000 is the default)
+
+\end{keyword}
+
+\end{frontmatter}
+
+%% Add \usepackage{lineno} before \begin{document} and uncomment 
+%% following line to enable line numbers
+%% \linenumbers
+
+%% main text
+%%
+
+%% Use \section commands to start a section
+\section{Introduction}
+Myocardial infarction (MI) remains one of the most critical cardiovascular events due to its acute onset and potentially fatal outcomes, making early recognition and appropriate intervention essential. The 12-lead electrocardiogram (ECG) is the most widely used first-line examination because it is non-invasive, inexpensive, and provides multi-perspective measurements of cardiac electrical activity. In clinical practice, the goal is not only to detect the presence of MI, but also to \emph{localize} the infarct territory since anterior (AMI), inferior (IMI), and lateral (LMI) infarctions can be associated with different lead involvement and different clinical considerations. Therefore, automated MI localization from 12-lead ECG is an important task that can potentially support triage, reduce diagnostic delay, and improve decision consistency in real-world settings.
+
+Deep learning has become a dominant approach for ECG analysis because it can learn discriminative representations directly from raw signals, reducing reliance on handcrafted features. Large public datasets such as PTB-XL have accelerated research by enabling training and benchmarking of modern deep architectures under standardized protocols \cite{Wagner2020SciData_PTBXL,StrodthoffWagnerSchaeffterSamek2021JBHI_PTBXL_Benchmarks,SmigielPalczynskiLedzinski2021Entropy_DL_PTBXL,PalczynskiSmigielLedzinskiBujnowski2022Sensors_FewShot_PTBXL}. These resources demonstrate that model performance is highly dependent on dataset size, label granularity, and evaluation strategy, and they also highlight that achieving robust generalization remains non-trivial even with large-scale supervision \cite{StrodthoffWagnerSchaeffterSamek2021JBHI_PTBXL_Benchmarks,Wagner2020SciData_PTBXL}. Beyond generic ECG classification, multiple works have explored MI-related tasks ranging from heartbeat-level classification that includes MI categories to broader cardiovascular disease (CVD) diagnosis pipelines \cite{Pham2023Sensors_Heartbeat_ArrMI,Gong2025PLOSone_CNN_CBAM_GRU_CVD}.
+
+Despite these advances, MI localization is still challenging for several reasons. First, ECG patterns of MI can be subtle and temporally localized (e.g., ST-segment deviation, Q-wave development, T-wave changes), while inter-patient variability and signal noise can obscure these patterns. Second, multi-lead signals contain complementary information but also introduce cross-lead variability that a model must capture effectively. Third, class imbalance is common in MI localization datasets, particularly for rarer infarct territories such as LMI, which can lead to biased learning and reduced sensitivity to minority classes. Prior MI-focused studies have proposed architectural improvements such as multi-scale feature extraction and attention mechanisms to enhance MI detection and localization \cite{Cao2022FrontPhysiol_MSResNet_Attn_MI,Chen2025Biosensors_MDF_Fusion_MI,Cheng2024AIMLR_Attn_MultiScale_SilentMI_AF}. These approaches suggest that attention and multi-scale representations can strengthen the model's ability to focus on informative ECG segments and morphology, especially when infarct-related evidence is distributed across leads and time.
+
+Hybrid deep models that combine convolutional neural networks (CNNs) and recurrent neural networks (RNNs) are also well-motivated for ECG analysis. CNNs are effective in capturing local morphological patterns, while RNN/LSTM components model temporal dependencies and sequential context across the waveform. Such hybrid designs have been used for MI classification and multi-class MI settings, including implementations suitable for portable devices \cite{FengPiLiuSun2019ApplSci_MI_CNN_RNN,LuiChow2019IMU_MI_CNN_RNN_Portable,Hasbullah2023BioMedInformatics_MI_Hybrid_CNN_RNN}. LSTM-based sequence learning has also been studied in continuous monitoring and authentication settings, reinforcing its suitability for ECG time-series modeling \cite{SaadatnejadOveisiHashemi2020JBHI_LSTM_Wearable,KimPyun2020Sensors_ECG_Auth_LSTM}. Furthermore, recent work has incorporated channel recalibration modules such as squeeze-and-excitation (SE) into CNN--LSTM pipelines to improve feature selectivity in ECG tasks, indicating that channel-wise attention can complement temporal modeling \cite{Sun2024Sensors_CNNLSTMSE,QuFu2025JSMU_ResLSTM_TemporalSE}. Although developed in other domains, channel-temporal attention frameworks also provide further evidence that combining channel emphasis with temporal saliency can be beneficial for sequential signals \cite{LimKim2025ApplSci_SpikeCAN}.
+
+Transfer learning is increasingly used in ECG research to address limited labeled data and domain shift across cohorts. Prior studies show that pretraining on large datasets and adapting to a smaller target dataset can improve performance and stability compared to training from scratch \cite{WeimannConrad2021SciRep_TL_ECG,JangKimYoon2021HIR_TL_ECG,ChuiGuptaZhaoMalibariAryaAlhalabiRuiz2022Bioengineering_DistantTL_ECG}. The effectiveness of transfer learning has also been demonstrated for detecting rarer cardiac conditions, suggesting that pretrained representations can preserve clinically meaningful patterns even when the target task has scarce labels \cite{LopesBleijendaalRamosVerstraelenAminWildePintoDeMolMarquering2021CBM_TL_PLN}. More broadly, transfer learning principles have proven effective across domains, including large unified transformer pretraining paradigms that motivate representation reuse as a general learning strategy \cite{RaffelShazeerRobertsLeeNarangMatenaZhouLiLiu2020JMLR_T5}. In related biomedical signal processing and feature engineering literature, denoising and feature extraction studies further highlight the importance of robust preprocessing and representation choice for physiological signals \cite{ParsaoranMandalaPramudyo2022ICoDSA_PPG_Denoising,IhsanMandalaPramudyo2022ICoDSA_PPG_CHD,MandalaFuadahArzakiPambudi2017ICoICT_ECG_Denoising,MandalaTresnasariLestari2022ICICyTA_ECG_Daubechies}. Complementary works in adjacent pattern recognition areas (e.g., hybrid feature extraction for facial expression recognition and computer vision preprocessing) also reinforce the broader motivation for combining strong feature representations with effective learning architectures \cite{KommineniMandalaSunarChakravarthy2021JSC_FER_Hybrid,KommineniMandala2014ICACCI_CBirPreprocess,MandalaRamadhanIrsan2023COMNETSAT_SmartHome_CNN}.
+
+Motivated by the above, this study addresses four-class MI localization (NORM, AMI, IMI, LMI) using raw 12-lead ECG segments sampled at 100\,Hz over 10\,s (1000 samples per lead). A two-stage learning pipeline is adopted in which PTB-XL is used for large-scale pretraining due to its standardized annotations and substantial sample size \cite{Wagner2020SciData_PTBXL,StrodthoffWagnerSchaeffterSamek2021JBHI_PTBXL_Benchmarks}. The pretrained model is then adapted to the PTB Diagnostic ECG dataset through transfer learning in order to better reflect target-domain characteristics and the severe class imbalance observed in smaller clinical cohorts \cite{WeimannConrad2021SciRep_TL_ECG,ChuiGuptaZhaoMalibariAryaAlhalabiRuiz2022Bioengineering_DistantTL_ECG,NguyenDo2025PLOSone_TL_ECG_Effective}. From a modeling perspective, a CNN--LSTM architecture is employed and enhanced with SE-based channel recalibration and temporal attention pooling to jointly capture inter-lead feature importance and time-dependent saliency \cite{Sun2024Sensors_CNNLSTMSE,QuFu2025JSMU_ResLSTM_TemporalSE,LimKim2025ApplSci_SpikeCAN}. In addition, imbalance-aware learning (weighted objectives and focal-style optimization) is integrated to reduce majority-class dominance and improve sensitivity to under-represented MI classes.
+
+The main research gaps addressed in this work are summarized as follows:
+\begin{itemize}
+  \item \textbf{Limited generalization under cross-dataset shift.} Many ECG deep learning studies report strong results within a single dataset, yet robustness across cohorts and acquisition settings remains challenging \cite{StrodthoffWagnerSchaeffterSamek2021JBHI_PTBXL_Benchmarks,Wagner2020SciData_PTBXL}. This research explicitly evaluates a cross-dataset setting by pretraining on PTB-XL and adapting to PTB Diagnostic \cite{WeimannConrad2021SciRep_TL_ECG,ChuiGuptaZhaoMalibariAryaAlhalabiRuiz2022Bioengineering_DistantTL_ECG}.
+  \item \textbf{Severe imbalance in multi-class MI localization.} Practical MI localization data are often skewed, particularly for rarer classes such as LMI, which can degrade minority-class sensitivity and lead to biased decision boundaries. This work incorporates imbalance-aware training to mitigate this issue.
+  \item \textbf{Insufficient exploitation of multi-lead channel relevance.} Multi-lead ECG provides complementary viewpoints, but many approaches do not explicitly recalibrate channel importance throughout feature extraction. This study emphasizes channel-wise selectivity using SE-based recalibration within the convolutional encoder \cite{Sun2024Sensors_CNNLSTMSE,QuFu2025JSMU_ResLSTM_TemporalSE}.
+  \item \textbf{Temporal saliency not consistently modeled for localization behavior.} Infarct evidence can be subtle and temporally localized; therefore, aggregating sequence features without attention may dilute critical cues. Temporal attention pooling is incorporated to emphasize diagnostically salient time regions \cite{Cao2022FrontPhysiol_MSResNet_Attn_MI,Chen2025Biosensors_MDF_Fusion_MI,LimKim2025ApplSci_SpikeCAN}.
+\end{itemize}
+
+In summary, this work introduces an end-to-end MI localization pipeline that combines large-scale representation learning with transfer learning and attention-driven feature selection, and evaluates the approach under a realistic imbalanced multi-class setting using public ECG datasets \cite{Wagner2020SciData_PTBXL,NguyenDo2025PLOSone_TL_ECG_Effective}.
+
+
+
+
+
+\section{Data Resources}
+This research leverages two publicly available clinical ECG datasets hosted on PhysioNet, namely PTB-XL and the PTB Diagnostic ECG Database. The two datasets were deliberately selected due to both their shared clinical foundations and their distinct characteristics in terms of cohort size, annotation granularity, and recording conditions, making them well-suited for transfer learning analysis.
+
+Both PTB-XL and the PTB Diagnostic ECG Database consist of standard 12-lead ECG recordings acquired in clinical settings and include expert-annotated diagnostic labels related to myocardial infarction (MI). This common clinical basis enables meaningful cross-dataset knowledge transfer and comparative evaluation. However, the datasets differ substantially in scale and annotation structure. PTB-XL is a large-scale dataset comprising over 20,000 ECG records from more than 18,000 patients, with diagnoses encoded using standardized SCP-ECG statements. In contrast, the PTB Diagnostic ECG Database contains a significantly smaller cohort with higher-resolution recordings and detailed clinical summaries, but exhibits a more limited and heterogeneous label distribution.
+
+This research focus on myocardial infarction, particular attention is paid to class availability and consistency across datasets. While MI in both datasets is subdivided into multiple infarct territories, not all subclasses are consistently represented, and several exhibit severe class imbalance or are entirely absent in one of the datasets. To ensure label alignment, statistical reliability, and fair cross-domain evaluation, this study restricts the classification task to four clinically relevant and sufficiently represented categories that are common to both datasets: normal rhythm (NORM), anterior myocardial infarction (AMI), inferior myocardial infarction (IMI), and lateral myocardial infarction (LMI).
+
+In the proposed experimental setup, PTB-XL is employed as the source domain for model pretraining, leveraging its larger cohort to learn generalizable ECG representations. The PTB Diagnostic ECG Database is subsequently used as the target domain for transfer learning and evaluation, enabling assessment of model robustness and generalization under dataset shift conditions, including differences in sample size, annotation practices, and acquisition characteristics.
+
+
+\subsection{PTB-XL Database}
+PTB-XL is a large publicly available dataset consisting of clinical 12-lead ECG recordings with fixed duration and standardized diagnostic labels. The dataset is distributed in WFDB-compatible formats and includes extensive metadata supporting reproducible evaluation. PTB-XL is described as a benchmark resource for ECG machine learning and provides annotation granularity that enables flexible formulation of classification tasks, including MI-related label groupings.
+
+PTB-XL serves as the \emph{source dataset} for pretraining to establish a robust initialization of the proposed deep architecture prior to adaptation on the smaller target dataset. A PTB-XL subset aligned with MI localization is constructed by retaining normal and MI-related recordings and mapping MI labels into three infarct territories (AMI/IMI/LMI), while non-MI recordings are mapped to NORM. This design supports representation learning on a large cohort before transfer learning to the target domain.
+
+The PTB-XL subset used in this research contains 12{,}279 ECG records. The dataset is partitioned into training, validation, and testing splits, and the corresponding class distributions are summarized in Table~\ref{tab:ptbxl_split}.
+
+\begin{table}[!t]
+\centering
+\caption{PTB-XL class distribution.}
+\label{tab:ptbxl_split}
+\begin{tabular}{l r r r r}
+\hline
+\textbf{Class} & \textbf{No. of Samples} & \textbf{Train} & \textbf{Validation} & \textbf{Test} \\
+\hline
+NORM & 9528 & 6669 & 953 & 1906 \\
+AMI  & 290  & 203  & 29  & 58   \\
+IMI  & 2329 & 1630 & 233 & 466  \\
+LMI  & 132  & 92   & 13  & 27   \\
+\hline
+\textbf{Total} & \textbf{12279} & \textbf{8594} & \textbf{1228} & \textbf{2457} \\
+\hline
+\end{tabular}
+\end{table}
+
+The PTB Diagnostic ECG Database is a publicly accessible clinical ECG collection that includes multi-lead recordings and associated clinical information. The dataset is distributed in PhysioNet format and is described as containing high-resolution digitized ECG signals with diagnostic metadata, making it suitable for algorithmic evaluation under realistic clinical conditions. Compared with PTB-XL, the dataset is substantially smaller when filtered to a consistent MI localization label space, which motivates its use as a target domain for transfer learning.
+
+The PTB Diagnostic ECG Database serves as the \emph{target dataset} for transfer learning and final evaluation. This selection enables assessment of cross-dataset generalization under domain shift, including differences in acquisition conditions and cohort composition. The target-domain distribution is highly imbalanced, particularly for LMI, and therefore provides a stringent setting for evaluating whether pretrained representations improve learning stability and minority-class sensitivity. After label harmonization into the same four-class formulation (NORM/AMI/IMI/LMI), the PTB Diagnostic subset used in this research contains 220 ECG records. The target dataset is divided into a training set intended for model development (including five-fold cross-validation) and a held-out test set for final evaluation. The class distributions are reported in Table~\ref{tab:ptbdiag_split}.
+
+\begin{table}[!t]
+\centering
+\caption{PTB Diagnostic class distribution.}
+\label{tab:ptbdiag_split}
+\begin{tabular}{l r r r}
+\hline
+\textbf{Class} & \textbf{No. of Samples} & \textbf{Train (CV)} & \textbf{Test} \\
+\hline
+NORM & 80 & 64 & 16 \\
+AMI  & 47 & 37 & 10 \\
+IMI  & 89 & 71 & 18 \\
+LMI  & 4  & 3  & 1  \\
+\hline
+\textbf{Total} & \textbf{220} & \textbf{175} & \textbf{45} \\
+\hline
+\end{tabular}
+\end{table}
+
+\subsection{Data Preprocessing}
+All ECG recordings are processed as raw 12-lead time-series segments with a sampling frequency of 100~Hz and a fixed duration of 10~s, resulting in 1000 samples per lead. A unified preprocessing protocol is applied to both PTB-XL and PTB Diagnostic in order to support transfer learning and to enforce an identical input space across the source and target domains. First, each record is represented using the conventional 12-lead configuration to ensure consistent lead semantics. Next, signals are converted into fixed-length 10-second segments at 100~Hz to standardize temporal resolution and input dimensionality. The diagnostic annotations are then harmonized into a four-class MI territory formulation (NORM/AMI/IMI/LMI) to maintain label consistency across datasets. Finally, the processed records are organized into training, validation, and test partitions according to the predefined experimental protocol.
+
+
+\section{Methodology}
+This section describes the proposed deep learning framework for myocardial infarction (MI) localization from raw 12-lead ECG signals under a cross-dataset transfer learning setting. The workflow first pretrains a feature extractor on a large-scale source dataset, then adapts the learned representation to a smaller target dataset to address domain shift, and finally evaluates generalization using stratified cross-validation together with a held-out test set. The proposed model is based on a CNN--LSTM--SE backbone, where SE blocks are employed as channel-wise attention within the convolutional encoder, while temporal attention pooling is used after recurrent sequence modeling to emphasize salient time regions for infarct-territory discrimination.
+
+
+
+
+\subsection{System Architecture}
+The end-to-end framework is illustrated in Fig.~\ref{fig:framework_overview}. MI localization is formulated as a four-class classification problem consisting of NORM, AMI, IMI, and LMI. Each ECG record is represented as a raw multi-channel time series sampled at 100~Hz for 10~s, resulting in an input tensor of shape $C\times T$ with $C=12$ leads and $T=1000$ samples per lead.
+
+The framework is divided into two sequential stages. First, a deep neural network is pretrained on PTB-XL to learn robust morphological and temporal representations from a large number of labeled samples. This stage reduces sensitivity to initialization and mitigates overfitting that typically occurs when training from scratch on small clinical datasets. Second, the pretrained model is transferred to the PTB Diagnostic dataset. Instead of full fine-tuning, the adaptation is performed by selectively updating only the temporal aggregation and classification components, while keeping the majority of the backbone fixed. This design is motivated by the target-domain regime where the number of samples is limited and the class distribution is severely skewed, especially for lateral MI.
+
+\begin{figure}[!t]
+\centering
+\includegraphics[width=\linewidth]{fig/framework_overview.png}
+\caption{Proposed MI localization framework. A CNN--LSTM backbone is pretrained on PTB-XL and adapted to PTB Diagnostic via selective fine-tuning of temporal aggregation and classification layers, followed by evaluation on an unseen target-domain test set.}
+\label{fig:framework_overview}
+\end{figure}
+
+The proposed model architecture is summarized in Fig.~\ref{fig:model_architecture}. The network consists of a CNN encoder that extracts lead-aware morphological features, stacked LSTMs that model temporal dynamics over the encoded feature sequence, and a temporal aggregation step that produces a fixed-length representation for classification. Channel-wise selectivity is introduced through SE blocks inserted at multiple CNN depths, enabling sample-adaptive channel gating prior to recurrent modeling.
+
+
+\begin{figure}[!t]
+\centering
+\includegraphics[width=\linewidth]{fig/model_architecture.png}
+\caption{Proposed CNN--LSTM--SE architecture for MI localization. The CNN encoder incorporates multi-stage SE-based channel recalibration, followed by stacked LSTMs and temporal attention pooling to form a fixed-length representation for classification.}
+\label{fig:model_architecture}
+\end{figure}
+
+\subsection{MI Localization Model}
+The model receives a raw 12-lead ECG segment and represents it as $\mathbf{X}\in\mathbb{R}^{C\times T}$, where $C=12$ and $T=1000$. A hierarchical CNN encoder is first applied to extract morphology-aware representations. Unlike common SE usage that is often placed only once near the end of the convolutional stack, this research integrates SE-based channel recalibration repeatedly within deeper convolution blocks. This multi-stage placement enables channel dependencies to be refined at multiple abstraction levels, which is particularly relevant for ECG where diagnostically informative patterns (e.g., ST-segment deviations, QRS morphology, and inter-lead correlations) may emerge gradually across layers rather than being captured reliably by a single late-stage gating operation. While SE has been explored in prior literature, the repeated insertion across several convolution stages is adopted here to better match the multi-lead nature of ECG signals and to strengthen lead-aware feature selectivity under cross-dataset variation.
+
+Following convolutional encoding, the feature tensor is rearranged into a temporal sequence and processed by stacked LSTMs to capture longer-range dynamics over the 10-second window. A time-distributed projection is then applied to reduce dimensionality and to produce a compact latent sequence suitable for attention-based aggregation. Temporal attention pooling computes a weighted sum over time steps, allowing the model to emphasize temporally localized evidence rather than assuming uniform relevance across the recording. The resulting context vector is finally mapped to the output space to predict the MI localization class (NORM/AMI/IMI/LMI).
+
+
+
+\subsection{Convolution Neural Network}
+The convolutional encoder operates directly on raw 12-lead signals and learns hierarchical morphological descriptors without relying on beat segmentation. A 1-D convolution maps the input to feature maps as
+\begin{equation}
+\mathbf{Y}[t] = \sum_{k=0}^{K-1} \mathbf{W}[k]\mathbf{X}[t-k] + \mathbf{b},
+\label{eq:conv1d}
+\end{equation}
+where $K$ denotes the kernel size, $\mathbf{W}$ the learned kernel weights, and $\mathbf{b}$ the bias. Nonlinear activation is introduced via ReLU and the distribution of intermediate features is stabilized via batch normalization. In implementation, four convolution stages are used with increasing channel widths, enabling the network to capture both short-range waveform structures and more global morphological patterns.
+
+The CNN output is finally transposed to match the sequence format required by the recurrent block. If the CNN output is $\mathbf{F}\in\mathbb{R}^{D\times T'}$, then the sequence input to the recurrent block is $\mathbf{H}\in\mathbb{R}^{T'\times D}$.
+
+\subsection{Squeeze and Excitation}
+Channel-wise recalibration is introduced to model inter-channel dependencies within CNN feature maps. Given $\mathbf{F}\in\mathbb{R}^{D\times T'}$, SE first computes a channel descriptor using global average pooling:
+\begin{equation}
+z_d=\frac{1}{T'}\sum_{t=1}^{T'}F_d(t), \quad d=1,\dots,D.
+\label{eq:se_squeeze}
+\end{equation}
+The descriptor is then transformed to a gating vector $\mathbf{s}\in(0,1)^D$ through a lightweight bottleneck MLP implemented using $1\times1$ convolutions. The recalibrated features are obtained by channel-wise scaling:
+\begin{equation}
+\tilde{F}_d(t)=s_d\cdot F_d(t).
+\label{eq:se_scale}
+\end{equation}
+Multi-stage SE insertion allows channel selection to occur at several representational levels, ensuring that deeper features remain sensitive to diagnostically relevant lead interactions.
+
+\subsection{Long Short-Term Memory}
+After CNN encoding, stacked LSTMs are used to model temporal dependencies across the feature sequence. The LSTM block maintains an internal memory state, enabling the model to preserve longer context compared with standard recurrent units. The LSTM recurrence is summarized as
+\begin{equation}
+\mathbf{h}_t, \mathbf{c}_t = \mathrm{LSTM}(\mathbf{x}_t, \mathbf{h}_{t-1}, \mathbf{c}_{t-1}),
+\label{eq:lstm_core}
+\end{equation}
+where $\mathbf{x}_t$ denotes the input at time step $t$, $\mathbf{h}_t$ the hidden state, and $\mathbf{c}_t$ the cell state. Two LSTM layers are stacked to increase modeling capacity, and dropout is applied between layers to improve generalization. This recurrent modeling is particularly relevant for ECG, where diagnostically informative evidence may appear in temporally localized segments and may not be uniformly distributed across the entire recording.
+
+\subsection{Channel-Wise Attention (SE)}
+In this work, squeeze-and-excitation (SE) is used as channel-wise attention within the CNN encoder to model inter-channel dependencies and to recalibrate feature responses conditioned on each input record. Given intermediate feature maps $\mathbf{F}\in\mathbb{R}^{D\times T'}$, SE first performs global average pooling to obtain a channel descriptor (Eq.~\ref{eq:se_squeeze}), then produces a gating vector $\mathbf{s}\in(0,1)^D$ through a lightweight bottleneck transformation, and finally rescales the feature maps by channel-wise multiplication (Eq.~\ref{eq:se_scale}). Multi-stage SE insertion is adopted so that lead-aware selectivity can be progressively refined across multiple abstraction levels, which is important for 12-lead ECG where infarct-related evidence may manifest differently across leads and may be subtle under cross-dataset variation.
+
+\subsection{Temporal Attention Pooling}
+Temporal attention pooling is employed to transform the LSTM output sequence into a single fixed-length representation while explicitly emphasizing time intervals that are most informative for infarct-territory discrimination. Let $\mathbf{H}=[\mathbf{h}_1,\ldots,\mathbf{h}_{T'}]\in\mathbb{R}^{T'\times d}$ denote the sequence of hidden states produced by stacked LSTMs after a time-distributed projection, where $\mathbf{h}_t\in\mathbb{R}^{d}$ represents the feature vector at time step $t$. To quantify temporal relevance, an additive attention mechanism assigns a scalar score to each time step:
+\begin{equation}
+e_t=\mathbf{u}^{\top}\tanh(\mathbf{W}\mathbf{h}_t+\mathbf{b}),
+\label{eq:attn_score}
+\end{equation}
+where $\mathbf{W}\in\mathbb{R}^{r\times d}$ and $\mathbf{b}\in\mathbb{R}^{r}$ are trainable parameters, $\mathbf{u}\in\mathbb{R}^{r}$ is a trainable context vector, and $r$ denotes the attention hidden dimension. The scores are normalized using the softmax function to obtain attention weights:
+\begin{equation}
+\alpha_t=\frac{\exp(e_t)}{\sum_{\tau=1}^{T'}\exp(e_\tau)},
+\label{eq:attn_softmax}
+\end{equation}
+with $\sum_{t=1}^{T'}\alpha_t=1$ and $\alpha_t\ge 0$. The pooled representation is then computed as the weighted sum of hidden states:
+\begin{equation}
+\mathbf{v}=\sum_{t=1}^{T'}\alpha_t\,\mathbf{h}_t,
+\label{eq:attn_pool}
+\end{equation}
+yielding $\mathbf{v}\in\mathbb{R}^{d}$ as a compact summary that preserves temporally localized evidence. This attention-based aggregation is retained explicitly because it provides a learnable mechanism to prioritize diagnostically salient waveform regions, rather than assuming uniform rel
+
+
+
+
+
+\subsection{Transfer Learning }
+Transfer learning is introduced to exploit the scale of PTB-XL while adapting to the smaller PTB Diagnostic dataset. The procedure begins by loading the PTB-XL pretrained checkpoint to initialize the target-domain model parameters. Rather than updating all parameters, selective fine-tuning is applied to reduce overfitting under small-sample conditions. The CNN encoder and stacked LSTMs are frozen to preserve general ECG representations learned from the source domain. The CNN encoder and stacked LSTMs are frozen to preserve general ECG representations learned from the source domain, while the temporal aggregation and the final classification layers remain trainable. This choice is consistent with the goal of adapting decision boundaries and evidence aggregation in the target domain while avoiding catastrophic forgetting in the backbone.
+
+During PTB-XL pretraining, an imbalance-aware loss is employed to mitigate majority-class dominance. Class weights are derived from training-set frequencies and focal loss is adopted to focus optimization on difficult examples. Let $p_y$ denote the predicted probability assigned to the true class $y$, $\gamma$ the focusing parameter, and $w_y$ the class weight. The focal loss can be expressed as
+\begin{equation}
+\mathcal{L}_{\mathrm{focal}} = - w_{y} (1-p_{y})^{\gamma}\log(p_{y}).
+\label{eq:focal}
+\end{equation}
+This formulation is retained because it directly influences optimization dynamics and is essential for reproducibility when class imbalance is substantial.
+
+For target-domain adaptation, cross-entropy loss is used during selective fine-tuning, reflecting the smaller optimization scope and the reduced number of trainable parameters. Model selection is performed through five-fold cross-validation on the PTB Diagnostic training split. For each fold, training is conducted on the fold-specific subset and validation is performed on the held-out fold. The checkpoint achieving the highest validation accuracy is retained. After cross-validation, the selected model is evaluated on the held-out PTB Diagnostic test set, which is never used during training or validation. This evaluation protocol provides an unbiased estimate of generalization in the target domain under domain shift.
+
+
+
+\section{Results and Comparative Evaluation}
+This section presents the comparative performance of MI localization models under the PTB Diagnostic ECG evaluation protocol. The analysis focuses on transfer learning outcomes and contrasts the proposed architecture against multiple baselines under identical data partitioning. Pretraining performance on PTB-XL is reported separately to document the source-domain learning outcome, while the interpretation of comparative trends and limitations is deferred to the discussion section.
+
+\subsection{Experimental Setup and Evaluation Metrics}
+All models operate on raw 12-lead ECG time-series signals sampled at 100~Hz with a fixed duration of 10~s, yielding 1000 samples per lead. For PTB Diagnostic ECG evaluation, a held-out test set of 45 recordings is used (NORM=16, AMI=10, IMI=18, LMI=1). The remaining data are used for model development through stratified 5-fold cross-validation, where each fold provides training and validation splits for checkpoint selection. Final reporting is conducted on the held-out test set.
+
+Performance is reported using Acc (accuracy) and class-wise metrics Prec (precision), Rec (recall), and F1 (F1-score). For each class $k$, these are defined as
+\begin{equation}
+\mathrm{Prec}_k=\frac{TP_k}{TP_k+FP_k},\quad
+\mathrm{Rec}_k=\frac{TP_k}{TP_k+FN_k},\quad
+\mathrm{F1}_k=\frac{2\,\mathrm{Prec}_k\,\mathrm{Rec}_k}{\mathrm{Prec}_k+\mathrm{Rec}_k}.
+\end{equation}
+Macro-F1 is computed as the unweighted mean of class-wise F1, while weighted-F1 is computed as the support-weighted mean.
+
+
+
+\subsection{Pretraining Result on PTB-XL}
+\begin{table}[!h]
+\centering
+\caption{Pretraining summary on PTB-XL.}
+\label{tab:pretrain_summary}
+\footnotesize
+\begin{tabular}{p{3.6cm}p{3.2cm}}
+\toprule
+\textbf{Attribute} & \textbf{Value} \\
+\midrule
+Input representation & 12-lead raw ECG \\
+Sampling frequency & 100~Hz \\
+Window length & 10~s (1000 samples/lead) \\
+Model selection criterion & Best validation epoch \\
+Best epoch index & 96 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+Table~\ref{tab:pretrain_summary} summarizes the PTB-XL pretraining configuration adopted in this research. All recordings are represented as raw 12-lead time-series segments sampled at 100~Hz and standardized to a fixed 10~s window, resulting in 1000 samples per lead. Model selection during pretraining is performed by retaining the checkpoint corresponding to the best validation epoch; the selected model is obtained at epoch 96. This pretrained backbone is subsequently used as the initialization for the transfer learning stage on the PTB Diagnostic ECG dataset to evaluate cross-domain generalization under the four-class MI localization formulation. To characterize the representation quality learned during source-domain training, several pretraining backbones are evaluated on the PTB-XL held-out test set using the same four-class MI localization label formulation (NORM/AMI/IMI/LMI). Table~\ref{tab:ptbxl_pretrain_classwise} reports the class-wise precision, recall, and F1-score together with test accuracy. The test set is dominated by NORM and IMI, whereas AMI and LMI remain minority classes (support: AMI=58, LMI=27), making class-wise reporting essential for assessing minority-class behavior.
+
+\begin{longtable}{p{4.9cm}c c c c c c}
+\caption{Class-wise pretraining performance on the PTB-XL test set.}\label{tab:ptbxl_pretrain_classwise}\\
+\toprule
+\textbf{Pretrained Model} & \textbf{Acc} & \textbf{Class} & \textbf{Support} & \textbf{Prec} & \textbf{Rec} & \textbf{F1} \\
+\midrule
+\endfirsthead
+\toprule
+\textbf{Pretrained Model} & \textbf{Acc} & \textbf{Class} & \textbf{Support} & \textbf{Prec} & \textbf{Rec} & \textbf{F1} \\
+\midrule
+\endhead
+
+\multirow{4}{=}{\raggedright CNN1D} & \multirow{4}{*}{0.9105}
+& NORM & 1906 & 0.9400 & 0.9600 & 0.9500 \\
+& & IMI  & 466  & 0.8100 & 0.8200 & 0.8100 \\
+& & AMI  & 58   & 0.6400 & 0.4000 & 0.4900 \\
+& & LMI  & 27   & 0.5900 & 0.3700 & 0.4500 \\
+\midrule
+
+\multirow{4}{=}{\raggedright CNN-LSTM-SE (Proposed)} & \multirow{4}{*}{0.8962}
+& NORM & 1906 & 0.9404 & 0.9433 & 0.9419 \\
+& & IMI  & 466  & 0.7730 & 0.8112 & 0.7916 \\
+& & AMI  & 58   & 0.4762 & 0.3448 & 0.4000 \\
+& & LMI  & 27   & 0.4286 & 0.2222 & 0.2927 \\
+\midrule
+
+\multirow{4}{=}{\raggedright CNN--LSTM} & \multirow{4}{*}{0.8909}
+& NORM & 1906 & 0.9200 & 0.9600 & 0.9400 \\
+& & IMI  & 466  & 0.8000 & 0.7500 & 0.7700 \\
+& & AMI  & 58   & 0.3100 & 0.1900 & 0.2300 \\
+& & LMI  & 27   & 0.0000 & 0.0000 & 0.0000 \\
+\midrule
+
+\multirow{4}{=}{\raggedright LSTM} & \multirow{4}{*}{0.7757}
+& NORM & 1906 & 0.7800 & 1.0000 & 0.8700 \\
+& & IMI  & 466  & 0.0000 & 0.0000 & 0.0000 \\
+& & AMI  & 58   & 0.0000 & 0.0000 & 0.0000 \\
+& & LMI  & 27   & 0.0000 & 0.0000 & 0.0000 \\
+\midrule
+
+\multirow{4}{=}{\raggedright GRU} & \multirow{4}{*}{0.7774}
+& NORM & 1906 & 0.7800 & 0.9900 & 0.8700 \\
+& & IMI  & 466  & 0.5000 & 0.0500 & 0.0800 \\
+& & AMI  & 58   & 0.0000 & 0.0000 & 0.0000 \\
+& & LMI  & 27   & 0.0000 & 0.0000 & 0.0000 \\
+\bottomrule
+\end{longtable}
+
+
+
+Table~\ref{tab:ptbxl_pretrain_classwise} indicates that all evaluated backbones achieve strong performance on the majority class (NORM), whereas substantially lower precision--recall balance is consistently observed for the minority territories (AMI and LMI). The CNN1D backbone attains the highest overall test accuracy (0.9105) and provides the best minority-class F1-scores among the compared variants (AMI: 0.49; LMI: 0.45). Nevertheless, even this strongest baseline exhibits a pronounced drop from majority-class performance, reflecting that minority-territory patterns remain harder to capture reliably despite large-scale source-domain supervision.
+
+The CNN--LSTM--SE achieves slightly lower accuracy (0.8962) while preserving high NORM discrimination (F1=0.9419) and competitive IMI performance (F1=0.7916). However, the minority classes remain challenging: AMI recall decreases to 0.3448 and LMI recall to 0.2222, resulting in noticeably reduced F1-scores (AMI: 0.40; LMI: 0.2927). This behavior suggests that, under the natural class imbalance of PTB-XL, the learned decision boundaries are dominated by majority evidence, and minority-territory detection is primarily limited by recall rather than precision. In practical terms, the model can maintain high correctness when it predicts AMI/LMI, but it frequently fails to retrieve these rare cases.
+
+The CNN-LSTM without SE further amplifies this imbalance-driven effect. While NORM and IMI remain reasonably separated, AMI performance degrades (F1=0.23) and LMI collapses entirely (F1=0.00), indicating that additional channel-wise selectivity is important to preserve weak infarct-related cues that may be inconsistently expressed across leads. Both LSTM and GRU show near-perfect recall for NORM but near-zero recall for IMI/AMI/LMI, effectively behaving as majority predictors. This outcome demonstrates that, for raw 12-lead ECG at scale, recurrent modeling without a convolutional morphology encoder is insufficient to learn robust representations for minority MI territories.
+
+Given these findings, the subsequent experiments focus on transferring pretrained representations that retain strong majority-class performance while providing the most favorable minority-class behavior at the source stage. Specifically, CNN1D and CNN--LSTM--SE are used as primary candidates for initializing target-domain training. In the next subsection, these pretrained weights are adapted to the PTB Diagnostic ECG dataset under the same input specification (12 leads, 10~s windows at 100~Hz). The transfer learning evaluation then examines whether source-domain pretraining can improve minority-class sensitivity and overall robustness in the small-sample, severely imbalanced target setting, using class-wise comparison against multiple baselines under the PTB Diagnostic ECG protocol.
+
+
+
+
+\subsection{Comparative Evaluation on PTB Diagnostic ECG}
+Table~\ref{tab:classwise_comparison} summarizes class-wise performance on the PTB Diagnostic ECG held-out test set for all evaluated models, including the proposed transfer-learned architecture (default and tuned), architectural ablations, alternative recurrent variants, training-from-scratch, and pretrained-import baselines. The tuned proposed model achieves the highest overall accuracy (0.9111) and exhibits the most balanced class-wise behavior, which is reflected by strong precision and recall for NORM, AMI, and IMI, and correct prediction of the single LMI case.
+
+\begin{longtable}{p{4.9cm}c c c c c c}
+\caption{Class-wise performance on the PTB Diagnostic ECG on test set.}\label{tab:classwise_comparison}\\
+\toprule
+\textbf{Model} & \textbf{Acc} & \textbf{Class} & \textbf{Support} & \textbf{Prec} & \textbf{Rec} & \textbf{F1} \\
+\midrule
+\endfirsthead
+\toprule
+\textbf{Model} & \textbf{Acc} & \textbf{Class} & \textbf{Support} & \textbf{Prec} & \textbf{Rec} & \textbf{F1} \\
+\midrule
+\endhead
+
+
+
+\multirow{4}{=}{\raggedright Scratch CNN-LSTM-SE\\(No Pretrain)} & \multirow{4}{*}{0.8000}
+& NORM & 16 & 1.0000 & 0.6875 & 0.8148 \\
+& & AMI  & 10 & 0.7143 & 1.0000 & 0.8333 \\
+& & IMI  & 18 & 0.7500 & 0.8333 & 0.7895 \\
+& & LMI  & 1  & 0.0000 & 0.0000 & 0.0000 \\
+\midrule
+
+\multirow{4}{=}{\raggedright TorchECG\\(Pretrained Import)} & \multirow{4}{*}{0.6222}
+& NORM & 16 & 0.5385 & 0.4375 & 0.4828 \\
+& & AMI  & 10 & 0.8000 & 0.8000 & 0.8000 \\
+& & IMI  & 18 & 0.5909 & 0.7222 & 0.6500 \\
+& & LMI  & 1  & 0.0000 & 0.0000 & 0.0000 \\
+\midrule
+
+\multirow{4}{=}{\raggedright HuBERT-ECG\\(Pretrained Import)} & \multirow{4}{*}{0.5111}
+& NORM & 16 & 0.5455 & 0.3750 & 0.4444 \\
+& & AMI  & 10 & 0.6250 & 0.5000 & 0.5556 \\
+& & IMI  & 18 & 0.4800 & 0.6667 & 0.5581 \\
+& & LMI  & 1  & 0.0000 & 0.0000 & 0.0000 \\
+\midrule
+
+\multirow{4}{=}{\raggedright TL CNN1D} & \multirow{4}{*}{0.7778}
+& NORM & 16 & 0.8421 & 1.0000 & 0.9143 \\
+& & AMI  & 10 & 1.0000 & 0.4000 & 0.5714 \\
+& & IMI  & 18 & 0.6818 & 0.8333 & 0.7500 \\
+& & LMI  & 1  & 0.0000 & 0.0000 & 0.0000 \\
+\midrule
+
+\multirow{4}{=}{\raggedright TL LSTM\\} & \multirow{4}{*}{0.4000}
+& NORM & 16 & 0.0000 & 0.0000 & 0.0000 \\
+& & AMI  & 10 & 0.0000 & 0.0000 & 0.0000 \\
+& & IMI  & 18 & 0.4091 & 1.0000 & 0.5806 \\
+& & LMI  & 1  & 0.0000 & 0.0000 & 0.0000 \\
+\midrule
+
+\multirow{4}{=}{\raggedright TL GRU} & \multirow{4}{*}{0.4222}
+& NORM & 16 & 0.3333 & 0.1250 & 0.1818 \\
+& & AMI  & 10 & 1.0000 & 0.1000 & 0.1818 \\
+& & IMI  & 18 & 0.4211 & 0.8889 & 0.5714 \\
+& & LMI  & 1  & 0.0000 & 0.0000 & 0.0000 \\
+\midrule
+
+\multirow{4}{=}{\raggedright TL CNN--LSTM} & \multirow{4}{*}{0.5111}
+& NORM & 16 & 0.7273 & 1.0000 & 0.8421 \\
+& & AMI  & 10 & 0.3333 & 0.7000 & 0.4516 \\
+& & IMI  & 18 & 0.0000 & 0.0000 & 0.0000 \\
+& & LMI  & 1  & 0.0000 & 0.0000 & 0.0000 \\
+\midrule
+
+\multirow{4}{=}{\raggedright \textbf{TL (Tuned)}\\\textbf{CNN-LSTM-SE (Proposed)}} & \multirow{4}{*}{\textbf{0.9111}}
+& \textbf{NORM} & 16 & \textbf{0.9375 }& \textbf{0.9375} & \textbf{0.9375} \\
+& & \textbf{AMI}  & \textbf{10} & \textbf{0.9000} & \textbf{0.9000} & \textbf{0.9000} \\
+& & \textbf{IMI}  & \textbf{18} & \textbf{0.8889} & \textbf{0.8889} & \textbf{0.8889} \\
+& & \textbf{LMI}  & \textbf{1}  & \textbf{1.0000} & \textbf{1.0000} & \textbf{1.0000} \\
+\midrule
+
+\multirow{4}{=}{\raggedright \textbf{TL (Default)}\\\textbf{CNN-LSTM-SE (Proposed)}} & \multirow{4}{*}{\textbf{0.8222}}
+& \textbf{NORM} & \textbf{16} & \textbf{0.9286} & \textbf{0.8125} & \textbf{0.8667} \\
+& & \textbf{AMI}  & \textbf{10} & \textbf{0.7500} & \textbf{0.9000} & \textbf{0.8182} \\
+& & \textbf{IMI}  & \textbf{18} & \textbf{0.9375 }& \textbf{0.8333} & \textbf{0.8824} \\
+& & \textbf{LMI}  & \textbf{1}  & \textbf{0.0000} & \textbf{0.0000} & \textbf{0.0000} \\
+
+\bottomrule
+\end{longtable}
+
+
+
+The comparative outcomes indicate that the proposed transfer learning pipeline with CNN--LSTM--SE provides the most reliable performance under the evaluated protocol, while several baselines reveal characteristic failure modes under small-sample and imbalanced conditions.
+
+
+The tuned proposed configuration achieves the best overall performance and demonstrates balanced behavior across NORM, AMI, and IMI. The improvement from 0.8222 (default) to 0.9111 (tuned) indicates that optimization choices strongly affect generalization in the target domain. In addition, the tuned model correctly predicts the LMI case in the held-out test set. Although this observation is encouraging, it should be interpreted with caution due to the extremely limited LMI support ($n=1$), which increases the variance of minority-class estimates.
+
+The default proposed model maintains strong performance for NORM, AMI, and IMI, but fails to identify LMI. This suggests that, without tuning, the learned decision boundary remains biased toward majority classes and does not provide sufficient margin for the minority category. This behavior is consistent with the macro-F1 sensitivity to minority-class errors under severe imbalance.
+
+Training from scratch yields competitive accuracy (0.8000), but its class-wise behavior indicates reduced robustness and weaker minority handling compared to the tuned transfer-learned model. This outcome supports the use of PTB-XL initialization as a stabilizing prior for learning ECG morphology, particularly when the target dataset is small and the number of MI subclasses is imbalanced.
+
+The CNN-only transfer baseline (CNN-1D only) shows that convolutional features alone can achieve moderate accuracy, but the AMI recall drops substantially. This pattern indicates that temporal sequence modeling contributes additional discriminative capacity beyond local morphology, which is important when the diagnostic evidence is distributed across the 10~s window or requires temporal context for disambiguation.
+
+Alternative recurrent designs (GRU and LSTM) perform substantially worse under the evaluated setting. While GRU preserves relatively high IMI recall, the model exhibits very low precision and fails to separate NORM and AMI reliably. The LSTM variant collapses into predicting IMI for nearly all cases, which is consistent with a degenerate solution under imbalance and limited data, where the model converges to a dominant-class predictor.
+
+Pretrained-import approaches (HuBERT-ECG and TorchECG) do not surpass the PTB-XL-pretrained pipeline in this study. The observed performance suggests that pretrained representations may not transfer effectively when there is a mismatch in signal preprocessing, lead configuration assumptions, or pretraining objectives relative to the downstream label formulation (four-class MI localization). These results indicate that pretraining on a large 12-lead dataset with a closely aligned task formulation can be more advantageous than importing representations trained under different supervisory signals.
+
+
+
+
+\section{Discussion}
+This section interprets the comparative findings reported in Section~IV and highlights the implications of transfer learning, architectural components, and optimization choices for four-class MI localization on the PTB Diagnostic ECG dataset. The discussion emphasizes practical strengths, observed failure modes, and remaining limitations under the small-sample and severely imbalanced target-domain setting.
+
+The results in Table~\ref{tab:classwise_comparison} show that the proposed transfer-learning pipeline based on CNN--LSTM--SE achieves the most reliable performance on the PTB Diagnostic held-out test set, particularly under the tuned setting (Acc=0.9111). The tuned configuration maintains strong class-wise performance for the dominant categories, with F1 of 0.9375 (NORM), 0.9000 (AMI), and 0.8889 (IMI), while correctly classifying the single LMI case; however, the LMI estimate should be interpreted cautiously due to the extremely limited support (n=1). Compared with the default transfer setting (Acc=0.8222) and training-from-scratch (Acc=0.8000), these results indicate that domain-aligned pretraining on PTB-XL combined with SE-based channel recalibration improves robustness under severe target-domain data scarcity and class imbalance.
+
+A key observation from Section~IV is that transfer learning improves reliability compared to training from scratch. Although the scratch baseline achieves 0.8000 accuracy, its class-wise performance reveals weaker consistency in NORM recall and an absence of correct LMI predictions. In contrast, the tuned transfer-learned model maintains high recall for NORM, AMI, and IMI, and correctly predicts the single LMI sample in the test set. This outcome supports the hypothesis that PTB-XL pretraining provides a strong inductive bias for learning ECG morphology, enabling faster convergence to clinically meaningful representations during adaptation. Under limited target-domain supervision, such a prior is especially valuable because the model is less likely to overfit to spurious correlations arising from imbalance and small sample size.
+
+The ablation and alternative-model results in Table~\ref{tab:classwise_comparison} further clarify which architectural components are most influential. The CNN-only transfer baseline achieves moderate accuracy (0.7778) but shows a pronounced drop in AMI recall, suggesting that local morphological features extracted by convolution alone are insufficient for robust MI localization when diagnostic evidence is temporally distributed. This behavior aligns with clinical intuition: MI-related patterns may be localized to particular segments of the waveform and may require temporal context for disambiguation. Sequence modeling through LSTM therefore provides additive value by integrating temporal dependencies beyond local morphology.
+
+The most critical degradation occurs when temporal attention is removed. The CNN-LSTM (no attention) variant collapses for IMI, indicating that sequence modeling alone does not guarantee effective temporal selectivity. Without an explicit mechanism to emphasize informative time steps, the aggregation of recurrent outputs may dilute subtle infarct indicators and bias the classifier toward easier categories. In contrast, the proposed temporal attention pooling assigns higher weights to time steps that contribute most to discrimination, improving the separability of MI classes after sequence modeling. These observations support the role of temporal attention as a necessary component for handling subtle and temporally localized ECG cues in MI localization.
+
+Channel recalibration via SE also contributes to robustness under the multi-lead setting. While the reported experiments do not isolate SE alone, the strongest performance is obtained by the full model that jointly includes SE and temporal attention. This suggests that the combination of lead-aware channel emphasis and time-aware saliency is beneficial: SE improves the selection of informative channels at multiple depths of the convolutional encoder, whereas temporal attention improves the selection of informative time segments after recurrent modeling. In the context of 12-lead ECG, where different MI territories manifest with different lead involvement, channel recalibration is expected to mitigate lead variability and enhance the discriminative contribution of relevant lead groups.
+
+Alternative recurrent formulations (GRU and LSTM) are not competitive in this setting. The GRU-based model retains high IMI recall but exhibits very low precision for NORM and AMI, implying unstable decision boundaries and limited class separation. The LSRM variant degenerates into predicting IMI for nearly all samples, representing a typical failure mode under extreme imbalance and small sample size, where the optimization converges to a dominant-class predictor. These outcomes highlight that model capacity and gating dynamics must be matched to the target data regime. In particular, the target domain may not provide sufficient supervisory signal to stabilize more complex or less regularized recurrent variants.
+
+Pretrained-import baselines (HuBERT-ECG and TorchECG) perform worse than the PTB-XL-pretrained pipeline, despite being pretrained models. This suggests that transfer success is not only driven by the existence of pretraining, but also by alignment between pretraining conditions and the downstream task. Mismatch in lead configuration assumptions, preprocessing conventions, input resolution, or pretraining objectives can lead to representations that do not capture the discriminative morphology required for four-class MI localization. The PTB-XL pretraining used in this research is domain-aligned in terms of 12-lead configuration and supervised label structure, which likely improves feature reuse during adaptation. Consequently, a moderately specialized but task-aligned pretraining strategy can outperform a more generic imported representation when downstream labels and data protocol differ.
+\section{Conclusion}
+
+Despite the strong comparative performance of the tuned proposed model, the evaluation reveals an important limitation: the LMI class has only one sample in the held-out test set. As a result, any correct or incorrect prediction for LMI causes large swings in class-wise metrics and should not be interpreted as a definitive measure of minority-class generalization. This limitation affects all models in Table~\ref{tab:classwise_comparison} and motivates caution when reporting macro-averaged scores. Practically, this also indicates that future evaluation should incorporate additional LMI samples, alternative splitting strategies, or patient-level stratification where possible to reduce variance in minority-class estimates.
+
+In summary, the results in Section~IV indicate that the most reliable MI localization in the evaluated protocol is achieved by combining domain-aligned pretraining on PTB-XL with a transfer learning strategy and an architecture that jointly models morphology (CNN), temporal context (LSTM), channel importance (SE), and temporal saliency (attention). The comparison suggests that performance gains are driven by both representational transfer and explicit selectivity mechanisms, while remaining weaknesses are primarily governed by target-domain sample scarcity and extreme class imbalance.
+
+
+
+
+% Subsection text.
+
+% %% Use \subsubsection, \paragraph, \subparagraph commands to 
+% %% start 3rd, 4th and 5th level sections.
+% %% Refer following link for more details.
+% %% https://en.wikibooks.org/wiki/LaTeX/Document_Structure#Sectioning_commands
+
+% \subsubsection{Mathematics}
+% %% Inline mathematics is tagged between $ symbols.
+% This is an example for the symbol $\alpha$ tagged as inline mathematics.
+
+% %% Displayed equations can be tagged using various environments. 
+% %% Single line equations can be tagged using the equation environment.
+% \begin{equation}
+% f(x) = (x+a)(x+b)
+% \end{equation}
+
+% %% Unnumbered equations are tagged using starred versions of the environment.
+% %% amsmath package needs to be loaded for the starred version of equation environment.
+% \begin{equation*}
+% f(x) = (x+a)(x+b)
+% \end{equation*}
+
+% %% align or eqnarray environments can be used for multi line equations.
+% %% & is used to mark alignment points in equations.
+% %% \\ is used to end a row in a multiline equation.
+% \begin{align}
+%  f(x) &= (x+a)(x+b) \\
+%       &= x^2 + (a+b)x + ab
+% \end{align}
+
+% \begin{eqnarray}
+%  f(x) &=& (x+a)(x+b) \nonumber\\ %% If equation numbering is not needed for a row use \nonumber.
+%       &=& x^2 + (a+b)x + ab
+% \end{eqnarray}
+
+% %% Unnumbered versions of align and eqnarray
+% \begin{align*}
+%  f(x) &= (x+a)(x+b) \\
+%       &= x^2 + (a+b)x + ab
+% \end{align*}
+
+% \begin{eqnarray*}
+%  f(x)&=& (x+a)(x+b) \\
+%      &=& x^2 + (a+b)x + ab
+% \end{eqnarray*}
+
+% %% Refer following link for more details.
+% %% https://en.wikibooks.org/wiki/LaTeX/Mathematics
+% %% https://en.wikibooks.org/wiki/LaTeX/Advanced_Mathematics
+
+% %% Use a table environment to create tables.
+% %% Refer following link for more details.
+% %% https://en.wikibooks.org/wiki/LaTeX/Tables
+% \begin{table}[t]%% placement specifier
+% %% Use tabular environment to tag the tabular data.
+% %% https://en.wikibooks.org/wiki/LaTeX/Tables#The_tabular_environment
+% \centering%% For centre alignment of tabular.
+% \begin{tabular}{l c r}%% Table column specifiers
+% %% Tabular cells are separated by &
+%   1 & 2 & 3 \\ %% A tabular row ends with \\
+%   4 & 5 & 6 \\
+%   7 & 8 & 9 \\
+% \end{tabular}
+% %% Use \caption command for table caption and label.
+% \caption{Table Caption}\label{fig1}
+% \end{table}
+
+
+% %% Use figure environment to create figures
+% %% Refer following link for more details.
+% %% https://en.wikibooks.org/wiki/LaTeX/Floats,_Figures_and_Captions
+% \begin{figure}[t]%% placement specifier
+% %% Use \includegraphics command to insert graphic files. Place graphics files in 
+% %% working directory.
+% \centering%% For centre alignment of image.
+% \includegraphics{example-image-a}
+% %% Use \caption command for figure caption and label.
+% \caption{Figure Caption}\label{fig1}
+% %% https://en.wikibooks.org/wiki/LaTeX/Importing_Graphics#Importing_external_graphics
+% \end{figure}
+
+%% The Appendices part is started with the command \appendix;
+%% appendix sections are then done as normal sections
+% \appendix
+% \section{Example Appendix Section}
+% \label{app1}
+
+% Appendix text.
+
+%% For citations use: 
+%%       \cite{<label>} ==> [1]
+
+%%
+% Example citation, See \cite{lamport94}.
+
+%% If you have bib database file and want bibtex to generate the
+%% bibitems, please use
+%%
+%%  \bibliographystyle{elsarticle-num} 
+%%  \bibliography{<your bibdatabase>}
+
+%% else use the following coding to input the bibitems directly in the
+%% TeX file.
+
+%% Refer following link for more details about bibliography and citations.
+%% https://en.wikibooks.org/wiki/LaTeX/Bibliography_Management
+
+
+\begin{thebibliography}{00}
+
+%% For numbered reference style
+%% \bibitem{label}
+%% Text of bibliographic item
+
+% \bibitem{lamport94}
+%   Leslie Lamport,
+%   \textit{\LaTeX: a document preparation system},
+%   Addison Wesley, Massachusetts,
+%   2nd edition,
+%   1994.
+\bibliographystyle{IEEEtran}
+\bibliography{References}
+\vspace{12pt}
+
+\end{thebibliography}
+\end{document}
+
+\endinput
+%%
+%% End of file `elsarticle-template-num.tex'.

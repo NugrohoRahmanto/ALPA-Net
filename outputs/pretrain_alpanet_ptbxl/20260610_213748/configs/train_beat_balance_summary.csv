@@ -1,0 +1,5 @@
+class_index,class_name,available_train_beats,selected_train_beats
+0,Normal,70308,900
+1,Anterior,5728,900
+2,Inferior,10338,900
+3,Lateral,327,327
