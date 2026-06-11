@@ -1,0 +1,17 @@
+{
+  "seed": 42,
+  "dataset_dir": "/home/nugee/code-program/code-thesis/hibah/myocardial-infarction-localization/dataset/ptb_xl",
+  "output_base_dir": "/home/nugee/code-program/code-thesis/hibah/myocardial-infarction-localization/outputs/6_model_pretrain_comparison",
+  "batch_size": 64,
+  "epochs": 50,
+  "learning_rate": 0.0001,
+  "weight_decay": 0.0001,
+  "device": "cuda",
+  "models": [
+    "cnn1d",
+    "lstm",
+    "gru",
+    "cnn_lstm"
+  ],
+  "model_name": "cnn1d"
+}

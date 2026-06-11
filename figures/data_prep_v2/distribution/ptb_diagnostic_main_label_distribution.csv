@@ -1,5 +1,0 @@
-label,record_count,patient_count,dataset_source
-Normal,80,52,ptb_diagnostic
-Anterior,47,21,ptb_diagnostic
-Inferior,87,33,ptb_diagnostic
-Lateral,3,1,ptb_diagnostic

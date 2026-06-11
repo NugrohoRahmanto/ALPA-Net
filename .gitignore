@@ -5,3 +5,25 @@ dump_artifact/
 *.pid
 REMOTE_TRAINING.md
 output.log
+run_alpanet_pipeline.sh
+
+
+# Large ECG-FM / pretrained checkpoints
+outputs/**/ecg_fm/checkpoints/
+outputs/**/hubert_ecg/checkpoints/
+
+# Large ML files
+*.pt
+*.pth
+*.ckpt
+*.bin
+*.safetensors
+*.h5
+*.onnx
+*.pkl
+*.joblib
+*.npy
+*.npz
+
+*.log
+*.pid

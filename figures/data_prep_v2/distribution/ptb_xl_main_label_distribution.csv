@@ -1,5 +1,0 @@
-label,record_count,patient_count,dataset_source
-Normal,9527,8902,ptb_xl
-Anterior,225,221,ptb_xl
-Inferior,1922,1722,ptb_xl
-Lateral,105,99,ptb_xl

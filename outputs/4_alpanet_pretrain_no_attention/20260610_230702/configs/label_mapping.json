@@ -1,0 +1,31 @@
+{
+  "model_name": "ALPA-Net No-Attention Ablation",
+  "task_type": "single_label_4_class_softmax",
+  "main_label_order": [
+    "Normal",
+    "Anterior",
+    "Inferior",
+    "Lateral"
+  ],
+  "main_label_display": [
+    "NORM",
+    "AMI",
+    "IMI",
+    "LMI"
+  ],
+  "class_to_index": {
+    "Normal": 0,
+    "Anterior": 1,
+    "Inferior": 2,
+    "Lateral": 3
+  },
+  "index_to_class": {
+    "0": "Normal",
+    "1": "Anterior",
+    "2": "Inferior",
+    "3": "Lateral"
+  },
+  "target_format": "integer class index",
+  "head_activation_for_inference": "softmax",
+  "recommended_loss": "CrossEntropyLoss"
+}

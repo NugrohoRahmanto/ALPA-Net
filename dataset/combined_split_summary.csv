@@ -1,7 +1,7 @@
-dataset_source,split,records,beats,signal_shape,source_records_in_split,Normal_beats,Normal_records,Anterior_beats,Anterior_records,Inferior_beats,Inferior_records,Lateral_beats,Lateral_records
-ptb_xl,train,7748,86701,"(86701, 65, 12)",7749,70308,6357,5728,491,10338,874,327,26
-ptb_xl,val,1108,12531,"(12531, 65, 12)",1108,10185,909,838,70,1464,125,44,4
-ptb_xl,test,2215,24781,"(24781, 65, 12)",2215,20089,1817,1668,141,2941,250,83,7
-ptb_diagnostic,train,198,23905,"(23905, 65, 12)",198,7547,64,6148,50,9948,82,262,2
-ptb_diagnostic,val,198,3416,"(3416, 65, 12)",198,1079,64,878,50,1421,82,38,2
-ptb_diagnostic,test,51,7277,"(7277, 65, 12)",51,2032,16,1735,13,3349,21,161,1
+dataset_source,split,records,patients,beats,signal_shape,source_records_in_split,Normal_beats,Normal_records,Normal_patients,Anterior_beats,Anterior_records,Anterior_patients,Inferior_beats,Inferior_records,Inferior_patients,Lateral_beats,Lateral_records,Lateral_patients
+ptb_xl,train,7748,7292,86701,"(86701, 65, 12)",7749,70308,6357,6042,5728,491,453,10338,874,814,327,26,26
+ptb_xl,val,1108,1098,12531,"(12531, 65, 12)",1108,10185,909,904,838,70,70,1464,125,123,44,4,4
+ptb_xl,test,2215,2168,24781,"(24781, 65, 12)",2215,20089,1817,1782,1668,141,138,2941,250,246,83,7,7
+ptb_diagnostic,train,151,88,1720,"(1720, 65, 12)",151,552,56,42,344,33,17,669,60,28,155,2,1
+ptb_diagnostic,val,22,21,224,"(224, 65, 12)",22,75,8,8,60,5,5,89,9,8,0,0,0
+ptb_diagnostic,test,44,35,499,"(499, 65, 12)",44,135,16,13,97,9,8,184,18,13,83,1,1
