@@ -7,7 +7,7 @@ REMOTE_TRAINING.md
 output.log
 run_alpanet_pipeline.sh
 
-
+notebook_revise_plan/
 # Large ECG-FM / pretrained checkpoints
 outputs/**/ecg_fm/checkpoints/
 outputs/**/hubert_ecg/checkpoints/
@@ -27,3 +27,5 @@ outputs/**/hubert_ecg/checkpoints/
 
 *.log
 *.pid
+run_alpanet_pipeline.sh
+run_revise_plan_notebooks.sh

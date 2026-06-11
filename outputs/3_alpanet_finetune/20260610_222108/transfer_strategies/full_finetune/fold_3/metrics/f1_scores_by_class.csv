@@ -1,9 +1,0 @@
-split,label,internal_label,f1_score
-val,NORM,Normal,0.9991306867574616
-val,AMI,Anterior,0.9996440014239943
-val,IMI,Inferior,0.9991204925241864
-val,LMI,Lateral,1.0
-test,NORM,Normal,0.8114593535749265
-test,AMI,Anterior,0.5683975432719152
-test,IMI,Inferior,0.7061713233036536
-test,LMI,Lateral,0.8556149732620321
