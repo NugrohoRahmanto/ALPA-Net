@@ -1,0 +1,34 @@
+{
+  "model_name": "Standard CNN-Transformer Baseline",
+  "task_type": "single_label_4_class_softmax_architecture_ablation",
+  "main_label_order": [
+    "Normal",
+    "Anterior",
+    "Inferior",
+    "Lateral"
+  ],
+  "main_label_display": [
+    "NORM",
+    "AMI",
+    "IMI",
+    "Lateral-involved MI"
+  ],
+  "class_to_index": {
+    "Normal": 0,
+    "Anterior": 1,
+    "Inferior": 2,
+    "Lateral": 3
+  },
+  "index_to_class": {
+    "0": "Normal",
+    "1": "Anterior",
+    "2": "Inferior",
+    "3": "Lateral"
+  },
+  "target_format": "integer class index",
+  "head_activation_for_inference": "softmax",
+  "baseline_variant": "standard_temporal_cnn_transformer_cls",
+  "pooling_type": "cls_token",
+  "note": "Standard temporal CNN-Transformer baseline with 12-channel CNN, positional embedding, one Transformer encoder stack, and CLS-token pooling. No ALPA module, anatomical prior bias, class-specific attention, attention context, or lead-wise custom branch is used.",
+  "recommended_loss": "CrossEntropyLoss"
+}

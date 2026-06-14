@@ -1,74 +1,755 @@
 =====================================
 ALPA-Net Notebook 2 to 7 Pipeline Started
-Start Time: Thu Jun 11 08:32:23 PM WIB 2026
+Start Time: Sun Jun 14 12:58:24 PM WIB 2026
 =====================================
+
+[3/6] PRETRAIN ALPA-NET NO ATTENTION START
+
+[NbConvertApp] Converting notebook notebook/4_pretrain_alpanet_no_attention.ipynb to notebook
+[NbConvertApp] Writing 134259 bytes to notebook/4_pretrain_alpanet_no_attention_executed.ipynb
+
+[3/6] PRETRAIN ALPA-NET NO ATTENTION FINISHED
+
 
 [4/6] FINETUNE ALPA-NET NO ATTENTION START
 
 [NbConvertApp] Converting notebook notebook/5_finetune_alpanet_no_attention.ipynb to notebook
 /home/nugee/code-program/code-thesis/hibah/myocardial-infarction-localization/.venv/lib/python3.12/site-packages/nbformat/__init__.py:96: MissingIDFieldWarning: Cell is missing an id field, this will become a hard error in future nbformat versions. You may want to use `normalize()` on your notebooks before validations (available since nbformat 5.1.4). Previous versions of nbformat are fixing this issue transparently, and will stop doing so in the future.
   validate(nb)
-[NbConvertApp] Writing 429529 bytes to notebook/5_finetune_alpanet_no_attention_executed.ipynb
+Traceback (most recent call last):
+  File "/home/nugee/code-program/code-thesis/hibah/myocardial-infarction-localization/.venv/bin/jupyter-nbconvert", line 10, in <module>
+    sys.exit(main())
+             ^^^^^^
+  File "/home/nugee/code-program/code-thesis/hibah/myocardial-infarction-localization/.venv/lib/python3.12/site-packages/jupyter_core/application.py", line 284, in launch_instance
+    super().launch_instance(argv=argv, **kwargs)
+  File "/home/nugee/code-program/code-thesis/hibah/myocardial-infarction-localization/.venv/lib/python3.12/site-packages/traitlets/config/application.py", line 1082, in launch_instance
+    app.start()
+  File "/home/nugee/code-program/code-thesis/hibah/myocardial-infarction-localization/.venv/lib/python3.12/site-packages/nbconvert/nbconvertapp.py", line 420, in start
+    self.convert_notebooks()
+  File "/home/nugee/code-program/code-thesis/hibah/myocardial-infarction-localization/.venv/lib/python3.12/site-packages/nbconvert/nbconvertapp.py", line 597, in convert_notebooks
+    self.convert_single_notebook(notebook_filename)
+  File "/home/nugee/code-program/code-thesis/hibah/myocardial-infarction-localization/.venv/lib/python3.12/site-packages/nbconvert/nbconvertapp.py", line 563, in convert_single_notebook
+    output, resources = self.export_single_notebook(
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/nugee/code-program/code-thesis/hibah/myocardial-infarction-localization/.venv/lib/python3.12/site-packages/nbconvert/nbconvertapp.py", line 487, in export_single_notebook
+    output, resources = self.exporter.from_filename(
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/nugee/code-program/code-thesis/hibah/myocardial-infarction-localization/.venv/lib/python3.12/site-packages/nbconvert/exporters/exporter.py", line 201, in from_filename
+    return self.from_file(f, resources=resources, **kw)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/nugee/code-program/code-thesis/hibah/myocardial-infarction-localization/.venv/lib/python3.12/site-packages/nbconvert/exporters/exporter.py", line 220, in from_file
+    return self.from_notebook_node(
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/nugee/code-program/code-thesis/hibah/myocardial-infarction-localization/.venv/lib/python3.12/site-packages/nbconvert/exporters/notebook.py", line 36, in from_notebook_node
+    nb_copy, resources = super().from_notebook_node(nb, resources, **kw)
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/nugee/code-program/code-thesis/hibah/myocardial-infarction-localization/.venv/lib/python3.12/site-packages/nbconvert/exporters/exporter.py", line 154, in from_notebook_node
+    nb_copy, resources = self._preprocess(nb_copy, resources)
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/nugee/code-program/code-thesis/hibah/myocardial-infarction-localization/.venv/lib/python3.12/site-packages/nbconvert/exporters/exporter.py", line 353, in _preprocess
+    nbc, resc = preprocessor(nbc, resc)
+                ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/nugee/code-program/code-thesis/hibah/myocardial-infarction-localization/.venv/lib/python3.12/site-packages/nbconvert/preprocessors/base.py", line 48, in __call__
+    return self.preprocess(nb, resources)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/nugee/code-program/code-thesis/hibah/myocardial-infarction-localization/.venv/lib/python3.12/site-packages/nbconvert/preprocessors/execute.py", line 103, in preprocess
+    self.preprocess_cell(cell, resources, index)
+  File "/home/nugee/code-program/code-thesis/hibah/myocardial-infarction-localization/.venv/lib/python3.12/site-packages/nbconvert/preprocessors/execute.py", line 124, in preprocess_cell
+    cell = self.execute_cell(cell, index, store_history=True)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/nugee/code-program/code-thesis/hibah/myocardial-infarction-localization/.venv/lib/python3.12/site-packages/jupyter_core/utils/__init__.py", line 165, in wrapped
+    return loop.run_until_complete(inner)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/nugee/.local/share/uv/python/cpython-3.12.13-linux-x86_64-gnu/lib/python3.12/asyncio/base_events.py", line 691, in run_until_complete
+    return future.result()
+           ^^^^^^^^^^^^^^^
+  File "/home/nugee/code-program/code-thesis/hibah/myocardial-infarction-localization/.venv/lib/python3.12/site-packages/nbclient/client.py", line 1062, in async_execute_cell
+    await self._check_raise_for_error(cell, cell_index, exec_reply)
+  File "/home/nugee/code-program/code-thesis/hibah/myocardial-infarction-localization/.venv/lib/python3.12/site-packages/nbclient/client.py", line 918, in _check_raise_for_error
+    raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
+nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
+------------------
+global_logger.info('Sanity check started.')
+sample_split=CV_SPLITS[0]
+train_loader,val_loader,test_loader=make_loaders(sample_split['train_idx'],sample_split['val_idx'],sample_split['test_idx'])
+criterion=nn.CrossEntropyLoss().to(CONFIG['DEVICE'])
+for strategy in (CONFIG['STRATEGIES'][:1] if CONFIG['FAST_DEV_RUN'] else CONFIG['STRATEGIES']):
+    m=build_standard_baseline_model(); m=load_pretrained_weights(m,strategy,global_logger); m=apply_transfer_strategy(m,strategy); print_trainable_parameters(m,global_logger)
+    b=next(iter(train_loader)); out=m(b['x'].to(CONFIG['DEVICE']))
+    assert out['logits'].shape == (b['x'].shape[0], 4)
+    assert out['probabilities'].shape == (b['x'].shape[0], 4)
+    loss=criterion(out['logits'], b['y'].to(CONFIG['DEVICE'])); loss.backward()
+    global_logger.info('Sanity passed strategy=%s loss=%.4f', strategy, float(loss.detach().cpu()))
+    del m
 
-[4/6] FINETUNE ALPA-NET NO ATTENTION FINISHED
+------------------
 
-[NbConvertApp] Converting notebook notebook/7_finetune_model_comparison.ipynb to notebook
-/home/nugee/code-program/code-thesis/hibah/myocardial-infarction-localization/.venv/lib/python3.12/site-packages/nbformat/__init__.py:96: MissingIDFieldWarning: Cell is missing an id field, this will become a hard error in future nbformat versions. You may want to use `normalize()` on your notebooks before validations (available since nbformat 5.1.4). Previous versions of nbformat are fixing this issue transparently, and will stop doing so in the future.
-  validate(nb)
-[NbConvertApp] Writing 375606 bytes to notebook/7_finetune_model_comparison_executed.ipynb
+----- stderr -----
+2026-06-14 12:59:20,586 | INFO | Sanity check started.
+----- stderr -----
+2026-06-14 12:59:20,706 | INFO | No pretrained weights loaded. Fresh random init signature=-0.297899
+----- stderr -----
+2026-06-14 12:59:20,706 | INFO | Parameters trainable=362052 total=362052 ratio=1.0000
+----- stderr -----
+2026-06-14 12:59:20,984 | INFO | Sanity passed strategy=no_pretrain loss=1.4213
+----- stderr -----
+2026-06-14 12:59:21,099 | INFO | Loaded pretrained backbone from /home/nugee/code-program/code-thesis/hibah/myocardial-infarction-localization/outputs/4_alpanet_pretrain_no_attention/20260614_125828/transfer_ready/alpanet_backbone.pt | signature 0.123676 -> -0.293200
+----- stderr -----
+2026-06-14 12:59:21,100 | INFO | Parameters trainable=17284 total=362052 ratio=0.0477
+----- stderr -----
+2026-06-14 12:59:21,168 | INFO | Sanity passed strategy=frozen_backbone loss=1.4084
+----- stderr -----
+2026-06-14 12:59:21,180 | INFO | Loaded pretrained backbone from /home/nugee/code-program/code-thesis/hibah/myocardial-infarction-localization/outputs/4_alpanet_pretrain_no_attention/20260614_125828/transfer_ready/alpanet_backbone.pt | signature -0.047714 -> -0.293200
+------------------
 
-[6/6] FINETUNE MODEL COMPARISON FINISHED
+[31m---------------------------------------------------------------------------[39m
+[31mAttributeError[39m                            Traceback (most recent call last)
+[36mCell[39m[36m [39m[32mIn[10][39m[32m, line 6[39m
+[32m      2[39m sample_split=CV_SPLITS[[32m0[39m]
+[32m      3[39m train_loader,val_loader,test_loader=make_loaders(sample_split[[33m'train_idx'[39m],sample_split[[33m'val_idx'[39m],sample_split[[33m'test_idx'[39m])
+[32m      4[39m criterion=nn.CrossEntropyLoss().to(CONFIG[[33m'DEVICE'[39m])
+[32m      5[39m [38;5;28;01mfor[39;00m strategy [38;5;28;01min[39;00m (CONFIG[[33m'STRATEGIES'[39m][:[32m1[39m] [38;5;28;01mif[39;00m CONFIG[[33m'FAST_DEV_RUN'[39m] [38;5;28;01melse[39;00m CONFIG[[33m'STRATEGIES'[39m]):
+[32m----> [39m[32m6[39m     m=build_standard_baseline_model(); m=load_pretrained_weights(m,strategy,global_logger); m=apply_transfer_strategy(m,strategy); print_trainable_parameters(m,global_logger)
+[32m      7[39m     b=next(iter(train_loader)); out=m(b[[33m'x'[39m].to(CONFIG[[33m'DEVICE'[39m]))
+[32m      8[39m     [38;5;28;01massert[39;00m out[[33m'logits'[39m].shape == (b[[33m'x'[39m].shape[[32m0[39m], [32m4[39m)
+[32m      9[39m     [38;5;28;01massert[39;00m out[[33m'probabilities'[39m].shape == (b[[33m'x'[39m].shape[[32m0[39m], [32m4[39m)
 
+[36mCell[39m[36m [39m[32mIn[7][39m[32m, line 30[39m, in [36mapply_transfer_strategy[39m[34m(model, strategy)[39m
+[32m     26[39m     [38;5;28;01mfor[39;00m p [38;5;28;01min[39;00m model.parameters(): p.requires_grad=[38;5;28;01mTrue[39;00m
+[32m     27[39m     [38;5;28;01mif[39;00m strategy == [33m'frozen_backbone'[39m:
+[32m     28[39m         [38;5;28;01mfor[39;00m p [38;5;28;01min[39;00m model.backbone.parameters(): p.requires_grad=[38;5;28;01mFalse[39;00m
+[32m     29[39m     [38;5;28;01melif[39;00m strategy == [33m'partial_finetune'[39m:
+[32m---> [39m[32m30[39m         [38;5;28;01mfor[39;00m module [38;5;28;01min[39;00m [model.backbone.stem, model.backbone.channel_project, model.backbone.multi_scale]:
+[32m     31[39m             [38;5;28;01mfor[39;00m p [38;5;28;01min[39;00m module.parameters(): p.requires_grad=[38;5;28;01mFalse[39;00m
+[32m     32[39m     [38;5;28;01melif[39;00m strategy [38;5;28;01min[39;00m {[33m'no_pretrain'[39m,[33m'full_finetune'[39m}:
+[32m     33[39m         [38;5;28;01mpass[39;00m
 
-=====================================
-ALPA-Net Notebook 2 to 7 Pipeline Completed
-Finish Time: Thu Jun 11 09:03:46 PM WIB 2026
-=====================================
- | ========================================================================================
-2026-06-11 20:32:27,877 | INFO | Using pretrained source: /home/nugee/code-program/code-thesis/hibah/myocardial-infarction-localization/outputs/4_alpanet_pretrain_no_attention/20260610_230702
-2026-06-11 20:32:27,901 | INFO | Loaded beat data train=(1720, 65, 12) val=(224, 65, 12) test=(499, 65, 12)
-2026-06-11 20:32:27,901 | INFO | train class distribution: {'Normal': 552, 'Anterior': 344, 'Inferior': 669, 'Lateral': 155}
-2026-06-11 20:32:27,905 | INFO | val class distribution: {'Normal': 75, 'Anterior': 60, 'Inferior': 89, 'Lateral': 0}
-2026-06-11 20:32:27,906 | INFO | test class distribution: {'Normal': 135, 'Anterior': 97, 'Inferior': 184, 'Lateral': 83}
-2026-06-11 20:32:27,914 | INFO | Loaded pretrain normalizer from transfer_ready.
-2026-06-11 20:32:27,931 | INFO | ALPA-Net softmax model definition loaded.
-2026-06-11 20:32:27,932 | INFO | ALPA-Net softmax model definition completed.
-2026-06-11 20:32:27,960 | INFO | Sanity check started.
-2026-06-11 20:32:28,098 | INFO | No pretrained weights loaded.
-2026-06-11 20:32:28,098 | INFO | Parameters trainable=512933 total=512933 ratio=1.0000
-2026-06-11 20:32:28,423 | INFO | Sanity passed strategy=no_pretrain loss=1.3611
-2026-06-11 20:32:28,449 | INFO | Loaded pretrained backbone.
-2026-06-11 20:32:28,450 | INFO | Parameters trainable=33924 total=512933 ratio=0.0661
-2026-06-11 20:32:28,520 | INFO | Sanity passed strategy=frozen_backbone loss=1.3798
-2026-06-11 20:32:28,536 | INFO | Loaded pretrained backbone.
-2026-06-11 20:32:28,537 | INFO | Parameters trainable=448773 total=512933 ratio=0.8749
-2026-06-11 20:32:28,607 | INFO | Sanity passed strategy=partial_finetune loss=1.4087
-2026-06-11 20:32:28,635 | INFO | Loaded pretrained full model.
-2026-06-11 20:32:28,636 | INFO | Parameters trainable=512933 total=512933 ratio=1.0000
-2026-06-11 20:32:28,715 | INFO | Sanity passed strategy=full_finetune loss=0.7827
-2026-06-11 20:32:28,832 | INFO | Strategy started: no_pretrain
-2026-06-11 20:33:05,348 | INFO | Finished strategy=no_pretrain fold=1 status=OK
-2026-06-11 20:33:43,726 | INFO | Finished strategy=no_pretrain fold=2 status=OK
-2026-06-11 20:34:23,103 | INFO | Finished strategy=no_pretrain fold=3 status=OK
-2026-06-11 20:35:03,217 | INFO | Finished strategy=no_pretrain fold=4 status=OK
-2026-06-11 20:35:45,331 | INFO | Finished strategy=no_pretrain fold=5 status=OK
-2026-06-11 20:35:45,331 | INFO | Strategy started: frozen_backbone
-2026-06-11 20:36:17,702 | INFO | Finished strategy=frozen_backbone fold=1 status=OK
-2026-06-11 20:36:51,356 | INFO | Finished strategy=frozen_backbone fold=2 status=OK
-2026-06-11 20:37:26,610 | INFO | Finished strategy=frozen_backbone fold=3 status=OK
-2026-06-11 20:38:03,443 | INFO | Finished strategy=frozen_backbone fold=4 status=OK
-2026-06-11 20:38:40,952 | INFO | Finished strategy=frozen_backbone fold=5 status=OK
-2026-06-11 20:38:40,952 | INFO | Strategy started: partial_finetune
-2026-06-11 20:39:23,126 | INFO | Finished strategy=partial_finetune fold=1 status=OK
-2026-06-11 20:40:06,319 | INFO | Finished strategy=partial_finetune fold=2 status=OK
-2026-06-11 20:40:51,356 | INFO | Finished strategy=partial_finetune fold=3 status=OK
-2026-06-11 20:41:37,943 | INFO | Finished strategy=partial_finetune fold=4 status=OK
-2026-06-11 20:42:25,640 | INFO | Finished strategy=partial_finetune fold=5 status=OK
-2026-06-11 20:42:25,641 | INFO | Strategy started: full_finetune
-2026-06-11 20:43:23,920 | INFO | Finished strategy=full_finetune fold=1 status=OK
-2026-06-11 20:44:23,794 | INFO | Finished strategy=full_finetune fold=2 status=OK
-2026-06-11 20:45:25,123 | INFO | Finished strategy=full_finetune fold=3 status=OK
-2026-06-11 20:46:28,026 | INFO | Finished strategy=full_finetune fold=4 status=OK
-2026-06-11 20:47:32,611 | INFO | Finished strategy=full_finetune fold=5 status=OK
-2026-06-11 20:47:34,136 | INFO | Run finished at: 2026-06-11 20:47:34
-2026-06-11 20:47:34,137 | INFO | Total duration 906.27 seconds
+[36mFile [39m[32m~/code-program/code-thesis/hibah/myocardial-infarction-localization/.venv/lib/python3.12/site-packages/torch/nn/modules/module.py:1967[39m, in [36mModule.__getattr__[39m[34m(self, name)[39m
+[32m   1965[39m     [38;5;28;01mif[39;00m name [38;5;129;01min[39;00m modules:
+[32m   1966[39m         [38;5;28;01mreturn[39;00m modules[name]
+[32m-> [39m[32m1967[39m [38;5;28;01mraise[39;00m [38;5;167;01mAttributeError[39;00m(
+[32m   1968[39m     [33mf[39m[33m"[39m[33m'[39m[38;5;132;01m{[39;00m[38;5;28mtype[39m([38;5;28mself[39m).[34m__name__[39m[38;5;132;01m}[39;00m[33m'[39m[33m object has no attribute [39m[33m'[39m[38;5;132;01m{[39;00mname[38;5;132;01m}[39;00m[33m'[39m[33m"[39m
+[32m   1969[39m )
+
+[31mAttributeError[39m: 'StandardCNNTransformerBackbone' object has no attribute 'stem'
+
+384 | INFO | Epoch 032/050 | train_loss=0.50389 val_loss=0.56482 train_macro_f1=0.8004 val_macro_f1=0.6604 lr=1.000e-04 time=0.8s
+2026-06-14 12:58:56,187 | INFO | Epoch 033/050 | train_loss=0.49700 val_loss=0.53995 train_macro_f1=0.8095 val_macro_f1=0.6705 lr=1.000e-04 time=0.8s
+2026-06-14 12:58:56,966 | INFO | Epoch 034/050 | train_loss=0.50776 val_loss=0.54352 train_macro_f1=0.8034 val_macro_f1=0.6639 lr=1.000e-04 time=0.8s
+2026-06-14 12:58:57,726 | INFO | Epoch 035/050 | train_loss=0.47343 val_loss=0.54476 train_macro_f1=0.8167 val_macro_f1=0.6725 lr=1.000e-04 time=0.7s
+2026-06-14 12:58:57,748 | INFO | Saved periodic 5-epoch checkpoint: /home/nugee/code-program/code-thesis/hibah/myocardial-infarction-localization/outputs/4_alpanet_pretrain_no_attention/20260614_125828/checkpoints/per_5fold/epoch_035.pt
+2026-06-14 12:58:58,505 | INFO | Epoch 036/050 | train_loss=0.49303 val_loss=0.58154 train_macro_f1=0.8061 val_macro_f1=0.6555 lr=5.000e-05 time=0.8s
+2026-06-14 12:58:59,281 | INFO | Epoch 037/050 | train_loss=0.47463 val_loss=0.54682 train_macro_f1=0.8186 val_macro_f1=0.6605 lr=5.000e-05 time=0.8s
+2026-06-14 12:59:00,065 | INFO | Epoch 038/050 | train_loss=0.46266 val_loss=0.55082 train_macro_f1=0.8199 val_macro_f1=0.6685 lr=5.000e-05 time=0.8s
+2026-06-14 12:59:00,860 | INFO | Epoch 039/050 | train_loss=0.45553 val_loss=0.55288 train_macro_f1=0.8207 val_macro_f1=0.6700 lr=5.000e-05 time=0.8s
+2026-06-14 12:59:01,643 | INFO | Epoch 040/050 | train_loss=0.46102 val_loss=0.54270 train_macro_f1=0.8162 val_macro_f1=0.6728 lr=5.000e-05 time=0.8s
+2026-06-14 12:59:01,664 | INFO | Saved periodic 5-epoch checkpoint: /home/nugee/code-program/code-thesis/hibah/myocardial-infarction-localization/outputs/4_alpanet_pretrain_no_attention/20260614_125828/checkpoints/per_5fold/epoch_040.pt
+2026-06-14 12:59:02,399 | INFO | Epoch 041/050 | train_loss=0.44981 val_loss=0.54711 train_macro_f1=0.8284 val_macro_f1=0.6661 lr=5.000e-05 time=0.7s
+2026-06-14 12:59:03,177 | INFO | Epoch 042/050 | train_loss=0.46029 val_loss=0.50250 train_macro_f1=0.8177 val_macro_f1=0.6869 lr=5.000e-05 time=0.8s
+2026-06-14 12:59:03,200 | INFO | New best val macro F1 0.6869 at epoch 42
+2026-06-14 12:59:03,959 | INFO | Epoch 043/050 | train_loss=0.45300 val_loss=0.53058 train_macro_f1=0.8253 val_macro_f1=0.6683 lr=5.000e-05 time=0.7s
+2026-06-14 12:59:04,754 | INFO | Epoch 044/050 | train_loss=0.45640 val_loss=0.55607 train_macro_f1=0.8275 val_macro_f1=0.6607 lr=5.000e-05 time=0.8s
+2026-06-14 12:59:05,518 | INFO | Epoch 045/050 | train_loss=0.43804 val_loss=0.51977 train_macro_f1=0.8261 val_macro_f1=0.6740 lr=5.000e-05 time=0.7s
+2026-06-14 12:59:05,542 | INFO | Saved periodic 5-epoch checkpoint: /home/nugee/code-program/code-thesis/hibah/myocardial-infarction-localization/outputs/4_alpanet_pretrain_no_attention/20260614_125828/checkpoints/per_5fold/epoch_045.pt
+2026-06-14 12:59:06,321 | INFO | Epoch 046/050 | train_loss=0.43737 val_loss=0.52371 train_macro_f1=0.8300 val_macro_f1=0.6774 lr=5.000e-05 time=0.8s
+2026-06-14 12:59:07,168 | INFO | Epoch 047/050 | train_loss=0.45230 val_loss=0.58877 train_macro_f1=0.8179 val_macro_f1=0.6549 lr=5.000e-05 time=0.8s
+2026-06-14 12:59:07,962 | INFO | Epoch 048/050 | train_loss=0.42801 val_loss=0.56352 train_macro_f1=0.8313 val_macro_f1=0.6638 lr=2.500e-05 time=0.8s
+2026-06-14 12:59:08,747 | INFO | Epoch 049/050 | train_loss=0.42407 val_loss=0.54042 train_macro_f1=0.8393 val_macro_f1=0.6722 lr=2.500e-05 time=0.8s
+2026-06-14 12:59:09,535 | INFO | Epoch 050/050 | train_loss=0.42601 val_loss=0.53391 train_macro_f1=0.8329 val_macro_f1=0.6716 lr=2.500e-05 time=0.8s
+2026-06-14 12:59:09,556 | INFO | Saved periodic 5-epoch checkpoint: /home/nugee/code-program/code-thesis/hibah/myocardial-infarction-localization/outputs/4_alpanet_pretrain_no_attention/20260614_125828/checkpoints/per_5fold/epoch_050.pt
+2026-06-14 12:59:09,557 | INFO | Training finished. Best epoch=42 | best_val_macro_f1=0.6869
+2026-06-14 12:59:09,564 | INFO | Final validation and test evaluation started.
+2026-06-14 12:59:09,584 | INFO | Loaded best macro-F1 checkpoint from epoch 42 for final validation/test evaluation
+2026-06-14 12:59:10,640 | INFO | Final validation metrics: {'accuracy': 0.8123670616833789, 'balanced_accuracy': 0.7660700824184312, 'macro_f1': 0.6869411714879522, 'micro_f1': 0.8123670616833789, 'weighted_f1': 0.8322913183090825, 'f1_Normal': 0.8941719437587207, 'sensitivity_Normal': 0.8287902904894549, 'specificity_Normal': 0.919344473007712, 'auc_Normal': 0.9514250511734866, 'f1_Anterior': 0.5453453453453454, 'sensitivity_Anterior': 0.6560693641618497, 'specificity_Anterior': 0.9583867864015394, 'auc_Anterior': 0.9360907160362912, 'f1_Inferior': 0.5407677220509947, 'sensitivity_Inferior': 0.8205782312925171, 'specificity_Inferior': 0.8808808808808809, 'auc_Inferior': 0.9176536230107658, 'f1_Lateral': 0.767479674796748, 'sensitivity_Lateral': 0.7588424437299035, 'specificity_Lateral': 0.9771812080536912, 'auc_Lateral': 0.9601340123869743, 'macro_auc': 0.9413258506518795}
+2026-06-14 12:59:10,641 | INFO | Final test metrics: {'accuracy': 0.8039744661448438, 'balanced_accuracy': 0.7770401283174426, 'macro_f1': 0.6958528433952547, 'micro_f1': 0.8039744661448438, 'weighted_f1': 0.824759284180868, 'f1_Normal': 0.8852325042905009, 'sensitivity_Normal': 0.8153352067442794, 'specificity_Normal': 0.9165884194053208, 'auc_Normal': 0.9482517697513866, 'f1_Anterior': 0.6117576842733512, 'sensitivity_Anterior': 0.740606936416185, 'specificity_Anterior': 0.9622202614903345, 'auc_Anterior': 0.9494007967160472, 'f1_Inferior': 0.5372559095580678, 'sensitivity_Inferior': 0.8330677290836653, 'specificity_Inferior': 0.8663054435483871, 'auc_Inferior': 0.9287732470655016, 'f1_Lateral': 0.7491652754590985, 'sensitivity_Lateral': 0.7191506410256411, 'specificity_Lateral': 0.9789690202333977, 'auc_Lateral': 0.9575073875231687, 'macro_auc': 0.945983300264026}
+2026-06-14 12:59:15,007 | INFO | Final validation and test evaluation completed.
+2026-06-14 12:59:15,012 | INFO | Transfer-ready artifact export started.
+2026-06-14 12:59:15,021 | INFO | Transfer-ready artifacts saved to /home/nugee/code-program/code-thesis/hibah/myocardial-infarction-localization/outputs/4_alpanet_pretrain_no_attention/20260614_125828/transfer_ready
+2026-06-14 12:59:15,021 | INFO | Transfer-ready artifact export completed.
+2026-06-14 12:59:15,024 | INFO | Plot and diagnostic artifact generation started.
+2026-06-14 12:59:15,469 | INFO | Standard CNN-Transformer baseline does not produce ALPA attention diagnostics or lead-prior heatmaps.
+2026-06-14 12:59:15,470 | INFO | Plot and diagnostic artifact generation completed.
+2026-06-14 12:59:15,474 | INFO | Transfer compatibility sanity check started.
+2026-06-14 12:59:15,496 | INFO | Transfer compatibility sanity check passed.
+2026-06-14 12:59:15,497 | INFO | Run finished at: 2026-06-14 12:59:15
+2026-06-14 12:59:15,497 | INFO | Total run duration: 47.22 seconds (0.79 minutes)
+2026-06-14 12:59:15,497 | INFO | Standard CNN-Transformer baseline pretraining notebook completed successfully. Output directory: /home/nugee/code-program/code-thesis/hibah/myocardial-infarction-localization/outputs/4_alpanet_pretrain_no_attention/20260614_125828
+2026-06-14 12:59:20,480 | INFO | ========================================================================================
+2026-06-14 12:59:20,481 | INFO | Standard CNN-Transformer baseline transfer CV logger
+2026-06-14 12:59:20,481 | INFO | Run started at: 2026-06-14 12:59:20
+2026-06-14 12:59:20,481 | INFO | Output directory: /home/nugee/code-program/code-thesis/hibah/myocardial-infarction-localization/outputs/5_alpanet_finetune_no_attention/20260614_125920
+2026-06-14 12:59:20,481 | INFO | Transfer strategy directory: /home/nugee/code-program/code-thesis/hibah/myocardial-infarction-localization/outputs/5_alpanet_finetune_no_attention/20260614_125920/transfer_strategies
+2026-06-14 12:59:20,481 | INFO | Dataset directory: /home/nugee/code-program/code-thesis/hibah/myocardial-infarction-localization/dataset/ptb_diagnostic
+2026-06-14 12:59:20,482 | INFO | Device: cuda
+2026-06-14 12:59:20,482 | INFO | Strategies: ['no_pretrain', 'frozen_backbone', 'partial_finetune', 'full_finetune']
+2026-06-14 12:59:20,482 | INFO | ========================================================================================
+2026-06-14 12:59:20,488 | INFO | Using pretrained source: /home/nugee/code-program/code-thesis/hibah/myocardial-infarction-localization/outputs/4_alpanet_pretrain_no_attention/20260614_125828
+2026-06-14 12:59:20,526 | INFO | Loaded beat data train=(2139, 65, 12) val=(312, 65, 12) test=(507, 65, 12)
+2026-06-14 12:59:20,527 | INFO | train class distribution: {'Normal': 544, 'Anterior': 357, 'Inferior': 657, 'Lateral': 581}
+2026-06-14 12:59:20,530 | INFO | val class distribution: {'Normal': 77, 'Anterior': 47, 'Inferior': 101, 'Lateral': 87}
+2026-06-14 12:59:20,532 | INFO | test class distribution: {'Normal': 141, 'Anterior': 97, 'Inferior': 184, 'Lateral': 85}
+2026-06-14 12:59:20,540 | INFO | Loaded pretrain normalizer from transfer_ready.
+2026-06-14 12:59:20,555 | INFO | Standard temporal CNN-Transformer baseline model definition loaded.
+2026-06-14 12:59:20,556 | INFO | Standard temporal CNN-Transformer baseline model definition completed.
+2026-06-14 12:59:20,586 | INFO | Sanity check started.
+2026-06-14 12:59:20,706 | INFO | No pretrained weights loaded. Fresh random init signature=-0.297899
+2026-06-14 12:59:20,706 | INFO | Parameters trainable=362052 total=362052 ratio=1.0000
+2026-06-14 12:59:20,984 | INFO | Sanity passed strategy=no_pretrain loss=1.4213
+2026-06-14 12:59:21,099 | INFO | Loaded pretrained backbone from /home/nugee/code-program/code-thesis/hibah/myocardial-infarction-localization/outputs/4_alpanet_pretrain_no_attention/20260614_125828/transfer_ready/alpanet_backbone.pt | signature 0.123676 -> -0.293200
+2026-06-14 12:59:21,100 | INFO | Parameters trainable=17284 total=362052 ratio=0.0477
+2026-06-14 12:59:21,168 | INFO | Sanity passed strategy=frozen_backbone loss=1.4084
+2026-06-14 12:59:21,180 | INFO | Loaded pretrained backbone from /home/nugee/code-program/code-thesis/hibah/myocardial-infarction-localization/outputs/4_alpanet_pretrain_no_attention/20260614_125828/transfer_ready/alpanet_backbone.pt | signature -0.047714 -> -0.293200
+2026-06-14 13:02:05,581 | INFO | ========================================================================================
+2026-06-14 13:02:05,581 | INFO | Standard CNN-Transformer baseline logger | Algorithm: Standard CNN-Transformer Baseline
+2026-06-14 13:02:05,581 | INFO | Run started at: 2026-06-14 13:02:05
+2026-06-14 13:02:05,582 | INFO | Run ID: 20260614_130205
+2026-06-14 13:02:05,582 | INFO | Output directory: /home/nugee/code-program/code-thesis/hibah/myocardial-infarction-localization/outputs/4_alpanet_pretrain_no_attention/20260614_130205
+2026-06-14 13:02:05,582 | INFO | Root output log: /home/nugee/code-program/code-thesis/hibah/myocardial-infarction-localization/output.log
+2026-06-14 13:02:05,582 | INFO | Dataset directory: /home/nugee/code-program/code-thesis/hibah/myocardial-infarction-localization/dataset/ptb_xl
+2026-06-14 13:02:05,583 | INFO | Device: cuda
+2026-06-14 13:02:05,583 | INFO | Planned epochs: 50 | Batch size: 64 | Learning rate: 1.000e-04 | Weight decay: 1.000e-04
+2026-06-14 13:02:05,583 | INFO | Early stopping enabled: False | Loss: CrossEntropyLoss | Head activation: softmax
+2026-06-14 13:02:05,583 | INFO | Main labels: ['Normal', 'Anterior', 'Inferior', 'Lateral']
+2026-06-14 13:02:05,584 | INFO | Loss role map: {'CrossEntropyLoss': 'Directly optimizes mutually exclusive 4-class classification logits for Normal, Anterior, Inferior, and Lateral.'}
+2026-06-14 13:02:05,584 | INFO | ========================================================================================
+2026-06-14 13:02:05,605 | INFO | Data loading started.
+2026-06-14 13:02:06,235 | INFO | Data loading completed.
+2026-06-14 13:02:06,235 | INFO | Train shape: (92546, 65, 12) | Val shape: (13164, 65, 12) | Test shape: (26318, 65, 12)
+2026-06-14 13:02:06,236 | INFO | Train/val/test beat samples: 92546 / 13164 / 26318
+2026-06-14 13:02:06,249 | INFO | Classification label mapping started.
+2026-06-14 13:02:06,267 | INFO | train class distribution: {'Normal': 70602, 'Anterior': 4667, 'Inferior': 8614, 'Lateral': 8663}
+2026-06-14 13:02:06,273 | INFO | val class distribution: {'Normal': 10052, 'Anterior': 692, 'Inferior': 1176, 'Lateral': 1244}
+2026-06-14 13:02:06,278 | INFO | test class distribution: {'Normal': 19928, 'Anterior': 1384, 'Inferior': 2510, 'Lateral': 2496}
+2026-06-14 13:02:06,292 | INFO | Training beats downsampled per class: [{'class_index': 0, 'class_name': 'Normal', 'available_train_beats': 70602, 'selected_train_beats': 900}, {'class_index': 1, 'class_name': 'Anterior', 'available_train_beats': 4667, 'selected_train_beats': 900}, {'class_index': 2, 'class_name': 'Inferior', 'available_train_beats': 8614, 'selected_train_beats': 900}, {'class_index': 3, 'class_name': 'Lateral', 'available_train_beats': 8663, 'selected_train_beats': 900}]
+2026-06-14 13:02:06,295 | INFO | train_balanced class distribution: {'Normal': 900, 'Anterior': 900, 'Inferior': 900, 'Lateral': 900}
+2026-06-14 13:02:06,299 | INFO | Classification label mapping completed.
+2026-06-14 13:02:06,305 | INFO | Dataset normalization and DataLoader setup started.
+2026-06-14 13:02:06,382 | INFO | Dataset normalization and DataLoader setup completed.
+2026-06-14 13:02:06,383 | INFO | DataLoaders ready: train=3600 val=13164 test=26318
+2026-06-14 13:02:06,384 | INFO | DataLoader batches: train=57 val=206 test=412
+2026-06-14 13:02:06,393 | INFO | Standard temporal CNN-Transformer baseline model definition and instantiation started.
+2026-06-14 13:02:06,518 | INFO | Model instantiated. Total params=362052 | Trainable params=362052
+2026-06-14 13:02:06,519 | INFO | Standard temporal CNN-Transformer baseline model definition and instantiation completed.
+2026-06-14 13:02:06,523 | INFO | Loss, optimizer, scheduler, and one-batch sanity check setup started.
+2026-06-14 13:02:07,522 | INFO | One-batch classification sanity check passed. CE loss=1.360139
+2026-06-14 13:02:07,523 | INFO | Loss, optimizer, scheduler, and one-batch sanity check setup completed.
+2026-06-14 13:02:07,565 | INFO | Training started for 50 epochs.
+2026-06-14 13:02:08,488 | INFO | Epoch 001/050 | train_loss=1.26358 val_loss=0.82343 train_macro_f1=0.4040 val_macro_f1=0.5624 lr=1.000e-04 time=0.9s
+2026-06-14 13:02:08,510 | INFO | New best val macro F1 0.5624 at epoch 1
+2026-06-14 13:02:09,310 | INFO | Epoch 002/050 | train_loss=1.04917 val_loss=0.71466 train_macro_f1=0.5462 val_macro_f1=0.6070 lr=1.000e-04 time=0.8s
+2026-06-14 13:02:09,333 | INFO | New best val macro F1 0.6070 at epoch 2
+2026-06-14 13:02:10,122 | INFO | Epoch 003/050 | train_loss=0.94381 val_loss=0.71853 train_macro_f1=0.6130 val_macro_f1=0.5931 lr=1.000e-04 time=0.8s
+2026-06-14 13:02:10,926 | INFO | Epoch 004/050 | train_loss=0.91203 val_loss=0.82082 train_macro_f1=0.6283 val_macro_f1=0.5600 lr=1.000e-04 time=0.8s
+2026-06-14 13:02:11,706 | INFO | Epoch 005/050 | train_loss=0.85921 val_loss=0.64845 train_macro_f1=0.6460 val_macro_f1=0.6112 lr=1.000e-04 time=0.8s
+2026-06-14 13:02:11,728 | INFO | New best val macro F1 0.6112 at epoch 5
+2026-06-14 13:02:11,748 | INFO | Saved periodic 5-epoch checkpoint: /home/nugee/code-program/code-thesis/hibah/myocardial-infarction-localization/outputs/4_alpanet_pretrain_no_attention/20260614_130205/checkpoints/per_5fold/epoch_005.pt
+2026-06-14 13:02:12,511 | INFO | Epoch 006/050 | train_loss=0.81387 val_loss=0.66301 train_macro_f1=0.6735 val_macro_f1=0.6061 lr=1.000e-04 time=0.8s
+2026-06-14 13:02:13,301 | INFO | Epoch 007/050 | train_loss=0.78140 val_loss=0.61099 train_macro_f1=0.6895 val_macro_f1=0.6241 lr=1.000e-04 time=0.8s
+2026-06-14 13:02:13,323 | INFO | New best val macro F1 0.6241 at epoch 7
+2026-06-14 13:02:14,130 | INFO | Epoch 008/050 | train_loss=0.75983 val_loss=0.58493 train_macro_f1=0.6998 val_macro_f1=0.6286 lr=1.000e-04 time=0.8s
+2026-06-14 13:02:14,151 | INFO | New best val macro F1 0.6286 at epoch 8
+2026-06-14 13:02:14,932 | INFO | Epoch 009/050 | train_loss=0.74369 val_loss=0.58105 train_macro_f1=0.7050 val_macro_f1=0.6323 lr=1.000e-04 time=0.8s
+2026-06-14 13:02:14,955 | INFO | New best val macro F1 0.6323 at epoch 9
+2026-06-14 13:02:15,795 | INFO | Epoch 010/050 | train_loss=0.72518 val_loss=0.59543 train_macro_f1=0.7175 val_macro_f1=0.6278 lr=1.000e-04 time=0.8s
+2026-06-14 13:02:15,817 | INFO | Saved periodic 5-epoch checkpoint: /home/nugee/code-program/code-thesis/hibah/myocardial-infarction-localization/outputs/4_alpanet_pretrain_no_attention/20260614_130205/checkpoints/per_5fold/epoch_010.pt
+2026-06-14 13:02:16,594 | INFO | Epoch 011/050 | train_loss=0.69464 val_loss=0.58595 train_macro_f1=0.7317 val_macro_f1=0.6346 lr=1.000e-04 time=0.8s
+2026-06-14 13:02:16,616 | INFO | New best val macro F1 0.6346 at epoch 11
+2026-06-14 13:02:17,392 | INFO | Epoch 012/050 | train_loss=0.67363 val_loss=0.54886 train_macro_f1=0.7346 val_macro_f1=0.6488 lr=1.000e-04 time=0.8s
+2026-06-14 13:02:17,414 | INFO | New best val macro F1 0.6488 at epoch 12
+2026-06-14 13:02:18,190 | INFO | Epoch 013/050 | train_loss=0.67695 val_loss=0.55971 train_macro_f1=0.7350 val_macro_f1=0.6463 lr=1.000e-04 time=0.8s
+2026-06-14 13:02:18,968 | INFO | Epoch 014/050 | train_loss=0.65704 val_loss=0.62139 train_macro_f1=0.7307 val_macro_f1=0.6262 lr=1.000e-04 time=0.8s
+2026-06-14 13:02:19,763 | INFO | Epoch 015/050 | train_loss=0.64534 val_loss=0.55992 train_macro_f1=0.7497 val_macro_f1=0.6474 lr=1.000e-04 time=0.8s
+2026-06-14 13:02:19,785 | INFO | Saved periodic 5-epoch checkpoint: /home/nugee/code-program/code-thesis/hibah/myocardial-infarction-localization/outputs/4_alpanet_pretrain_no_attention/20260614_130205/checkpoints/per_5fold/epoch_015.pt
+2026-06-14 13:02:20,555 | INFO | Epoch 016/050 | train_loss=0.62075 val_loss=0.52821 train_macro_f1=0.7487 val_macro_f1=0.6605 lr=1.000e-04 time=0.8s
+2026-06-14 13:02:20,577 | INFO | New best val macro F1 0.6605 at epoch 16
+2026-06-14 13:02:21,369 | INFO | Epoch 017/050 | train_loss=0.63551 val_loss=0.67044 train_macro_f1=0.7452 val_macro_f1=0.6164 lr=1.000e-04 time=0.8s
+2026-06-14 13:02:22,158 | INFO | Epoch 018/050 | train_loss=0.61440 val_loss=0.67669 train_macro_f1=0.7568 val_macro_f1=0.6159 lr=1.000e-04 time=0.8s
+2026-06-14 13:02:22,956 | INFO | Epoch 019/050 | train_loss=0.60976 val_loss=0.54071 train_macro_f1=0.7586 val_macro_f1=0.6615 lr=1.000e-04 time=0.8s
+2026-06-14 13:02:22,979 | INFO | New best val macro F1 0.6615 at epoch 19
+2026-06-14 13:02:23,779 | INFO | Epoch 020/050 | train_loss=0.59170 val_loss=0.59870 train_macro_f1=0.7633 val_macro_f1=0.6398 lr=1.000e-04 time=0.8s
+2026-06-14 13:02:23,800 | INFO | Saved periodic 5-epoch checkpoint: /home/nugee/code-program/code-thesis/hibah/myocardial-infarction-localization/outputs/4_alpanet_pretrain_no_attention/20260614_130205/checkpoints/per_5fold/epoch_020.pt
+2026-06-14 13:02:24,582 | INFO | Epoch 021/050 | train_loss=0.57920 val_loss=0.60646 train_macro_f1=0.7772 val_macro_f1=0.6400 lr=1.000e-04 time=0.8s
+2026-06-14 13:02:25,360 | INFO | Epoch 022/050 | train_loss=0.57417 val_loss=0.57227 train_macro_f1=0.7734 val_macro_f1=0.6484 lr=1.000e-04 time=0.8s
+2026-06-14 13:02:26,151 | INFO | Epoch 023/050 | train_loss=0.56374 val_loss=0.52821 train_macro_f1=0.7781 val_macro_f1=0.6635 lr=1.000e-04 time=0.8s
+2026-06-14 13:02:26,173 | INFO | New best val macro F1 0.6635 at epoch 23
+2026-06-14 13:02:26,989 | INFO | Epoch 024/050 | train_loss=0.56893 val_loss=0.55048 train_macro_f1=0.7789 val_macro_f1=0.6541 lr=1.000e-04 time=0.8s
+2026-06-14 13:02:27,806 | INFO | Epoch 025/050 | train_loss=0.55046 val_loss=0.55356 train_macro_f1=0.7837 val_macro_f1=0.6558 lr=1.000e-04 time=0.8s
+2026-06-14 13:02:27,829 | INFO | Saved periodic 5-epoch checkpoint: /home/nugee/code-program/code-thesis/hibah/myocardial-infarction-localization/outputs/4_alpanet_pretrain_no_attention/20260614_130205/checkpoints/per_5fold/epoch_025.pt
+2026-06-14 13:02:28,626 | INFO | Epoch 026/050 | train_loss=0.54723 val_loss=0.50663 train_macro_f1=0.7856 val_macro_f1=0.6676 lr=1.000e-04 time=0.8s
+2026-06-14 13:02:28,649 | INFO | New best val macro F1 0.6676 at epoch 26
+2026-06-14 13:02:29,427 | INFO | Epoch 027/050 | train_loss=0.53929 val_loss=0.60694 train_macro_f1=0.7856 val_macro_f1=0.6390 lr=1.000e-04 time=0.8s
+2026-06-14 13:02:30,208 | INFO | Epoch 028/050 | train_loss=0.54466 val_loss=0.51321 train_macro_f1=0.7900 val_macro_f1=0.6686 lr=1.000e-04 time=0.8s
+2026-06-14 13:02:30,230 | INFO | New best val macro F1 0.6686 at epoch 28
+2026-06-14 13:02:30,993 | INFO | Epoch 029/050 | train_loss=0.51904 val_loss=0.57760 train_macro_f1=0.8033 val_macro_f1=0.6469 lr=1.000e-04 time=0.8s
+2026-06-14 13:02:31,824 | INFO | Epoch 030/050 | train_loss=0.52430 val_loss=0.50573 train_macro_f1=0.7936 val_macro_f1=0.6790 lr=1.000e-04 time=0.8s
+2026-06-14 13:02:31,847 | INFO | New best val macro F1 0.6790 at epoch 30
+2026-06-14 13:02:31,868 | INFO | Saved periodic 5-epoch checkpoint: /home/nugee/code-program/code-thesis/hibah/myocardial-infarction-localization/outputs/4_alpanet_pretrain_no_attention/20260614_130205/checkpoints/per_5fold/epoch_030.pt
+2026-06-14 13:02:32,670 | INFO | Epoch 031/050 | train_loss=0.52762 val_loss=0.53448 train_macro_f1=0.7948 val_macro_f1=0.6608 lr=1.000e-04 time=0.8s
+2026-06-14 13:02:33,480 | INFO | Epoch 032/050 | train_loss=0.50389 val_loss=0.56482 train_macro_f1=0.8004 val_macro_f1=0.6604 lr=1.000e-04 time=0.8s
+2026-06-14 13:02:34,282 | INFO | Epoch 033/050 | train_loss=0.49700 val_loss=0.53995 train_macro_f1=0.8095 val_macro_f1=0.6705 lr=1.000e-04 time=0.8s
+2026-06-14 13:02:35,111 | INFO | Epoch 034/050 | train_loss=0.50776 val_loss=0.54352 train_macro_f1=0.8034 val_macro_f1=0.6639 lr=1.000e-04 time=0.8s
+2026-06-14 13:02:35,925 | INFO | Epoch 035/050 | train_loss=0.47343 val_loss=0.54476 train_macro_f1=0.8167 val_macro_f1=0.6725 lr=1.000e-04 time=0.8s
+2026-06-14 13:02:35,946 | INFO | Saved periodic 5-epoch checkpoint: /home/nugee/code-program/code-thesis/hibah/myocardial-infarction-localization/outputs/4_alpanet_pretrain_no_attention/20260614_130205/checkpoints/per_5fold/epoch_035.pt
+2026-06-14 13:02:36,761 | INFO | Epoch 036/050 | train_loss=0.49303 val_loss=0.58154 train_macro_f1=0.8061 val_macro_f1=0.6555 lr=5.000e-05 time=0.8s
+2026-06-14 13:02:37,582 | INFO | Epoch 037/050 | train_loss=0.47463 val_loss=0.54682 train_macro_f1=0.8186 val_macro_f1=0.6605 lr=5.000e-05 time=0.8s
+2026-06-14 13:02:38,420 | INFO | Epoch 038/050 | train_loss=0.46266 val_loss=0.55082 train_macro_f1=0.8199 val_macro_f1=0.6685 lr=5.000e-05 time=0.8s
+2026-06-14 13:02:39,218 | INFO | Epoch 039/050 | train_loss=0.45553 val_loss=0.55288 train_macro_f1=0.8207 val_macro_f1=0.6700 lr=5.000e-05 time=0.8s
+2026-06-14 13:02:40,029 | INFO | Epoch 040/050 | train_loss=0.46102 val_loss=0.54270 train_macro_f1=0.8162 val_macro_f1=0.6728 lr=5.000e-05 time=0.8s
+2026-06-14 13:02:40,052 | INFO | Saved periodic 5-epoch checkpoint: /home/nugee/code-program/code-thesis/hibah/myocardial-infarction-localization/outputs/4_alpanet_pretrain_no_attention/20260614_130205/checkpoints/per_5fold/epoch_040.pt
+2026-06-14 13:02:40,841 | INFO | Epoch 041/050 | train_loss=0.44981 val_loss=0.54711 train_macro_f1=0.8284 val_macro_f1=0.6661 lr=5.000e-05 time=0.8s
+2026-06-14 13:02:41,622 | INFO | Epoch 042/050 | train_loss=0.46029 val_loss=0.50250 train_macro_f1=0.8177 val_macro_f1=0.6869 lr=5.000e-05 time=0.8s
+2026-06-14 13:02:41,646 | INFO | New best val macro F1 0.6869 at epoch 42
+2026-06-14 13:02:42,452 | INFO | Epoch 043/050 | train_loss=0.45300 val_loss=0.53058 train_macro_f1=0.8253 val_macro_f1=0.6683 lr=5.000e-05 time=0.8s
+2026-06-14 13:02:43,243 | INFO | Epoch 044/050 | train_loss=0.45640 val_loss=0.55607 train_macro_f1=0.8275 val_macro_f1=0.6607 lr=5.000e-05 time=0.8s
+2026-06-14 13:02:44,034 | INFO | Epoch 045/050 | train_loss=0.43804 val_loss=0.51977 train_macro_f1=0.8261 val_macro_f1=0.6740 lr=5.000e-05 time=0.8s
+2026-06-14 13:02:44,057 | INFO | Saved periodic 5-epoch checkpoint: /home/nugee/code-program/code-thesis/hibah/myocardial-infarction-localization/outputs/4_alpanet_pretrain_no_attention/20260614_130205/checkpoints/per_5fold/epoch_045.pt
+2026-06-14 13:02:44,842 | INFO | Epoch 046/050 | train_loss=0.43737 val_loss=0.52371 train_macro_f1=0.8300 val_macro_f1=0.6774 lr=5.000e-05 time=0.8s
+2026-06-14 13:02:45,639 | INFO | Epoch 047/050 | train_loss=0.45230 val_loss=0.58877 train_macro_f1=0.8179 val_macro_f1=0.6549 lr=5.000e-05 time=0.8s
+2026-06-14 13:02:46,438 | INFO | Epoch 048/050 | train_loss=0.42801 val_loss=0.56352 train_macro_f1=0.8313 val_macro_f1=0.6638 lr=2.500e-05 time=0.8s
+2026-06-14 13:02:47,219 | INFO | Epoch 049/050 | train_loss=0.42407 val_loss=0.54042 train_macro_f1=0.8393 val_macro_f1=0.6722 lr=2.500e-05 time=0.8s
+2026-06-14 13:02:48,021 | INFO | Epoch 050/050 | train_loss=0.42601 val_loss=0.53391 train_macro_f1=0.8329 val_macro_f1=0.6716 lr=2.500e-05 time=0.8s
+2026-06-14 13:02:48,042 | INFO | Saved periodic 5-epoch checkpoint: /home/nugee/code-program/code-thesis/hibah/myocardial-infarction-localization/outputs/4_alpanet_pretrain_no_attention/20260614_130205/checkpoints/per_5fold/epoch_050.pt
+2026-06-14 13:02:48,043 | INFO | Training finished. Best epoch=42 | best_val_macro_f1=0.6869
+2026-06-14 13:02:48,051 | INFO | Final validation and test evaluation started.
+2026-06-14 13:02:48,072 | INFO | Loaded best macro-F1 checkpoint from epoch 42 for final validation/test evaluation
+2026-06-14 13:02:49,129 | INFO | Final validation metrics: {'accuracy': 0.8123670616833789, 'balanced_accuracy': 0.7660700824184312, 'macro_f1': 0.6869411714879522, 'micro_f1': 0.8123670616833789, 'weighted_f1': 0.8322913183090825, 'f1_Normal': 0.8941719437587207, 'sensitivity_Normal': 0.8287902904894549, 'specificity_Normal': 0.919344473007712, 'auc_Normal': 0.9514250511734866, 'f1_Anterior': 0.5453453453453454, 'sensitivity_Anterior': 0.6560693641618497, 'specificity_Anterior': 0.9583867864015394, 'auc_Anterior': 0.9360907160362912, 'f1_Inferior': 0.5407677220509947, 'sensitivity_Inferior': 0.8205782312925171, 'specificity_Inferior': 0.8808808808808809, 'auc_Inferior': 0.9176536230107658, 'f1_Lateral': 0.767479674796748, 'sensitivity_Lateral': 0.7588424437299035, 'specificity_Lateral': 0.9771812080536912, 'auc_Lateral': 0.9601340123869743, 'macro_auc': 0.9413258506518795}
+2026-06-14 13:02:49,130 | INFO | Final test metrics: {'accuracy': 0.8039744661448438, 'balanced_accuracy': 0.7770401283174426, 'macro_f1': 0.6958528433952547, 'micro_f1': 0.8039744661448438, 'weighted_f1': 0.824759284180868, 'f1_Normal': 0.8852325042905009, 'sensitivity_Normal': 0.8153352067442794, 'specificity_Normal': 0.9165884194053208, 'auc_Normal': 0.9482517697513866, 'f1_Anterior': 0.6117576842733512, 'sensitivity_Anterior': 0.740606936416185, 'specificity_Anterior': 0.9622202614903345, 'auc_Anterior': 0.9494007967160472, 'f1_Inferior': 0.5372559095580678, 'sensitivity_Inferior': 0.8330677290836653, 'specificity_Inferior': 0.8663054435483871, 'auc_Inferior': 0.9287732470655016, 'f1_Lateral': 0.7491652754590985, 'sensitivity_Lateral': 0.7191506410256411, 'specificity_Lateral': 0.9789690202333977, 'auc_Lateral': 0.9575073875231687, 'macro_auc': 0.945983300264026}
+2026-06-14 13:02:53,444 | INFO | Final validation and test evaluation completed.
+2026-06-14 13:02:53,450 | INFO | Transfer-ready artifact export started.
+2026-06-14 13:02:53,460 | INFO | Transfer-ready artifacts saved to /home/nugee/code-program/code-thesis/hibah/myocardial-infarction-localization/outputs/4_alpanet_pretrain_no_attention/20260614_130205/transfer_ready
+2026-06-14 13:02:53,461 | INFO | Transfer-ready artifact export completed.
+2026-06-14 13:02:53,482 | INFO | Plot and diagnostic artifact generation started.
+2026-06-14 13:02:53,935 | INFO | Standard CNN-Transformer baseline does not produce ALPA attention diagnostics or lead-prior heatmaps.
+2026-06-14 13:02:53,936 | INFO | Plot and diagnostic artifact generation completed.
+2026-06-14 13:02:53,941 | INFO | Transfer compatibility sanity check started.
+2026-06-14 13:02:53,967 | INFO | Transfer compatibility sanity check passed.
+2026-06-14 13:02:53,967 | INFO | Run finished at: 2026-06-14 13:02:53
+2026-06-14 13:02:53,967 | INFO | Total run duration: 48.39 seconds (0.81 minutes)
+2026-06-14 13:02:53,968 | INFO | Standard CNN-Transformer baseline pretraining notebook completed successfully. Output directory: /home/nugee/code-program/code-thesis/hibah/myocardial-infarction-localization/outputs/4_alpanet_pretrain_no_attention/20260614_130205
+2026-06-14 13:03:26,942 | INFO | ========================================================================================
+2026-06-14 13:03:26,942 | INFO | Standard CNN-Transformer baseline logger | Algorithm: Standard CNN-Transformer Baseline
+2026-06-14 13:03:26,942 | INFO | Run started at: 2026-06-14 13:03:26
+2026-06-14 13:03:26,943 | INFO | Run ID: 20260614_130326
+2026-06-14 13:03:26,943 | INFO | Output directory: /home/nugee/code-program/code-thesis/hibah/myocardial-infarction-localization/outputs/4_alpanet_pretrain_no_attention/20260614_130326
+2026-06-14 13:03:26,943 | INFO | Root output log: /home/nugee/code-program/code-thesis/hibah/myocardial-infarction-localization/output.log
+2026-06-14 13:03:26,944 | INFO | Dataset directory: /home/nugee/code-program/code-thesis/hibah/myocardial-infarction-localization/dataset/ptb_xl
+2026-06-14 13:03:26,944 | INFO | Device: cuda
+2026-06-14 13:03:26,944 | INFO | Planned epochs: 50 | Batch size: 64 | Learning rate: 1.000e-04 | Weight decay: 1.000e-04
+2026-06-14 13:03:26,945 | INFO | Early stopping enabled: False | Loss: CrossEntropyLoss | Head activation: softmax
+2026-06-14 13:03:26,945 | INFO | Main labels: ['Normal', 'Anterior', 'Inferior', 'Lateral']
+2026-06-14 13:03:26,945 | INFO | Loss role map: {'CrossEntropyLoss': 'Directly optimizes mutually exclusive 4-class classification logits for Normal, Anterior, Inferior, and Lateral.'}
+2026-06-14 13:03:26,945 | INFO | ========================================================================================
+2026-06-14 13:03:26,964 | INFO | Data loading started.
+2026-06-14 13:03:27,579 | INFO | Data loading completed.
+2026-06-14 13:03:27,580 | INFO | Train shape: (92546, 65, 12) | Val shape: (13164, 65, 12) | Test shape: (26318, 65, 12)
+2026-06-14 13:03:27,580 | INFO | Train/val/test beat samples: 92546 / 13164 / 26318
+2026-06-14 13:03:27,593 | INFO | Classification label mapping started.
+2026-06-14 13:03:27,611 | INFO | train class distribution: {'Normal': 70602, 'Anterior': 4667, 'Inferior': 8614, 'Lateral': 8663}
+2026-06-14 13:03:27,618 | INFO | val class distribution: {'Normal': 10052, 'Anterior': 692, 'Inferior': 1176, 'Lateral': 1244}
+2026-06-14 13:03:27,623 | INFO | test class distribution: {'Normal': 19928, 'Anterior': 1384, 'Inferior': 2510, 'Lateral': 2496}
+2026-06-14 13:03:27,634 | INFO | Training beats downsampled per class: [{'class_index': 0, 'class_name': 'Normal', 'available_train_beats': 70602, 'selected_train_beats': 900}, {'class_index': 1, 'class_name': 'Anterior', 'available_train_beats': 4667, 'selected_train_beats': 900}, {'class_index': 2, 'class_name': 'Inferior', 'available_train_beats': 8614, 'selected_train_beats': 900}, {'class_index': 3, 'class_name': 'Lateral', 'available_train_beats': 8663, 'selected_train_beats': 900}]
+2026-06-14 13:03:27,637 | INFO | train_balanced class distribution: {'Normal': 900, 'Anterior': 900, 'Inferior': 900, 'Lateral': 900}
+2026-06-14 13:03:27,642 | INFO | Classification label mapping completed.
+2026-06-14 13:03:27,650 | INFO | Dataset normalization and DataLoader setup started.
+2026-06-14 13:03:27,733 | INFO | Dataset normalization and DataLoader setup completed.
+2026-06-14 13:03:27,734 | INFO | DataLoaders ready: train=3600 val=13164 test=26318
+2026-06-14 13:03:27,734 | INFO | DataLoader batches: train=57 val=206 test=412
+2026-06-14 13:03:27,743 | INFO | Standard temporal CNN-Transformer baseline model definition and instantiation started.
+2026-06-14 13:03:27,755 | INFO | Model instantiated. Total params=362052 | Trainable params=362052
+2026-06-14 13:03:27,756 | INFO | Standard temporal CNN-Transformer baseline model definition and instantiation completed.
+2026-06-14 13:03:27,761 | INFO | Loss, optimizer, scheduler, and one-batch sanity check setup started.
+2026-06-14 13:03:27,884 | INFO | One-batch classification sanity check passed. CE loss=1.389179
+2026-06-14 13:03:27,885 | INFO | Loss, optimizer, scheduler, and one-batch sanity check setup completed.
+2026-06-14 13:03:27,923 | INFO | Training started for 50 epochs.
+2026-06-14 13:03:28,815 | INFO | Epoch 001/050 | train_loss=1.32463 val_loss=1.09124 train_macro_f1=0.3676 val_macro_f1=0.4866 lr=1.000e-04 time=0.9s
+2026-06-14 13:03:28,837 | INFO | New best val macro F1 0.4866 at epoch 1
+2026-06-14 13:03:29,677 | INFO | Epoch 002/050 | train_loss=1.08699 val_loss=0.93612 train_macro_f1=0.5277 val_macro_f1=0.5200 lr=1.000e-04 time=0.8s
+2026-06-14 13:03:29,701 | INFO | New best val macro F1 0.5200 at epoch 2
+2026-06-14 13:03:30,616 | INFO | Epoch 003/050 | train_loss=0.96560 val_loss=0.77452 train_macro_f1=0.6034 val_macro_f1=0.5655 lr=1.000e-04 time=0.9s
+2026-06-14 13:03:30,641 | INFO | New best val macro F1 0.5655 at epoch 3
+2026-06-14 13:03:31,515 | INFO | Epoch 004/050 | train_loss=0.89934 val_loss=0.70400 train_macro_f1=0.6333 val_macro_f1=0.5900 lr=1.000e-04 time=0.9s
+2026-06-14 13:03:31,539 | INFO | New best val macro F1 0.5900 at epoch 4
+2026-06-14 13:03:32,435 | INFO | Epoch 005/050 | train_loss=0.85911 val_loss=0.69459 train_macro_f1=0.6468 val_macro_f1=0.5979 lr=1.000e-04 time=0.9s
+2026-06-14 13:03:32,459 | INFO | New best val macro F1 0.5979 at epoch 5
+2026-06-14 13:03:32,481 | INFO | Saved periodic 5-epoch checkpoint: /home/nugee/code-program/code-thesis/hibah/myocardial-infarction-localization/outputs/4_alpanet_pretrain_no_attention/20260614_130326/checkpoints/per_5fold/epoch_005.pt
+2026-06-14 13:03:33,305 | INFO | Epoch 006/050 | train_loss=0.81926 val_loss=0.69553 train_macro_f1=0.6678 val_macro_f1=0.5912 lr=1.000e-04 time=0.8s
+2026-06-14 13:03:34,197 | INFO | Epoch 007/050 | train_loss=0.78546 val_loss=0.74935 train_macro_f1=0.6776 val_macro_f1=0.5641 lr=1.000e-04 time=0.9s
+2026-06-14 13:03:35,047 | INFO | Epoch 008/050 | train_loss=0.75453 val_loss=0.76054 train_macro_f1=0.6960 val_macro_f1=0.5568 lr=1.000e-04 time=0.8s
+2026-06-14 13:03:35,893 | INFO | Epoch 009/050 | train_loss=0.74528 val_loss=0.68143 train_macro_f1=0.7007 val_macro_f1=0.6025 lr=1.000e-04 time=0.8s
+2026-06-14 13:03:35,916 | INFO | New best val macro F1 0.6025 at epoch 9
+2026-06-14 13:03:36,728 | INFO | Epoch 010/050 | train_loss=0.72624 val_loss=0.62218 train_macro_f1=0.7100 val_macro_f1=0.6213 lr=1.000e-04 time=0.8s
+2026-06-14 13:03:36,751 | INFO | New best val macro F1 0.6213 at epoch 10
+2026-06-14 13:03:36,775 | INFO | Saved periodic 5-epoch checkpoint: /home/nugee/code-program/code-thesis/hibah/myocardial-infarction-localization/outputs/4_alpanet_pretrain_no_attention/20260614_130326/checkpoints/per_5fold/epoch_010.pt
+2026-06-14 13:03:37,591 | INFO | Epoch 011/050 | train_loss=0.70363 val_loss=0.57024 train_macro_f1=0.7238 val_macro_f1=0.6391 lr=1.000e-04 time=0.8s
+2026-06-14 13:03:37,615 | INFO | New best val macro F1 0.6391 at epoch 11
+2026-06-14 13:03:38,438 | INFO | Epoch 012/050 | train_loss=0.69146 val_loss=0.64767 train_macro_f1=0.7266 val_macro_f1=0.6187 lr=1.000e-04 time=0.8s
+2026-06-14 13:03:39,275 | INFO | Epoch 013/050 | train_loss=0.67729 val_loss=0.72638 train_macro_f1=0.7318 val_macro_f1=0.5956 lr=1.000e-04 time=0.8s
+2026-06-14 13:03:40,119 | INFO | Epoch 014/050 | train_loss=0.68526 val_loss=0.62429 train_macro_f1=0.7224 val_macro_f1=0.6307 lr=1.000e-04 time=0.8s
+2026-06-14 13:03:40,973 | INFO | Epoch 015/050 | train_loss=0.65929 val_loss=0.57731 train_macro_f1=0.7362 val_macro_f1=0.6452 lr=1.000e-04 time=0.8s
+2026-06-14 13:03:40,996 | INFO | New best val macro F1 0.6452 at epoch 15
+2026-06-14 13:03:41,007 | INFO | Saved periodic 5-epoch checkpoint: /home/nugee/code-program/code-thesis/hibah/myocardial-infarction-localization/outputs/4_alpanet_pretrain_no_attention/20260614_130326/checkpoints/per_5fold/epoch_015.pt
+2026-06-14 13:03:41,814 | INFO | Epoch 016/050 | train_loss=0.65467 val_loss=0.62473 train_macro_f1=0.7404 val_macro_f1=0.6299 lr=1.000e-04 time=0.8s
+2026-06-14 13:03:42,641 | INFO | Epoch 017/050 | train_loss=0.63483 val_loss=0.60742 train_macro_f1=0.7562 val_macro_f1=0.6354 lr=1.000e-04 time=0.8s
+2026-06-14 13:03:43,467 | INFO | Epoch 018/050 | train_loss=0.64031 val_loss=0.61776 train_macro_f1=0.7492 val_macro_f1=0.6344 lr=1.000e-04 time=0.8s
+2026-06-14 13:03:44,301 | INFO | Epoch 019/050 | train_loss=0.61337 val_loss=0.68303 train_macro_f1=0.7531 val_macro_f1=0.6161 lr=1.000e-04 time=0.8s
+2026-06-14 13:03:45,116 | INFO | Epoch 020/050 | train_loss=0.61204 val_loss=0.66524 train_macro_f1=0.7635 val_macro_f1=0.6217 lr=1.000e-04 time=0.8s
+2026-06-14 13:03:45,138 | INFO | Saved periodic 5-epoch checkpoint: /home/nugee/code-program/code-thesis/hibah/myocardial-infarction-localization/outputs/4_alpanet_pretrain_no_attention/20260614_130326/checkpoints/per_5fold/epoch_020.pt
+2026-06-14 13:03:45,934 | INFO | Epoch 021/050 | train_loss=0.59646 val_loss=0.60349 train_macro_f1=0.7675 val_macro_f1=0.6389 lr=5.000e-05 time=0.8s
+2026-06-14 13:03:46,748 | INFO | Epoch 022/050 | train_loss=0.58280 val_loss=0.62405 train_macro_f1=0.7691 val_macro_f1=0.6309 lr=5.000e-05 time=0.8s
+2026-06-14 13:03:47,560 | INFO | Epoch 023/050 | train_loss=0.57426 val_loss=0.55890 train_macro_f1=0.7761 val_macro_f1=0.6582 lr=5.000e-05 time=0.8s
+2026-06-14 13:03:47,584 | INFO | New best val macro F1 0.6582 at epoch 23
+2026-06-14 13:03:48,397 | INFO | Epoch 024/050 | train_loss=0.57112 val_loss=0.56798 train_macro_f1=0.7775 val_macro_f1=0.6518 lr=5.000e-05 time=0.8s
+2026-06-14 13:03:49,210 | INFO | Epoch 025/050 | train_loss=0.55765 val_loss=0.51957 train_macro_f1=0.7785 val_macro_f1=0.6745 lr=5.000e-05 time=0.8s
+2026-06-14 13:03:49,235 | INFO | New best val macro F1 0.6745 at epoch 25
+2026-06-14 13:03:49,257 | INFO | Saved periodic 5-epoch checkpoint: /home/nugee/code-program/code-thesis/hibah/myocardial-infarction-localization/outputs/4_alpanet_pretrain_no_attention/20260614_130326/checkpoints/per_5fold/epoch_025.pt
+2026-06-14 13:03:50,061 | INFO | Epoch 026/050 | train_loss=0.55623 val_loss=0.57479 train_macro_f1=0.7821 val_macro_f1=0.6509 lr=5.000e-05 time=0.8s
+2026-06-14 13:03:50,862 | INFO | Epoch 027/050 | train_loss=0.55192 val_loss=0.64505 train_macro_f1=0.7801 val_macro_f1=0.6303 lr=5.000e-05 time=0.8s
+2026-06-14 13:03:51,682 | INFO | Epoch 028/050 | train_loss=0.55272 val_loss=0.59779 train_macro_f1=0.7857 val_macro_f1=0.6447 lr=5.000e-05 time=0.8s
+2026-06-14 13:03:52,496 | INFO | Epoch 029/050 | train_loss=0.54033 val_loss=0.64694 train_macro_f1=0.7875 val_macro_f1=0.6327 lr=5.000e-05 time=0.8s
+2026-06-14 13:03:53,318 | INFO | Epoch 030/050 | train_loss=0.53752 val_loss=0.59479 train_macro_f1=0.7876 val_macro_f1=0.6459 lr=5.000e-05 time=0.8s
+2026-06-14 13:03:53,342 | INFO | Saved periodic 5-epoch checkpoint: /home/nugee/code-program/code-thesis/hibah/myocardial-infarction-localization/outputs/4_alpanet_pretrain_no_attention/20260614_130326/checkpoints/per_5fold/epoch_030.pt
+2026-06-14 13:03:54,152 | INFO | Epoch 031/050 | train_loss=0.54875 val_loss=0.59781 train_macro_f1=0.7803 val_macro_f1=0.6491 lr=2.500e-05 time=0.8s
+2026-06-14 13:03:55,016 | INFO | Epoch 032/050 | train_loss=0.52768 val_loss=0.57471 train_macro_f1=0.7932 val_macro_f1=0.6568 lr=2.500e-05 time=0.8s
+2026-06-14 13:03:55,845 | INFO | Epoch 033/050 | train_loss=0.53318 val_loss=0.56000 train_macro_f1=0.7918 val_macro_f1=0.6635 lr=2.500e-05 time=0.8s
+2026-06-14 13:03:56,634 | INFO | Epoch 034/050 | train_loss=0.53173 val_loss=0.57300 train_macro_f1=0.7917 val_macro_f1=0.6577 lr=2.500e-05 time=0.8s
+2026-06-14 13:03:57,459 | INFO | Epoch 035/050 | train_loss=0.53311 val_loss=0.56429 train_macro_f1=0.7873 val_macro_f1=0.6615 lr=2.500e-05 time=0.8s
+2026-06-14 13:03:57,482 | INFO | Saved periodic 5-epoch checkpoint: /home/nugee/code-program/code-thesis/hibah/myocardial-infarction-localization/outputs/4_alpanet_pretrain_no_attention/20260614_130326/checkpoints/per_5fold/epoch_035.pt
+2026-06-14 13:03:58,277 | INFO | Epoch 036/050 | train_loss=0.52014 val_loss=0.57380 train_macro_f1=0.8036 val_macro_f1=0.6573 lr=2.500e-05 time=0.8s
+2026-06-14 13:03:59,079 | INFO | Epoch 037/050 | train_loss=0.51591 val_loss=0.60156 train_macro_f1=0.8009 val_macro_f1=0.6535 lr=1.250e-05 time=0.8s
+2026-06-14 13:03:59,871 | INFO | Epoch 038/050 | train_loss=0.51410 val_loss=0.55965 train_macro_f1=0.7882 val_macro_f1=0.6617 lr=1.250e-05 time=0.8s
+2026-06-14 13:04:00,678 | INFO | Epoch 039/050 | train_loss=0.51917 val_loss=0.58386 train_macro_f1=0.7982 val_macro_f1=0.6560 lr=1.250e-05 time=0.8s
+2026-06-14 13:04:01,467 | INFO | Epoch 040/050 | train_loss=0.50636 val_loss=0.58622 train_macro_f1=0.8041 val_macro_f1=0.6540 lr=1.250e-05 time=0.8s
+2026-06-14 13:04:01,490 | INFO | Saved periodic 5-epoch checkpoint: /home/nugee/code-program/code-thesis/hibah/myocardial-infarction-localization/outputs/4_alpanet_pretrain_no_attention/20260614_130326/checkpoints/per_5fold/epoch_040.pt
+2026-06-14 13:04:02,285 | INFO | Epoch 041/050 | train_loss=0.52539 val_loss=0.56740 train_macro_f1=0.7884 val_macro_f1=0.6608 lr=1.250e-05 time=0.8s
+2026-06-14 13:04:03,091 | INFO | Epoch 042/050 | train_loss=0.52029 val_loss=0.57274 train_macro_f1=0.7954 val_macro_f1=0.6610 lr=1.250e-05 time=0.8s
+2026-06-14 13:04:03,900 | INFO | Epoch 043/050 | train_loss=0.50940 val_loss=0.60778 train_macro_f1=0.7994 val_macro_f1=0.6495 lr=6.250e-06 time=0.8s
+2026-06-14 13:04:04,696 | INFO | Epoch 044/050 | train_loss=0.51468 val_loss=0.56178 train_macro_f1=0.8044 val_macro_f1=0.6622 lr=6.250e-06 time=0.8s
+2026-06-14 13:04:05,502 | INFO | Epoch 045/050 | train_loss=0.50971 val_loss=0.60265 train_macro_f1=0.8012 val_macro_f1=0.6486 lr=6.250e-06 time=0.8s
+2026-06-14 13:04:05,526 | INFO | Saved periodic 5-epoch checkpoint: /home/nugee/code-program/code-thesis/hibah/myocardial-infarction-localization/outputs/4_alpanet_pretrain_no_attention/20260614_130326/checkpoints/per_5fold/epoch_045.pt
+2026-06-14 13:04:06,342 | INFO | Epoch 046/050 | train_loss=0.50361 val_loss=0.59168 train_macro_f1=0.8012 val_macro_f1=0.6544 lr=6.250e-06 time=0.8s
+2026-06-14 13:04:07,161 | INFO | Epoch 047/050 | train_loss=0.51671 val_loss=0.57396 train_macro_f1=0.7916 val_macro_f1=0.6596 lr=6.250e-06 time=0.8s
+2026-06-14 13:04:07,954 | INFO | Epoch 048/050 | train_loss=0.50843 val_loss=0.56370 train_macro_f1=0.8050 val_macro_f1=0.6603 lr=6.250e-06 time=0.8s
+2026-06-14 13:04:08,769 | INFO | Epoch 049/050 | train_loss=0.50917 val_loss=0.59234 train_macro_f1=0.8046 val_macro_f1=0.6533 lr=3.125e-06 time=0.8s
+2026-06-14 13:04:09,587 | INFO | Epoch 050/050 | train_loss=0.50011 val_loss=0.58504 train_macro_f1=0.8057 val_macro_f1=0.6548 lr=3.125e-06 time=0.8s
+2026-06-14 13:04:09,610 | INFO | Saved periodic 5-epoch checkpoint: /home/nugee/code-program/code-thesis/hibah/myocardial-infarction-localization/outputs/4_alpanet_pretrain_no_attention/20260614_130326/checkpoints/per_5fold/epoch_050.pt
+2026-06-14 13:04:09,611 | INFO | Training finished. Best epoch=25 | best_val_macro_f1=0.6745
+2026-06-14 13:04:09,620 | INFO | Final validation and test evaluation started.
+2026-06-14 13:04:09,644 | INFO | Loaded best macro-F1 checkpoint from epoch 25 for final validation/test evaluation
+2026-06-14 13:04:10,726 | INFO | Final validation metrics: {'accuracy': 0.7963384989364934, 'balanced_accuracy': 0.7824678260631002, 'macro_f1': 0.6745053494239641, 'micro_f1': 0.7963384989364934, 'weighted_f1': 0.8202704737719081, 'f1_Normal': 0.8814390842191333, 'sensitivity_Normal': 0.8043175487465181, 'specificity_Normal': 0.9331619537275064, 'auc_Normal': 0.9552192672652338, 'f1_Anterior': 0.5174825174825175, 'sensitivity_Anterior': 0.8020231213872833, 'specificity_Anterior': 0.9279987171263631, 'auc_Anterior': 0.9334566075407758, 'f1_Inferior': 0.5347530316474416, 'sensitivity_Inferior': 0.7687074829931972, 'specificity_Inferior': 0.8914748081414748, 'auc_Inferior': 0.916947488872092, 'f1_Lateral': 0.7643467643467643, 'sensitivity_Lateral': 0.7548231511254019, 'specificity_Lateral': 0.977013422818792, 'auc_Lateral': 0.9566461296100477, 'macro_auc': 0.9405673733220373}
+2026-06-14 13:04:10,727 | INFO | Final test metrics: {'accuracy': 0.779162550345771, 'balanced_accuracy': 0.7656150985639919, 'macro_f1': 0.6593666957463576, 'micro_f1': 0.779162550345771, 'weighted_f1': 0.8044499207527253, 'f1_Normal': 0.8688148250587747, 'sensitivity_Normal': 0.7881372942593337, 'specificity_Normal': 0.9184663536776213, 'auc_Normal': 0.9420579265323867, 'f1_Anterior': 0.5074626865671642, 'sensitivity_Anterior': 0.7984104046242775, 'specificity_Anterior': 0.9251624288120639, 'auc_Anterior': 0.9374137607677333, 'f1_Inferior': 0.536742934051144, 'sensitivity_Inferior': 0.7944223107569721, 'specificity_Inferior': 0.8771001344086021, 'auc_Inferior': 0.9175103684723471, 'f1_Lateral': 0.7244463373083475, 'sensitivity_Lateral': 0.6814903846153846, 'specificity_Lateral': 0.97905297624045, 'auc_Lateral': 0.9582442562116681, 'macro_auc': 0.9388065779960338}
+2026-06-14 13:04:15,200 | INFO | Final validation and test evaluation completed.
+2026-06-14 13:04:15,207 | INFO | Transfer-ready artifact export started.
+2026-06-14 13:04:15,218 | INFO | Transfer-ready artifacts saved to /home/nugee/code-program/code-thesis/hibah/myocardial-infarction-localization/outputs/4_alpanet_pretrain_no_attention/20260614_130326/transfer_ready
+2026-06-14 13:04:15,218 | INFO | Transfer-ready artifact export completed.
+2026-06-14 13:04:15,239 | INFO | Plot and diagnostic artifact generation started.
+2026-06-14 13:04:15,699 | INFO | Standard CNN-Transformer baseline does not produce ALPA attention diagnostics or lead-prior heatmaps.
+2026-06-14 13:04:15,700 | INFO | Plot and diagnostic artifact generation completed.
+2026-06-14 13:04:15,705 | INFO | Transfer compatibility sanity check started.
+2026-06-14 13:04:15,732 | INFO | Transfer compatibility sanity check passed.
+2026-06-14 13:04:15,733 | INFO | Run finished at: 2026-06-14 13:04:15
+2026-06-14 13:04:15,733 | INFO | Total run duration: 48.79 seconds (0.81 minutes)
+2026-06-14 13:04:15,733 | INFO | Standard CNN-Transformer baseline pretraining notebook completed successfully. Output directory: /home/nugee/code-program/code-thesis/hibah/myocardial-infarction-localization/outputs/4_alpanet_pretrain_no_attention/20260614_130326
+2026-06-14 13:04:32,909 | INFO | ========================================================================================
+2026-06-14 13:04:32,910 | INFO | Standard CNN-Transformer baseline transfer CV logger
+2026-06-14 13:04:32,910 | INFO | Run started at: 2026-06-14 13:04:32
+2026-06-14 13:04:32,910 | INFO | Output directory: /home/nugee/code-program/code-thesis/hibah/myocardial-infarction-localization/outputs/5_alpanet_finetune_no_attention/20260614_130432
+2026-06-14 13:04:32,911 | INFO | Transfer strategy directory: /home/nugee/code-program/code-thesis/hibah/myocardial-infarction-localization/outputs/5_alpanet_finetune_no_attention/20260614_130432/transfer_strategies
+2026-06-14 13:04:32,911 | INFO | Dataset directory: /home/nugee/code-program/code-thesis/hibah/myocardial-infarction-localization/dataset/ptb_diagnostic
+2026-06-14 13:04:32,911 | INFO | Device: cuda
+2026-06-14 13:04:32,911 | INFO | Strategies: ['no_pretrain', 'frozen_backbone', 'partial_finetune', 'full_finetune']
+2026-06-14 13:04:32,912 | INFO | ========================================================================================
+2026-06-14 13:04:32,937 | INFO | Using pretrained source: /home/nugee/code-program/code-thesis/hibah/myocardial-infarction-localization/outputs/4_alpanet_pretrain_no_attention/20260614_130326
+2026-06-14 13:04:32,994 | INFO | Loaded beat data train=(2139, 65, 12) val=(312, 65, 12) test=(507, 65, 12)
+2026-06-14 13:04:32,996 | INFO | train class distribution: {'Normal': 544, 'Anterior': 357, 'Inferior': 657, 'Lateral': 581}
+2026-06-14 13:04:33,001 | INFO | val class distribution: {'Normal': 77, 'Anterior': 47, 'Inferior': 101, 'Lateral': 87}
+2026-06-14 13:04:33,003 | INFO | test class distribution: {'Normal': 141, 'Anterior': 97, 'Inferior': 184, 'Lateral': 85}
+2026-06-14 13:04:33,019 | INFO | Loaded pretrain normalizer from transfer_ready.
+2026-06-14 13:04:33,043 | INFO | Standard temporal CNN-Transformer baseline model definition loaded.
+2026-06-14 13:04:33,044 | INFO | Standard temporal CNN-Transformer baseline model definition completed.
+2026-06-14 13:04:33,131 | INFO | Sanity check started.
+2026-06-14 13:04:33,268 | INFO | No pretrained weights loaded. Fresh random init signature=-0.297899
+2026-06-14 13:04:33,269 | INFO | Parameters trainable=362052 total=362052 ratio=1.0000
+2026-06-14 13:04:33,587 | INFO | Sanity passed strategy=no_pretrain loss=1.4212
+2026-06-14 13:04:33,602 | INFO | Loaded pretrained backbone from /home/nugee/code-program/code-thesis/hibah/myocardial-infarction-localization/outputs/4_alpanet_pretrain_no_attention/20260614_130326/transfer_ready/alpanet_backbone.pt | signature 0.123676 -> -0.097449
+2026-06-14 13:04:33,603 | INFO | Parameters trainable=17284 total=362052 ratio=0.0477
+2026-06-14 13:04:33,679 | INFO | Sanity passed strategy=frozen_backbone loss=1.4046
+2026-06-14 13:04:33,692 | INFO | Loaded pretrained backbone from /home/nugee/code-program/code-thesis/hibah/myocardial-infarction-localization/outputs/4_alpanet_pretrain_no_attention/20260614_130326/transfer_ready/alpanet_backbone.pt | signature -0.047714 -> -0.097449
+2026-06-14 13:05:44,977 | INFO | ========================================================================================
+2026-06-14 13:05:44,978 | INFO | Standard CNN-Transformer baseline transfer CV logger
+2026-06-14 13:05:44,978 | INFO | Run started at: 2026-06-14 13:05:44
+2026-06-14 13:05:44,978 | INFO | Output directory: /home/nugee/code-program/code-thesis/hibah/myocardial-infarction-localization/outputs/5_alpanet_finetune_no_attention/20260614_130544
+2026-06-14 13:05:44,978 | INFO | Transfer strategy directory: /home/nugee/code-program/code-thesis/hibah/myocardial-infarction-localization/outputs/5_alpanet_finetune_no_attention/20260614_130544/transfer_strategies
+2026-06-14 13:05:44,979 | INFO | Dataset directory: /home/nugee/code-program/code-thesis/hibah/myocardial-infarction-localization/dataset/ptb_diagnostic
+2026-06-14 13:05:44,979 | INFO | Device: cuda
+2026-06-14 13:05:44,979 | INFO | Strategies: ['no_pretrain', 'frozen_backbone', 'partial_finetune', 'full_finetune']
+2026-06-14 13:05:44,979 | INFO | ========================================================================================
+2026-06-14 13:05:45,001 | INFO | Using pretrained source: /home/nugee/code-program/code-thesis/hibah/myocardial-infarction-localization/outputs/4_alpanet_pretrain_no_attention/20260614_130326
+2026-06-14 13:05:45,047 | INFO | Loaded beat data train=(2139, 65, 12) val=(312, 65, 12) test=(507, 65, 12)
+2026-06-14 13:05:45,048 | INFO | train class distribution: {'Normal': 544, 'Anterior': 357, 'Inferior': 657, 'Lateral': 581}
+2026-06-14 13:05:45,050 | INFO | val class distribution: {'Normal': 77, 'Anterior': 47, 'Inferior': 101, 'Lateral': 87}
+2026-06-14 13:05:45,052 | INFO | test class distribution: {'Normal': 141, 'Anterior': 97, 'Inferior': 184, 'Lateral': 85}
+2026-06-14 13:05:45,062 | INFO | Loaded pretrain normalizer from transfer_ready.
+2026-06-14 13:05:45,087 | INFO | Standard temporal CNN-Transformer baseline model definition loaded.
+2026-06-14 13:05:45,088 | INFO | Standard temporal CNN-Transformer baseline model definition completed.
+2026-06-14 13:05:45,174 | INFO | Sanity check started.
+2026-06-14 13:05:45,196 | INFO | No pretrained weights loaded. Fresh random init signature=-0.297899
+2026-06-14 13:05:45,196 | INFO | Parameters trainable=362052 total=362052 ratio=1.0000
+2026-06-14 13:05:45,262 | INFO | Sanity passed strategy=no_pretrain loss=1.4212
+2026-06-14 13:05:45,277 | INFO | Loaded pretrained backbone from /home/nugee/code-program/code-thesis/hibah/myocardial-infarction-localization/outputs/4_alpanet_pretrain_no_attention/20260614_130326/transfer_ready/alpanet_backbone.pt | signature 0.123676 -> -0.097449
+2026-06-14 13:05:45,278 | INFO | Parameters trainable=17284 total=362052 ratio=0.0477
+2026-06-14 13:05:45,344 | INFO | Sanity passed strategy=frozen_backbone loss=1.4046
+2026-06-14 13:05:45,357 | INFO | Loaded pretrained backbone from /home/nugee/code-program/code-thesis/hibah/myocardial-infarction-localization/outputs/4_alpanet_pretrain_no_attention/20260614_130326/transfer_ready/alpanet_backbone.pt | signature -0.047714 -> -0.097449
+2026-06-14 13:05:45,358 | INFO | Parameters trainable=299268 total=362052 ratio=0.8266
+2026-06-14 13:05:45,431 | INFO | Sanity passed strategy=partial_finetune loss=1.3532
+2026-06-14 13:05:45,447 | INFO | Loaded pretrained full model from /home/nugee/code-program/code-thesis/hibah/myocardial-infarction-localization/outputs/4_alpanet_pretrain_no_attention/20260614_130326/transfer_ready/alpanet_full_model.pt | signature 0.134218 -> -0.097449
+2026-06-14 13:05:45,448 | INFO | Parameters trainable=362052 total=362052 ratio=1.0000
+2026-06-14 13:05:45,523 | INFO | Sanity passed strategy=full_finetune loss=1.2004
+2026-06-14 13:05:45,540 | INFO | Strategy started: no_pretrain
+2026-06-14 13:06:09,493 | INFO | Finished strategy=no_pretrain fold=1 status=OK
+2026-06-14 13:06:33,824 | INFO | Finished strategy=no_pretrain fold=2 status=OK
+2026-06-14 13:07:00,063 | INFO | Finished strategy=no_pretrain fold=3 status=OK
+2026-06-14 13:07:27,480 | INFO | Finished strategy=no_pretrain fold=4 status=OK
+2026-06-14 13:07:55,779 | INFO | Finished strategy=no_pretrain fold=5 status=OK
+2026-06-14 13:07:55,969 | INFO | Strategy started: frozen_backbone
+2026-06-14 13:08:21,345 | INFO | Finished strategy=frozen_backbone fold=1 status=OK
+2026-06-14 13:08:47,900 | INFO | Finished strategy=frozen_backbone fold=2 status=OK
+2026-06-14 13:09:15,565 | INFO | Finished strategy=frozen_backbone fold=3 status=OK
+2026-06-14 13:09:44,732 | INFO | Finished strategy=frozen_backbone fold=4 status=OK
+2026-06-14 13:10:15,105 | INFO | Finished strategy=frozen_backbone fold=5 status=OK
+2026-06-14 13:10:15,340 | INFO | Strategy started: partial_finetune
+2026-06-14 13:10:50,606 | INFO | Finished strategy=partial_finetune fold=1 status=OK
+2026-06-14 13:11:26,374 | INFO | Finished strategy=partial_finetune fold=2 status=OK
+2026-06-14 13:12:03,651 | INFO | Finished strategy=partial_finetune fold=3 status=OK
+2026-06-14 13:12:42,268 | INFO | Finished strategy=partial_finetune fold=4 status=OK
+2026-06-14 13:13:23,222 | INFO | Finished strategy=partial_finetune fold=5 status=OK
+2026-06-14 13:13:23,513 | INFO | Strategy started: full_finetune
+2026-06-14 13:14:06,205 | INFO | Finished strategy=full_finetune fold=1 status=OK
+2026-06-14 13:14:50,562 | INFO | Finished strategy=full_finetune fold=2 status=OK
+2026-06-14 13:15:36,676 | INFO | Finished strategy=full_finetune fold=3 status=OK
+2026-06-14 13:16:23,707 | INFO | Finished strategy=full_finetune fold=4 status=OK
+2026-06-14 13:17:12,400 | INFO | Finished strategy=full_finetune fold=5 status=OK
+2026-06-14 13:17:14,262 | INFO | Run finished at: 2026-06-14 13:17:14
+2026-06-14 13:17:14,263 | INFO | Total duration 689.28 seconds
+2026-06-14 13:19:15,854 | INFO | ========================================================================================
+2026-06-14 13:19:15,855 | INFO | ALPA-Net logger | Algorithm: ALPA-Net: Anatomical Lead Prior Attention Network
+2026-06-14 13:19:15,855 | INFO | Run started at: 2026-06-14 13:19:15
+2026-06-14 13:19:15,855 | INFO | Run ID: 20260614_131915
+2026-06-14 13:19:15,855 | INFO | Output directory: /home/nugee/code-program/code-thesis/hibah/myocardial-infarction-localization/outputs/2_alpanet_pretrain/20260614_131915
+2026-06-14 13:19:15,855 | INFO | Root output log: /home/nugee/code-program/code-thesis/hibah/myocardial-infarction-localization/output.log
+2026-06-14 13:19:15,856 | INFO | Dataset directory: /home/nugee/code-program/code-thesis/hibah/myocardial-infarction-localization/dataset/ptb_xl
+2026-06-14 13:19:15,856 | INFO | Device: cuda
+2026-06-14 13:19:15,856 | INFO | Planned epochs: 50 | Batch size: 64 | Learning rate: 1.000e-04 | Weight decay: 1.000e-04
+2026-06-14 13:19:15,856 | INFO | Early stopping enabled: False | Loss: CrossEntropyLoss | Head activation: softmax
+2026-06-14 13:19:15,857 | INFO | Main labels: ['Normal', 'Anterior', 'Inferior', 'Lateral']
+2026-06-14 13:19:15,857 | INFO | Loss role map: {'CrossEntropyLoss': 'Directly optimizes mutually exclusive 4-class classification logits for Normal, Anterior, Inferior, and Lateral-involved MI.'}
+2026-06-14 13:19:15,858 | INFO | ========================================================================================
+2026-06-14 13:19:15,878 | INFO | Data loading started.
+2026-06-14 13:19:16,501 | INFO | Data loading completed.
+2026-06-14 13:19:16,501 | INFO | Train shape: (92546, 65, 12) | Val shape: (13164, 65, 12) | Test shape: (26318, 65, 12)
+2026-06-14 13:19:16,501 | INFO | Train/val/test beat samples: 92546 / 13164 / 26318
+2026-06-14 13:19:16,515 | INFO | Classification label mapping started.
+2026-06-14 13:19:16,533 | INFO | train class distribution: {'Normal': 70602, 'Anterior': 4667, 'Inferior': 8614, 'Lateral': 8663}
+2026-06-14 13:19:16,540 | INFO | val class distribution: {'Normal': 10052, 'Anterior': 692, 'Inferior': 1176, 'Lateral': 1244}
+2026-06-14 13:19:16,545 | INFO | test class distribution: {'Normal': 19928, 'Anterior': 1384, 'Inferior': 2510, 'Lateral': 2496}
+2026-06-14 13:19:16,557 | INFO | Training beats downsampled per class: [{'class_index': 0, 'class_name': 'Normal', 'available_train_beats': 70602, 'selected_train_beats': 900}, {'class_index': 1, 'class_name': 'Anterior', 'available_train_beats': 4667, 'selected_train_beats': 900}, {'class_index': 2, 'class_name': 'Inferior', 'available_train_beats': 8614, 'selected_train_beats': 900}, {'class_index': 3, 'class_name': 'Lateral', 'available_train_beats': 8663, 'selected_train_beats': 900}]
+2026-06-14 13:19:16,559 | INFO | train_balanced class distribution: {'Normal': 900, 'Anterior': 900, 'Inferior': 900, 'Lateral': 900}
+2026-06-14 13:19:16,564 | INFO | Classification label mapping completed.
+2026-06-14 13:19:16,570 | INFO | Dataset normalization and DataLoader setup started.
+2026-06-14 13:19:16,644 | INFO | Dataset normalization and DataLoader setup completed.
+2026-06-14 13:19:16,644 | INFO | DataLoaders ready: train=3600 val=13164 test=26318
+2026-06-14 13:19:16,645 | INFO | DataLoader batches: train=57 val=206 test=412
+2026-06-14 13:19:16,664 | INFO | ALPA-Net classification model definition and instantiation started.
+2026-06-14 13:19:16,808 | INFO | Model instantiated. Total params=513493 | Trainable params=513493
+2026-06-14 13:19:16,809 | INFO | ALPA-Net classification model definition and instantiation completed.
+2026-06-14 13:19:16,816 | INFO | Loss, optimizer, scheduler, and one-batch sanity check setup started.
+2026-06-14 13:19:17,840 | INFO | One-batch classification sanity check passed. CE loss=1.362932
+2026-06-14 13:19:17,841 | INFO | Loss, optimizer, scheduler, and one-batch sanity check setup completed.
+2026-06-14 13:19:17,874 | INFO | Training started for 50 epochs.
+2026-06-14 13:19:20,489 | INFO | Epoch 001/050 | train_loss=1.29819 val_loss=1.11058 train_macro_f1=0.3638 val_macro_f1=0.3846 lr=1.000e-04 time=2.6s
+2026-06-14 13:19:20,517 | INFO | New best val macro F1 0.3846 at epoch 1
+2026-06-14 13:19:23,098 | INFO | Epoch 002/050 | train_loss=1.13702 val_loss=0.74098 train_macro_f1=0.4737 val_macro_f1=0.4820 lr=1.000e-04 time=2.6s
+2026-06-14 13:19:23,127 | INFO | New best val macro F1 0.4820 at epoch 2
+2026-06-14 13:19:25,693 | INFO | Epoch 003/050 | train_loss=1.08486 val_loss=0.62167 train_macro_f1=0.5113 val_macro_f1=0.5193 lr=1.000e-04 time=2.5s
+2026-06-14 13:19:25,723 | INFO | New best val macro F1 0.5193 at epoch 3
+2026-06-14 13:19:28,251 | INFO | Epoch 004/050 | train_loss=1.02461 val_loss=0.69098 train_macro_f1=0.5505 val_macro_f1=0.5011 lr=1.000e-04 time=2.5s
+2026-06-14 13:19:30,757 | INFO | Epoch 005/050 | train_loss=0.95478 val_loss=0.59242 train_macro_f1=0.5978 val_macro_f1=0.5138 lr=1.000e-04 time=2.5s
+2026-06-14 13:19:30,801 | INFO | Saved periodic 5-epoch checkpoint: /home/nugee/code-program/code-thesis/hibah/myocardial-infarction-localization/outputs/2_alpanet_pretrain/20260614_131915/checkpoints/per_5fold/epoch_005.pt
+2026-06-14 13:19:33,272 | INFO | Epoch 006/050 | train_loss=0.91997 val_loss=0.54139 train_macro_f1=0.6202 val_macro_f1=0.5602 lr=1.000e-04 time=2.5s
+2026-06-14 13:19:33,302 | INFO | New best val macro F1 0.5602 at epoch 6
+2026-06-14 13:19:35,780 | INFO | Epoch 007/050 | train_loss=0.90031 val_loss=0.56406 train_macro_f1=0.6246 val_macro_f1=0.5567 lr=1.000e-04 time=2.5s
+2026-06-14 13:19:38,251 | INFO | Epoch 008/050 | train_loss=0.86482 val_loss=0.54517 train_macro_f1=0.6467 val_macro_f1=0.5672 lr=1.000e-04 time=2.5s
+2026-06-14 13:19:38,282 | INFO | New best val macro F1 0.5672 at epoch 8
+2026-06-14 13:19:40,736 | INFO | Epoch 009/050 | train_loss=0.83545 val_loss=0.56036 train_macro_f1=0.6611 val_macro_f1=0.5735 lr=1.000e-04 time=2.5s
+2026-06-14 13:19:40,768 | INFO | New best val macro F1 0.5735 at epoch 9
+2026-06-14 13:19:43,282 | INFO | Epoch 010/050 | train_loss=0.79695 val_loss=0.48604 train_macro_f1=0.6857 val_macro_f1=0.6164 lr=1.000e-04 time=2.5s
+2026-06-14 13:19:43,313 | INFO | New best val macro F1 0.6164 at epoch 10
+2026-06-14 13:19:43,342 | INFO | Saved periodic 5-epoch checkpoint: /home/nugee/code-program/code-thesis/hibah/myocardial-infarction-localization/outputs/2_alpanet_pretrain/20260614_131915/checkpoints/per_5fold/epoch_010.pt
+2026-06-14 13:19:45,887 | INFO | Epoch 011/050 | train_loss=0.75962 val_loss=0.47625 train_macro_f1=0.6977 val_macro_f1=0.6210 lr=1.000e-04 time=2.5s
+2026-06-14 13:19:45,920 | INFO | New best val macro F1 0.6210 at epoch 11
+2026-06-14 13:19:48,410 | INFO | Epoch 012/050 | train_loss=0.76348 val_loss=0.50581 train_macro_f1=0.6983 val_macro_f1=0.6078 lr=1.000e-04 time=2.5s
+2026-06-14 13:19:50,890 | INFO | Epoch 013/050 | train_loss=0.72811 val_loss=0.50300 train_macro_f1=0.7150 val_macro_f1=0.6188 lr=1.000e-04 time=2.5s
+2026-06-14 13:19:53,352 | INFO | Epoch 014/050 | train_loss=0.70853 val_loss=0.48319 train_macro_f1=0.7225 val_macro_f1=0.6344 lr=1.000e-04 time=2.4s
+2026-06-14 13:19:53,384 | INFO | New best val macro F1 0.6344 at epoch 14
+2026-06-14 13:19:55,888 | INFO | Epoch 015/050 | train_loss=0.70350 val_loss=0.52623 train_macro_f1=0.7229 val_macro_f1=0.6186 lr=1.000e-04 time=2.5s
+2026-06-14 13:19:55,922 | INFO | Saved periodic 5-epoch checkpoint: /home/nugee/code-program/code-thesis/hibah/myocardial-infarction-localization/outputs/2_alpanet_pretrain/20260614_131915/checkpoints/per_5fold/epoch_015.pt
+2026-06-14 13:19:58,408 | INFO | Epoch 016/050 | train_loss=0.67984 val_loss=0.47432 train_macro_f1=0.7329 val_macro_f1=0.6241 lr=1.000e-04 time=2.5s
+2026-06-14 13:20:00,938 | INFO | Epoch 017/050 | train_loss=0.68799 val_loss=0.52755 train_macro_f1=0.7369 val_macro_f1=0.6259 lr=1.000e-04 time=2.5s
+2026-06-14 13:20:03,469 | INFO | Epoch 018/050 | train_loss=0.66876 val_loss=0.51798 train_macro_f1=0.7408 val_macro_f1=0.6310 lr=1.000e-04 time=2.5s
+2026-06-14 13:20:05,955 | INFO | Epoch 019/050 | train_loss=0.65717 val_loss=0.45852 train_macro_f1=0.7449 val_macro_f1=0.6352 lr=1.000e-04 time=2.5s
+2026-06-14 13:20:05,986 | INFO | New best val macro F1 0.6352 at epoch 19
+2026-06-14 13:20:08,506 | INFO | Epoch 020/050 | train_loss=0.62876 val_loss=0.46254 train_macro_f1=0.7619 val_macro_f1=0.6483 lr=1.000e-04 time=2.5s
+2026-06-14 13:20:08,538 | INFO | New best val macro F1 0.6483 at epoch 20
+2026-06-14 13:20:08,552 | INFO | Saved periodic 5-epoch checkpoint: /home/nugee/code-program/code-thesis/hibah/myocardial-infarction-localization/outputs/2_alpanet_pretrain/20260614_131915/checkpoints/per_5fold/epoch_020.pt
+2026-06-14 13:20:11,045 | INFO | Epoch 021/050 | train_loss=0.61423 val_loss=0.47804 train_macro_f1=0.7652 val_macro_f1=0.6378 lr=1.000e-04 time=2.5s
+2026-06-14 13:20:13,540 | INFO | Epoch 022/050 | train_loss=0.61921 val_loss=0.48169 train_macro_f1=0.7580 val_macro_f1=0.6514 lr=1.000e-04 time=2.5s
+2026-06-14 13:20:13,572 | INFO | New best val macro F1 0.6514 at epoch 22
+2026-06-14 13:20:16,054 | INFO | Epoch 023/050 | train_loss=0.62401 val_loss=0.53771 train_macro_f1=0.7655 val_macro_f1=0.6242 lr=1.000e-04 time=2.5s
+2026-06-14 13:20:18,600 | INFO | Epoch 024/050 | train_loss=0.60064 val_loss=0.46236 train_macro_f1=0.7742 val_macro_f1=0.6587 lr=1.000e-04 time=2.5s
+2026-06-14 13:20:18,630 | INFO | New best val macro F1 0.6587 at epoch 24
+2026-06-14 13:20:21,054 | INFO | Epoch 025/050 | train_loss=0.58654 val_loss=0.55301 train_macro_f1=0.7791 val_macro_f1=0.6470 lr=1.000e-04 time=2.4s
+2026-06-14 13:20:21,083 | INFO | Saved periodic 5-epoch checkpoint: /home/nugee/code-program/code-thesis/hibah/myocardial-infarction-localization/outputs/2_alpanet_pretrain/20260614_131915/checkpoints/per_5fold/epoch_025.pt
+2026-06-14 13:20:23,402 | INFO | Epoch 026/050 | train_loss=0.58525 val_loss=0.45402 train_macro_f1=0.7792 val_macro_f1=0.6512 lr=1.000e-04 time=2.3s
+2026-06-14 13:20:25,749 | INFO | Epoch 027/050 | train_loss=0.56571 val_loss=0.45396 train_macro_f1=0.7804 val_macro_f1=0.6729 lr=1.000e-04 time=2.3s
+2026-06-14 13:20:25,780 | INFO | New best val macro F1 0.6729 at epoch 27
+2026-06-14 13:20:28,156 | INFO | Epoch 028/050 | train_loss=0.57083 val_loss=0.45691 train_macro_f1=0.7775 val_macro_f1=0.6657 lr=1.000e-04 time=2.4s
+2026-06-14 13:20:30,541 | INFO | Epoch 029/050 | train_loss=0.56486 val_loss=0.41522 train_macro_f1=0.7855 val_macro_f1=0.6677 lr=1.000e-04 time=2.4s
+2026-06-14 13:20:33,089 | INFO | Epoch 030/050 | train_loss=0.54730 val_loss=0.49667 train_macro_f1=0.7903 val_macro_f1=0.6467 lr=1.000e-04 time=2.5s
+2026-06-14 13:20:33,119 | INFO | Saved periodic 5-epoch checkpoint: /home/nugee/code-program/code-thesis/hibah/myocardial-infarction-localization/outputs/2_alpanet_pretrain/20260614_131915/checkpoints/per_5fold/epoch_030.pt
+2026-06-14 13:20:35,574 | INFO | Epoch 031/050 | train_loss=0.55914 val_loss=0.56609 train_macro_f1=0.7848 val_macro_f1=0.6442 lr=1.000e-04 time=2.5s
+2026-06-14 13:20:38,081 | INFO | Epoch 032/050 | train_loss=0.53160 val_loss=0.59522 train_macro_f1=0.7908 val_macro_f1=0.6250 lr=1.000e-04 time=2.5s
+2026-06-14 13:20:40,581 | INFO | Epoch 033/050 | train_loss=0.52319 val_loss=0.55926 train_macro_f1=0.8051 val_macro_f1=0.6542 lr=5.000e-05 time=2.5s
+2026-06-14 13:20:43,068 | INFO | Epoch 034/050 | train_loss=0.49456 val_loss=0.45569 train_macro_f1=0.8102 val_macro_f1=0.6644 lr=5.000e-05 time=2.5s
+2026-06-14 13:20:45,540 | INFO | Epoch 035/050 | train_loss=0.46967 val_loss=0.50098 train_macro_f1=0.8235 val_macro_f1=0.6619 lr=5.000e-05 time=2.5s
+2026-06-14 13:20:45,570 | INFO | Saved periodic 5-epoch checkpoint: /home/nugee/code-program/code-thesis/hibah/myocardial-infarction-localization/outputs/2_alpanet_pretrain/20260614_131915/checkpoints/per_5fold/epoch_035.pt
+2026-06-14 13:20:48,061 | INFO | Epoch 036/050 | train_loss=0.46588 val_loss=0.60003 train_macro_f1=0.8217 val_macro_f1=0.6338 lr=5.000e-05 time=2.5s
+2026-06-14 13:20:50,503 | INFO | Epoch 037/050 | train_loss=0.47182 val_loss=0.55048 train_macro_f1=0.8181 val_macro_f1=0.6499 lr=5.000e-05 time=2.4s
+2026-06-14 13:20:53,053 | INFO | Epoch 038/050 | train_loss=0.46301 val_loss=0.48216 train_macro_f1=0.8280 val_macro_f1=0.6658 lr=5.000e-05 time=2.5s
+2026-06-14 13:20:55,463 | INFO | Epoch 039/050 | train_loss=0.45228 val_loss=0.50216 train_macro_f1=0.8310 val_macro_f1=0.6637 lr=2.500e-05 time=2.4s
+2026-06-14 13:20:57,910 | INFO | Epoch 040/050 | train_loss=0.43516 val_loss=0.45553 train_macro_f1=0.8325 val_macro_f1=0.6764 lr=2.500e-05 time=2.4s
+2026-06-14 13:20:57,941 | INFO | New best val macro F1 0.6764 at epoch 40
+2026-06-14 13:20:57,955 | INFO | Saved periodic 5-epoch checkpoint: /home/nugee/code-program/code-thesis/hibah/myocardial-infarction-localization/outputs/2_alpanet_pretrain/20260614_131915/checkpoints/per_5fold/epoch_040.pt
+2026-06-14 13:21:00,303 | INFO | Epoch 041/050 | train_loss=0.42785 val_loss=0.47332 train_macro_f1=0.8313 val_macro_f1=0.6710 lr=2.500e-05 time=2.3s
+2026-06-14 13:21:02,785 | INFO | Epoch 042/050 | train_loss=0.43857 val_loss=0.49701 train_macro_f1=0.8342 val_macro_f1=0.6616 lr=2.500e-05 time=2.5s
+2026-06-14 13:21:05,322 | INFO | Epoch 043/050 | train_loss=0.42540 val_loss=0.45921 train_macro_f1=0.8394 val_macro_f1=0.6741 lr=2.500e-05 time=2.5s
+2026-06-14 13:21:07,812 | INFO | Epoch 044/050 | train_loss=0.42776 val_loss=0.46750 train_macro_f1=0.8386 val_macro_f1=0.6688 lr=2.500e-05 time=2.5s
+2026-06-14 13:21:10,285 | INFO | Epoch 045/050 | train_loss=0.42949 val_loss=0.45811 train_macro_f1=0.8348 val_macro_f1=0.6761 lr=2.500e-05 time=2.5s
+2026-06-14 13:21:10,317 | INFO | Saved periodic 5-epoch checkpoint: /home/nugee/code-program/code-thesis/hibah/myocardial-infarction-localization/outputs/2_alpanet_pretrain/20260614_131915/checkpoints/per_5fold/epoch_045.pt
+2026-06-14 13:21:12,837 | INFO | Epoch 046/050 | train_loss=0.42311 val_loss=0.49814 train_macro_f1=0.8417 val_macro_f1=0.6650 lr=1.250e-05 time=2.5s
+2026-06-14 13:21:15,302 | INFO | Epoch 047/050 | train_loss=0.41174 val_loss=0.48413 train_macro_f1=0.8400 val_macro_f1=0.6694 lr=1.250e-05 time=2.4s
+2026-06-14 13:21:17,748 | INFO | Epoch 048/050 | train_loss=0.41514 val_loss=0.48433 train_macro_f1=0.8449 val_macro_f1=0.6703 lr=1.250e-05 time=2.4s
+2026-06-14 13:21:20,191 | INFO | Epoch 049/050 | train_loss=0.40792 val_loss=0.49177 train_macro_f1=0.8425 val_macro_f1=0.6653 lr=1.250e-05 time=2.4s
+2026-06-14 13:21:22,691 | INFO | Epoch 050/050 | train_loss=0.40542 val_loss=0.49392 train_macro_f1=0.8425 val_macro_f1=0.6649 lr=1.250e-05 time=2.5s
+2026-06-14 13:21:22,721 | INFO | Saved periodic 5-epoch checkpoint: /home/nugee/code-program/code-thesis/hibah/myocardial-infarction-localization/outputs/2_alpanet_pretrain/20260614_131915/checkpoints/per_5fold/epoch_050.pt
+2026-06-14 13:21:22,721 | INFO | Training finished. Best epoch=40 | best_val_macro_f1=0.6764
+2026-06-14 13:21:22,730 | INFO | Final validation and test evaluation started.
+2026-06-14 13:21:22,762 | INFO | Loaded best macro-F1 checkpoint from epoch 40 for final validation/test evaluation
+2026-06-14 13:21:26,906 | INFO | Final validation metrics: {'accuracy': 0.8264965056213917, 'balanced_accuracy': 0.7337862876610306, 'macro_f1': 0.676431910568436, 'micro_f1': 0.8264965056213917, 'weighted_f1': 0.8405372167248976, 'f1_Normal': 0.9142529095558687, 'sensitivity_Normal': 0.8713688818145643, 'specificity_Normal': 0.8875321336760925, 'auc_Normal': 0.9556328460897932, 'f1_Anterior': 0.5812356979405034, 'sensitivity_Anterior': 0.7341040462427746, 'specificity_Anterior': 0.9560615779345735, 'auc_Anterior': 0.9488405473347001, 'f1_Inferior': 0.4851586489252815, 'sensitivity_Inferior': 0.6045918367346939, 'specificity_Inferior': 0.9129129129129129, 'auc_Inferior': 0.8870941519751044, 'f1_Lateral': 0.72508038585209, 'sensitivity_Lateral': 0.72508038585209, 'specificity_Lateral': 0.9713087248322148, 'auc_Lateral': 0.9526233976779818, 'macro_auc': 0.9360477357693948}
+2026-06-14 13:21:26,907 | INFO | Final test metrics: {'accuracy': 0.820237100083593, 'balanced_accuracy': 0.7198528694950834, 'macro_f1': 0.6734841309307094, 'micro_f1': 0.820237100083593, 'weighted_f1': 0.8326731362090409, 'f1_Normal': 0.9078589367936375, 'sensitivity_Normal': 0.8706844640706544, 'specificity_Normal': 0.852112676056338, 'auc_Normal': 0.9464897143016895, 'f1_Anterior': 0.577922077922078, 'sensitivity_Anterior': 0.7073699421965318, 'specificity_Anterior': 0.9588914734900137, 'auc_Anterior': 0.9512754712904495, 'f1_Inferior': 0.5056, 'sensitivity_Inferior': 0.6294820717131474, 'specificity_Inferior': 0.9092741935483871, 'auc_Inferior': 0.8928564806633679, 'f1_Lateral': 0.7025555090071219, 'sensitivity_Lateral': 0.671875, 'specificity_Lateral': 0.9747712198807825, 'auc_Lateral': 0.9559238699306178, 'macro_auc': 0.9366363840465313}
+2026-06-14 13:21:31,259 | INFO | Final validation and test evaluation completed.
+2026-06-14 13:21:31,265 | INFO | Transfer-ready artifact export started.
+2026-06-14 13:21:31,279 | INFO | Transfer-ready artifacts saved to /home/nugee/code-program/code-thesis/hibah/myocardial-infarction-localization/outputs/2_alpanet_pretrain/20260614_131915/transfer_ready
+2026-06-14 13:21:31,280 | INFO | Transfer-ready artifact export completed.
+2026-06-14 13:21:31,297 | INFO | Plot and diagnostic artifact generation started.
+2026-06-14 13:21:32,313 | INFO | Plot and diagnostic artifact generation completed.
+2026-06-14 13:21:32,318 | INFO | Transfer compatibility sanity check started.
+2026-06-14 13:21:32,353 | INFO | Transfer compatibility sanity check passed.
+2026-06-14 13:21:32,354 | INFO | Run finished at: 2026-06-14 13:21:32
+2026-06-14 13:21:32,354 | INFO | Total run duration: 136.50 seconds (2.27 minutes)
+2026-06-14 13:21:32,354 | INFO | ALPA-Net classification-only pretraining notebook completed successfully. Output directory: /home/nugee/code-program/code-thesis/hibah/myocardial-infarction-localization/outputs/2_alpanet_pretrain/20260614_131915
+2026-06-14 13:22:46,216 | INFO | ========================================================================================
+2026-06-14 13:22:46,218 | INFO | ALPA-Net softmax transfer CV logger
+2026-06-14 13:22:46,218 | INFO | Run started at: 2026-06-14 13:22:46
+2026-06-14 13:22:46,219 | INFO | Output directory: /home/nugee/code-program/code-thesis/hibah/myocardial-infarction-localization/outputs/3_alpanet_finetune/20260614_132246
+2026-06-14 13:22:46,219 | INFO | Transfer strategy directory: /home/nugee/code-program/code-thesis/hibah/myocardial-infarction-localization/outputs/3_alpanet_finetune/20260614_132246/transfer_strategies
+2026-06-14 13:22:46,219 | INFO | Dataset directory: /home/nugee/code-program/code-thesis/hibah/myocardial-infarction-localization/dataset/ptb_diagnostic
+2026-06-14 13:22:46,220 | INFO | Device: cuda
+2026-06-14 13:22:46,220 | INFO | Strategies: ['no_pretrain', 'frozen_backbone', 'partial_finetune', 'full_finetune']
+2026-06-14 13:22:46,222 | INFO | ========================================================================================
+2026-06-14 13:22:46,246 | INFO | Using pretrained source: /home/nugee/code-program/code-thesis/hibah/myocardial-infarction-localization/outputs/2_alpanet_pretrain/20260614_131915
+2026-06-14 13:22:46,299 | INFO | Loaded beat data train=(2139, 65, 12) val=(312, 65, 12) test=(507, 65, 12)
+2026-06-14 13:22:46,300 | INFO | train class distribution: {'Normal': 544, 'Anterior': 357, 'Inferior': 657, 'Lateral': 581}
+2026-06-14 13:22:46,306 | INFO | val class distribution: {'Normal': 77, 'Anterior': 47, 'Inferior': 101, 'Lateral': 87}
+2026-06-14 13:22:46,310 | INFO | test class distribution: {'Normal': 141, 'Anterior': 97, 'Inferior': 184, 'Lateral': 85}
+2026-06-14 13:22:46,325 | INFO | Loaded pretrain normalizer from transfer_ready.
+2026-06-14 13:22:46,353 | INFO | ALPA-Net softmax model definition loaded.
+2026-06-14 13:22:46,355 | INFO | ALPA-Net softmax model definition completed.
+2026-06-14 13:22:47,412 | INFO | Sanity check started.
+2026-06-14 13:22:47,558 | INFO | No pretrained weights loaded.
+2026-06-14 13:22:47,559 | INFO | Parameters trainable=513493 total=513493 ratio=1.0000
+2026-06-14 13:22:47,939 | INFO | Sanity passed strategy=no_pretrain loss=1.3963
+2026-06-14 13:22:47,957 | INFO | Loaded pretrained backbone.
+2026-06-14 13:22:47,958 | INFO | Parameters trainable=33924 total=513493 ratio=0.0661
+2026-06-14 13:22:48,043 | INFO | Sanity passed strategy=frozen_backbone loss=1.3629
+2026-06-14 13:22:48,062 | INFO | Loaded pretrained backbone.
+2026-06-14 13:22:48,063 | INFO | Parameters trainable=449333 total=513493 ratio=0.8751
+2026-06-14 13:22:48,155 | INFO | Sanity passed strategy=partial_finetune loss=1.4375
+2026-06-14 13:22:48,176 | INFO | Loaded pretrained full model.
+2026-06-14 13:22:48,177 | INFO | Parameters trainable=513493 total=513493 ratio=1.0000
+2026-06-14 13:22:48,278 | INFO | Sanity passed strategy=full_finetune loss=1.4977
+2026-06-14 13:22:48,297 | INFO | Strategy started: no_pretrain
+2026-06-14 13:23:32,360 | INFO | Finished strategy=no_pretrain fold=1 status=OK
+2026-06-14 13:24:17,891 | INFO | Finished strategy=no_pretrain fold=2 status=OK
+2026-06-14 13:25:04,173 | INFO | Finished strategy=no_pretrain fold=3 status=OK
+2026-06-14 13:25:52,043 | INFO | Finished strategy=no_pretrain fold=4 status=OK
+2026-06-14 13:26:41,558 | INFO | Finished strategy=no_pretrain fold=5 status=OK
+2026-06-14 13:26:41,559 | INFO | Strategy started: frozen_backbone
+2026-06-14 13:27:16,990 | INFO | Finished strategy=frozen_backbone fold=1 status=OK
+2026-06-14 13:27:53,877 | INFO | Finished strategy=frozen_backbone fold=2 status=OK
+2026-06-14 13:28:32,836 | INFO | Finished strategy=frozen_backbone fold=3 status=OK
+2026-06-14 13:29:12,974 | INFO | Finished strategy=frozen_backbone fold=4 status=OK
+2026-06-14 13:31:36,705 | INFO | ========================================================================================
+2026-06-14 13:31:36,706 | INFO | ALPA-Net softmax transfer CV logger
+2026-06-14 13:31:36,706 | INFO | Run started at: 2026-06-14 13:31:36
+2026-06-14 13:31:36,706 | INFO | Output directory: /home/nugee/code-program/code-thesis/hibah/myocardial-infarction-localization/outputs/3_alpanet_finetune/20260614_133136
+2026-06-14 13:31:36,706 | INFO | Transfer strategy directory: /home/nugee/code-program/code-thesis/hibah/myocardial-infarction-localization/outputs/3_alpanet_finetune/20260614_133136/transfer_strategies
+2026-06-14 13:31:36,707 | INFO | Dataset directory: /home/nugee/code-program/code-thesis/hibah/myocardial-infarction-localization/dataset/ptb_diagnostic
+2026-06-14 13:31:36,707 | INFO | Device: cuda
+2026-06-14 13:31:36,707 | INFO | Strategies: ['no_pretrain', 'frozen_backbone', 'partial_finetune', 'full_finetune']
+2026-06-14 13:31:36,707 | INFO | ========================================================================================
+2026-06-14 13:31:36,730 | INFO | Using pretrained source: /home/nugee/code-program/code-thesis/hibah/myocardial-infarction-localization/outputs/2_alpanet_pretrain/20260614_131915
+2026-06-14 13:31:36,773 | INFO | Loaded beat data train=(2139, 65, 12) val=(312, 65, 12) test=(507, 65, 12)
+2026-06-14 13:31:36,774 | INFO | train class distribution: {'Normal': 544, 'Anterior': 357, 'Inferior': 657, 'Lateral': 581}
+2026-06-14 13:31:36,778 | INFO | val class distribution: {'Normal': 77, 'Anterior': 47, 'Inferior': 101, 'Lateral': 87}
+2026-06-14 13:31:36,780 | INFO | test class distribution: {'Normal': 141, 'Anterior': 97, 'Inferior': 184, 'Lateral': 85}
+2026-06-14 13:31:36,790 | INFO | Loaded pretrain normalizer from transfer_ready.
+2026-06-14 13:31:36,815 | INFO | ALPA-Net softmax model definition loaded.
+2026-06-14 13:31:36,817 | INFO | ALPA-Net softmax model definition completed.
+2026-06-14 13:31:37,012 | INFO | Sanity check started.
+2026-06-14 13:31:37,151 | INFO | No pretrained weights loaded.
+2026-06-14 13:31:37,152 | INFO | Parameters trainable=513493 total=513493 ratio=1.0000
+2026-06-14 13:31:37,520 | INFO | Sanity passed strategy=no_pretrain loss=1.3963
+2026-06-14 13:31:37,541 | INFO | Loaded pretrained backbone.
+2026-06-14 13:31:37,542 | INFO | Parameters trainable=33924 total=513493 ratio=0.0661
+2026-06-14 13:31:37,631 | INFO | Sanity passed strategy=frozen_backbone loss=1.3629
+2026-06-14 13:31:37,649 | INFO | Loaded pretrained backbone.
+2026-06-14 13:31:37,650 | INFO | Parameters trainable=449333 total=513493 ratio=0.8751
+2026-06-14 13:31:37,746 | INFO | Sanity passed strategy=partial_finetune loss=1.4375
+2026-06-14 13:31:37,767 | INFO | Loaded pretrained full model.
+2026-06-14 13:31:37,768 | INFO | Parameters trainable=513493 total=513493 ratio=1.0000
+2026-06-14 13:31:37,875 | INFO | Sanity passed strategy=full_finetune loss=1.4977
+2026-06-14 13:31:37,893 | INFO | Strategy started: no_pretrain
+2026-06-14 13:32:23,237 | INFO | Finished strategy=no_pretrain fold=1 status=OK
+2026-06-14 13:33:10,093 | INFO | Finished strategy=no_pretrain fold=2 status=OK
+2026-06-14 13:33:57,522 | INFO | Finished strategy=no_pretrain fold=3 status=OK
+2026-06-14 13:34:47,832 | INFO | Finished strategy=no_pretrain fold=4 status=OK
+2026-06-14 13:35:39,880 | INFO | Finished strategy=no_pretrain fold=5 status=OK
+2026-06-14 13:35:39,880 | INFO | Strategy started: frozen_backbone
+2026-06-14 13:36:16,150 | INFO | Finished strategy=frozen_backbone fold=1 status=OK
+2026-06-14 13:36:53,596 | INFO | Finished strategy=frozen_backbone fold=2 status=OK
+2026-06-14 13:37:32,545 | INFO | Finished strategy=frozen_backbone fold=3 status=OK
+2026-06-14 13:38:13,746 | INFO | Finished strategy=frozen_backbone fold=4 status=OK
+2026-06-14 13:38:55,785 | INFO | Finished strategy=frozen_backbone fold=5 status=OK
+2026-06-14 13:38:55,785 | INFO | Strategy started: partial_finetune
+2026-06-14 13:39:41,165 | INFO | Finished strategy=partial_finetune fold=1 status=OK
+2026-06-14 13:40:27,936 | INFO | Finished strategy=partial_finetune fold=2 status=OK
+2026-06-14 13:41:16,157 | INFO | Finished strategy=partial_finetune fold=3 status=OK
+2026-06-14 13:42:04,880 | INFO | Finished strategy=partial_finetune fold=4 status=OK
+2026-06-14 13:42:54,890 | INFO | Finished strategy=partial_finetune fold=5 status=OK
+2026-06-14 13:42:54,891 | INFO | Strategy started: full_finetune
+2026-06-14 13:44:00,905 | INFO | Finished strategy=full_finetune fold=1 status=OK
+2026-06-14 13:45:06,353 | INFO | Finished strategy=full_finetune fold=2 status=OK
+2026-06-14 13:46:12,459 | INFO | Finished strategy=full_finetune fold=3 status=OK
+2026-06-14 13:47:19,707 | INFO | Finished strategy=full_finetune fold=4 status=OK
+2026-06-14 13:48:29,505 | INFO | Finished strategy=full_finetune fold=5 status=OK
+2026-06-14 13:48:31,052 | INFO | Run finished at: 2026-06-14 13:48:31
+2026-06-14 13:48:31,052 | INFO | Total duration 1014.35 seconds

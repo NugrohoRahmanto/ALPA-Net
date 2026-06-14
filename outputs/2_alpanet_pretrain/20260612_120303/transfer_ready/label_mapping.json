@@ -1,0 +1,27 @@
+{
+  "task_type": "single_label_4_class_softmax",
+  "main_labels": [
+    "Normal",
+    "Anterior",
+    "Inferior",
+    "Lateral"
+  ],
+  "main_label_display": [
+    "NORM",
+    "AMI",
+    "IMI",
+    "Lateral-involved"
+  ],
+  "class_to_index": {
+    "Normal": 0,
+    "Anterior": 1,
+    "Inferior": 2,
+    "Lateral": 3
+  },
+  "index_to_class": {
+    "0": "Normal",
+    "1": "Anterior",
+    "2": "Inferior",
+    "3": "Lateral"
+  }
+}

@@ -1,0 +1,5 @@
+split,label,internal_label,f1_score
+test,NORM,Normal,0.8306451612903226
+test,AMI,Anterior,0.8117647058823529
+test,IMI,Inferior,0.7972665148063781
+test,LMI,Lateral,0.7515923566878981

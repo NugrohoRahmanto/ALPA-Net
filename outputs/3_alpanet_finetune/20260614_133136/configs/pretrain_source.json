@@ -1,0 +1,10 @@
+{
+  "run_dir": "/home/nugee/code-program/code-thesis/hibah/myocardial-infarction-localization/outputs/2_alpanet_pretrain/20260614_131915",
+  "transfer_dir": "/home/nugee/code-program/code-thesis/hibah/myocardial-infarction-localization/outputs/2_alpanet_pretrain/20260614_131915/transfer_ready",
+  "full_model": "/home/nugee/code-program/code-thesis/hibah/myocardial-infarction-localization/outputs/2_alpanet_pretrain/20260614_131915/transfer_ready/alpanet_full_model.pt",
+  "backbone": "/home/nugee/code-program/code-thesis/hibah/myocardial-infarction-localization/outputs/2_alpanet_pretrain/20260614_131915/transfer_ready/alpanet_backbone.pt",
+  "heads": "/home/nugee/code-program/code-thesis/hibah/myocardial-infarction-localization/outputs/2_alpanet_pretrain/20260614_131915/transfer_ready/alpanet_heads.pt",
+  "model_config": "/home/nugee/code-program/code-thesis/hibah/myocardial-infarction-localization/outputs/2_alpanet_pretrain/20260614_131915/transfer_ready/model_config.json",
+  "label_mapping": "/home/nugee/code-program/code-thesis/hibah/myocardial-infarction-localization/outputs/2_alpanet_pretrain/20260614_131915/transfer_ready/label_mapping.json",
+  "lead_prior_config": "/home/nugee/code-program/code-thesis/hibah/myocardial-infarction-localization/outputs/2_alpanet_pretrain/20260614_131915/transfer_ready/lead_prior_config.json"
+}

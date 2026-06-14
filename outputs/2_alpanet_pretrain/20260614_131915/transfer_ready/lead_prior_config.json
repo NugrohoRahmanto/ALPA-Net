@@ -1,0 +1,166 @@
+{
+  "lead_order": [
+    "I",
+    "aVL",
+    "II",
+    "III",
+    "aVF",
+    "aVR",
+    "V1",
+    "V2",
+    "V3",
+    "V4",
+    "V5",
+    "V6"
+  ],
+  "main_label_order": [
+    "Normal",
+    "Anterior",
+    "Inferior",
+    "Lateral"
+  ],
+  "main_class_lead_priors": {
+    "Normal": [
+      "I",
+      "aVL",
+      "II",
+      "III",
+      "aVF",
+      "aVR",
+      "V1",
+      "V2",
+      "V3",
+      "V4",
+      "V5",
+      "V6"
+    ],
+    "Anterior": [
+      "V1",
+      "V2",
+      "V3",
+      "V4"
+    ],
+    "Inferior": [
+      "II",
+      "III",
+      "aVF"
+    ],
+    "Lateral": [
+      "I",
+      "aVL",
+      "V5",
+      "V6",
+      "V1",
+      "V2",
+      "V3",
+      "V4",
+      "II",
+      "III",
+      "aVF"
+    ]
+  },
+  "lateral_involved_definition": [
+    "lateral",
+    "antero-lateral",
+    "infero-lateral",
+    "postero-lateral",
+    "infero-postero-lateral"
+  ],
+  "lateral_involved_prior_components": {
+    "lateral_primary": {
+      "leads": [
+        "I",
+        "aVL",
+        "V5",
+        "V6"
+      ],
+      "mass": 0.55
+    },
+    "inferior_overlap": {
+      "leads": [
+        "II",
+        "III",
+        "aVF"
+      ],
+      "mass": 0.2
+    },
+    "anterior_overlap": {
+      "leads": [
+        "V1",
+        "V2",
+        "V3",
+        "V4"
+      ],
+      "mass": 0.2
+    },
+    "posterior_proxy": {
+      "leads": [
+        "V1",
+        "V2",
+        "V3"
+      ],
+      "mass": 0.05
+    }
+  },
+  "main_class_prior_matrix": [
+    [
+      0.0833333358168602,
+      0.0833333358168602,
+      0.0833333358168602,
+      0.0833333358168602,
+      0.0833333358168602,
+      0.0833333358168602,
+      0.0833333358168602,
+      0.0833333358168602,
+      0.0833333358168602,
+      0.0833333358168602,
+      0.0833333358168602,
+      0.0833333358168602
+    ],
+    [
+      0.012500000186264515,
+      0.012500000186264515,
+      0.012500000186264515,
+      0.012500000186264515,
+      0.012500000186264515,
+      0.012500000186264515,
+      0.22499999403953552,
+      0.22499999403953552,
+      0.22499999403953552,
+      0.22499999403953552,
+      0.012500000186264515,
+      0.012500000186264515
+    ],
+    [
+      0.01111111044883728,
+      0.01111111044883728,
+      0.29999998211860657,
+      0.29999998211860657,
+      0.29999998211860657,
+      0.01111111044883728,
+      0.01111111044883728,
+      0.01111111044883728,
+      0.01111111044883728,
+      0.01111111044883728,
+      0.01111111044883728,
+      0.01111111044883728
+    ],
+    [
+      0.13750000298023224,
+      0.13750000298023224,
+      0.06666667014360428,
+      0.06666667014360428,
+      0.06666667014360428,
+      0.0,
+      0.06666667014360428,
+      0.06666667014360428,
+      0.06666667014360428,
+      0.05000000074505806,
+      0.13750000298023224,
+      0.13750000298023224
+    ]
+  ],
+  "attention_prior_strength": 1.2,
+  "attention_prior_learnable": true,
+  "note": "Attention is initialized with a strong class-lead prior logit bias before softmax. The fourth class is Lateral-involved MI. Its initial attention prior uses lateral leads as the primary component, with smaller anterior, inferior, and posterior-proxy components to match overlap labels in the prepared dataset."
+}

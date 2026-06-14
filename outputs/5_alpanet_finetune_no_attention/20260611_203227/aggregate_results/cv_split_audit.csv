@@ -1,6 +1,0 @@
-fold,train_beats,val_beats,test_beats,train_Normal,val_Normal,test_Normal,train_Anterior,val_Anterior,test_Anterior,train_Inferior,val_Inferior,test_Inferior,train_Lateral,val_Lateral,test_Lateral
-1,1555,389,499,502,125,135,323,81,97,606,152,184,124,31,83
-2,1555,389,499,502,125,135,323,81,97,606,152,184,124,31,83
-3,1555,389,499,502,125,135,323,81,97,606,152,184,124,31,83
-4,1555,389,499,501,126,135,323,81,97,607,151,184,124,31,83
-5,1556,388,499,501,126,135,324,80,97,607,151,184,124,31,83

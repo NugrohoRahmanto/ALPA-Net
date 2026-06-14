@@ -1,0 +1,15 @@
+{
+  "input_leads": 12,
+  "signal_length": 65,
+  "stem_channels": 32,
+  "cnn_channels": 64,
+  "token_dim": 128,
+  "num_heads": 4,
+  "cross_lead_layers": 2,
+  "temporal_layers": 1,
+  "transformer_ff_dim": 256,
+  "dropout": 0.2,
+  "temporal_segments": 20,
+  "main_outputs": 4,
+  "sub_outputs": 0
+}

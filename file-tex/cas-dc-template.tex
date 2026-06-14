@@ -29,7 +29,7 @@
 \usepackage[numbers]{natbib}
 
 
-% Additional packages used by the LWCA manuscript
+% Additional packages used by the ALPA manuscript
 \usepackage{amsmath}
 \usepackage{longtable}
 \usepackage{booktabs}
@@ -63,13 +63,13 @@
 \def\textpagefraction{.001}
 
 % Short title
-\shorttitle{Fine-Tuned LWCA for MI Localization}
+\shorttitle{ALPA-Net for MI Localization}
 
 % Short author
 \shortauthors{S. Mandala et al.}
 
 % Main title of the paper
-\title [mode = title]{Fine-Tuned Lead-Wise Channel Attention with SE-Recalibrated CNN--LSTM Transfer Learning for Myocardial Infarction Localization in 12-Lead ECGs}
+\title [mode = title]{ALPA-Net: Anatomical Lead Prior Attention Network for Transfer Learning-Based Myocardial Infarction Localization in 12-Lead ECGs}
 
 % Title footnote mark
 % eg: \tnotemark[1]
@@ -112,55 +112,37 @@
 
 % Address/affiliation
 \affiliation[1]{organization={Telkom University},
-            addressline={},
-            city={Bandung},
+addressline={}, city={Bandung},
 %          citysep={}, % Uncomment if no comma needed between city and postcode
-            postcode={40257},
-            state={West Java},
-            country={Indonesia}}
+postcode={40257}, state={West Java}, country={Indonesia}}
 
 \affiliation[2]{organization={Human Centric (HUMIC) Engineering, Telkom University},
-            addressline={},
-            city={Bandung},
+addressline={}, city={Bandung},
 %          citysep={}, % Uncomment if no comma needed between city and postcode
-            postcode={40257},
-            state={West Java},
-            country={Indonesia}}
+postcode={40257}, state={West Java}, country={Indonesia}}
 
 
 
 % Address/affiliation
 \affiliation[3]{organization={Center for Intelligent Cloud Computing, COE for Advanced Cloud, Multimedia University},
-            addressline={},
-            city={Melaka},
+addressline={}, city={Melaka},
 %          citysep={}, % Uncomment if no comma needed between city and postcode
-            postcode={75450},
-            state={},
-            country={Malaysia}}
+postcode={75450}, state={}, country={Malaysia}}
 
 \affiliation[4]{organization={Centre for Advanced Analytics, COE for Artificial Intelligence, Multimedia University},
-            addressline={},
-            city={Melaka},
+addressline={}, city={Melaka},
 %          citysep={}, % Uncomment if no comma needed between city and postcode
-            postcode={75450},
-            state={},
-            country={Malaysia}}
+postcode={75450}, state={}, country={Malaysia}}
 
 \affiliation[5]{organization={Faculty of Information Science and Technology, Multimedia University},
-            addressline={},
-            city={Melaka},
+addressline={}, city={Melaka},
 %          citysep={}, % Uncomment if no comma needed between city and postcode
-            postcode={75450},
-            state={},
-            country={Malaysia}}
+postcode={75450}, state={}, country={Malaysia}}
 
 \affiliation[6]{organization={Faculty of Engineering and Technology, Multimedia University},
-            addressline={},
-            city={Melaka},
+addressline={}, city={Melaka},
 %          citysep={}, % Uncomment if no comma needed between city and postcode
-            postcode={75450},
-            state={},
-            country={Malaysia}}
+postcode={75450}, state={}, country={Malaysia}}
 
 \author[1]{Nugroho Rahmanto}
 \credit{Software, Validation, Formal analysis, Investigation, Writing--original draft}
@@ -191,7 +173,27 @@
 
 % Here goes the abstract
 \begin{abstract}
-Accurate myocardial infarction (MI) localization from 12-lead electrocardiograms remains challenging because infarct evidence is lead-dependent, temporally localized, and affected by severe minority-class scarcity. This study proposes a fine-tuned Lead-Wise Channel Attention (LWCA) framework integrated with a CNN--LSTM encoder, multi-stage squeeze-and-excitation (SE) recalibration, and temporal attention pooling. LWCA estimates sample-specific lead importance before morphological feature extraction, while SE blocks recalibrate latent convolutional channels so that lead-modulated representations remain selective across deeper feature levels. The model is pretrained on PTB-XL and fine-tuned on PTB Diagnostic ECG for four-class localization: normal rhythm (NORM), anterior MI (AMI), inferior MI (IMI), and lateral MI (LMI). We compare scratch training, frozen-backbone transfer, partial fine-tuning, full fine-tuning, local pretrained CNN1D/CNN--LSTM/GRU/LSTM baselines, external ECG foundation models (HuBERT-ECG and ECG-FM), and GAN-assisted LMI augmentation. Without GAN augmentation, LWCA partial fine-tuning achieves an average test macro-F1 of 0.7889 across five folds and 0.8954 in the best fold using 0.95M total parameters and 0.45M trainable parameters. ECG-FM obtains a higher no-GAN average macro-F1 of 0.8334 but requires 90.89M trainable parameters. With GAN-assisted leave-one-LMI augmentation, LWCA improves to 0.8574 macro-F1 with partial fine-tuning and 0.8653 with full fine-tuning, reaching 0.9688 in the best fold. These results indicate that lead-wise attention, SE recalibration, and fine-tuning strategy jointly improve imbalanced MI localization. \textbf{GitHub Repository:} \href{https://github.com/NugrohoRahmanto/myocardial-infarction-classification}{https://github.com/NugrohoRahmanto/myocardial-infarction-classification}
+Accurate myocardial infarction (MI) localization from 12-lead electrocardiograms (ECGs) requires
+models that can exploit both temporal morphology and the anatomical relationship between infarct
+territories and ECG leads. This study revises a previous lead-attention ECG pipeline into ALPA-Net,
+an Anatomical Lead Prior Attention Network for four-class MI localization: normal ECG class (NORM),
+anterior-involved MI (AMI), inferior-involved MI (IMI), and lateral-involved MI (LMI). ECG records
+from PTB-XL and PTB Diagnostic were harmonized into beat-level 12-lead inputs at 100 Hz. PTB-XL was
+used for source-domain pretraining, and PTB Diagnostic was used for target-domain transfer learning
+with five-fold cross-validation over the training-validation pool and a fixed held-out test set.
+ALPA-Net combines a lead-wise shared CNN stem, multi-scale residual convolution, lead-token
+construction, class-specific anatomical lead-prior attention, cross-lead and temporal Transformer
+encoders, and attention pooling with a softmax classification head. The ALPA branch initializes
+class-specific lead attention using clinically motivated lead priors; a no-attention variant is
+included as an ablation. On PTB Diagnostic, full fine-tuning of ALPA-Net achieved a test macro-F1 of
+$0.8596\pm0.0165$, balanced accuracy of $0.8588\pm0.0174$, and macro-AUC of $0.9682\pm0.0075$. The
+best ALPA fold reached 0.8900 macro-F1. The no-attention partial fine-tuning ablation obtained the
+highest mean macro-F1 ($0.8698\pm0.0208$), indicating that the present ALPA branch provides
+physiologically interpretable attention but does not yet yield a consistent aggregate performance
+gain. The results support anatomy-guided lead attention as a promising direction for interpretable
+ECG transfer learning while identifying the need for stronger coupling between ALPA attention and
+the classification objective. \textbf{GitHub Repository:}
+\href{https://github.com/NugrohoRahmanto/myocardial-infarction-localization}{https://github.com/NugrohoRahmanto/myocardial-infarction-localization}
 \end{abstract}
 
 % Use if graphical abstract is present
@@ -201,17 +203,17 @@ Accurate myocardial infarction (MI) localization from 12-lead electrocardiograms
 
 % Research highlights
 \begin{highlights}
-\item A Lead-Wise Channel Attention module is proposed for compact 12-lead MI localization.
-\item SE blocks recalibrate latent CNN channels after lead-aware input modulation.
-\item No-GAN, GAN-assisted, local baseline, HuBERT-ECG, and ECG-FM comparisons are reported using fold-level macro-F1.
-\item GAN-assisted full fine-tuning reaches 0.8653 average macro-F1 and 0.9688 best-fold macro-F1.
+\item ALPA-Net introduces class-specific anatomical lead-prior attention for 12-lead MI localization.
+\item PTB-XL pretraining and PTB Diagnostic transfer learning are evaluated using four adaptation strategies.
+\item Full fine-tuning of ALPA-Net achieves $0.8596\pm0.0165$ test macro-F1 across five folds.
+\item A no-attention ablation slightly outperforms ALPA on mean macro-F1, motivating stronger attention-loss coupling.
 \end{highlights}
 
 
 % Keywords
 % Each keyword is seperated by \sep
 \begin{keywords}
-Myocardial infarction \sep 12-lead ECG \sep Lead-wise channel attention \sep Squeeze-and-excitation \sep Fine-tuning \sep ECG foundation model \sep GAN augmentation
+Myocardial infarction \sep 12-lead ECG \sep Anatomical lead prior attention \sep ALPA-Net \sep Transfer learning \sep Transformer encoder \sep Class imbalance
 \end{keywords}
 
 \maketitle
@@ -274,516 +276,652 @@ Myocardial infarction \sep 12-lead ECG \sep Lead-wise channel attention \sep Squ
 % \label{}
 
 \section{Introduction}
-Myocardial infarction (MI) remains a major cause of acute cardiovascular morbidity and mortality, and the 12-lead electrocardiogram (ECG) continues to be the most accessible first-line examination for rapid clinical assessment. Beyond detecting MI, localizing the infarct territory is clinically important because anterior MI (AMI), inferior MI (IMI), and lateral MI (LMI) are associated with different lead involvement patterns and may imply different downstream clinical considerations. Automated MI localization is therefore not merely a multi-class classification problem; it is a lead-sensitive interpretation task in which diagnostic evidence may be sparse, subtle, and distributed unevenly across the standard 12-lead configuration.
+Myocardial infarction (MI) occurs when myocardial tissue is injured because coronary blood supply is
+insufficient for the metabolic demand of the heart. In clinical practice, the electrocardiogram
+(ECG) is one of the first tests used when MI is suspected because it is inexpensive, rapid,
+non-invasive, and available in emergency and routine care settings. The diagnostic task is not
+limited to identifying whether MI is present. Localizing the involved territory is also clinically
+important because anterior, inferior, and lateral involvement reflect different spatial regions of
+the myocardium, may suggest different culprit coronary distributions, and can guide subsequent
+diagnostic attention.
 
-Deep learning has improved ECG analysis by enabling end-to-end representation learning from raw signals. Large resources such as PTB-XL have supported supervised pretraining and benchmarking at scale \cite{Wagner2020SciData_PTBXL,StrodthoffWagnerSchaeffterSamek2021JBHI_PTBXL_Benchmarks}, while smaller clinical datasets such as the PTB Diagnostic ECG Database remain important for target-domain evaluation \cite{Bousseljot1995PTB,Goldberger2000PhysioBank}. However, cross-dataset transfer remains challenging because acquisition conditions, label definitions, class priors, and patient distributions differ across cohorts. In MI localization, these difficulties are amplified by severe class imbalance. LMI is particularly scarce in many public subsets, making macro-F1 more informative than accuracy because accuracy can remain high even when minority infarct territories are missed.
+The standard 12-lead ECG provides a spatial projection of cardiac electrical activity. Precordial
+leads capture anterior and septal information, inferior limb leads provide evidence from the
+inferior wall, and high-lateral or lateral precordial leads contribute information about
+lateral-wall involvement. This spatial structure makes MI localization different from ordinary
+multichannel signal classification. A model must learn temporal morphology, such as QRS and ST-T
+changes, while also respecting the fact that not all leads carry equal evidence for every infarct
+territory. Automated MI localization is therefore an anatomical evidence-localization problem in
+which model decisions should remain sensitive to clinically meaningful lead groups.
 
-Recent ECG models have explored CNNs, recurrent networks, attention mechanisms, and foundation-model pretraining. CNNs provide local morphology extraction, LSTMs and GRUs model temporal dependencies, and attention mechanisms can emphasize relevant signal components \cite{FengPiLiuSun2019ApplSci_MI_CNN_RNN,Hasbullah2023BioMedInformatics_MI_Hybrid_CNN_RNN,Cao2022FrontPhysiol_MSResNet_Attn_MI}. In parallel, large external ECG foundation models such as HuBERT-ECG and ECG-FM have introduced self-supervised pretraining at scale \cite{HuBERTECG2024,McKeen2024ECGFM}. These models are powerful, but their downstream effectiveness depends on the compatibility between the pretraining protocol, the fine-tuning strategy, and the target clinical label space. A central question for MI localization is therefore whether a lead-aware CNN--LSTM architecture can be fine-tuned effectively against imported foundation-model representations under a controlled evaluation protocol.
+Deep learning has improved ECG analysis by learning representations directly from raw or minimally
+processed waveforms. PTB-XL provides a large annotated 12-lead ECG resource for supervised
+pretraining and benchmarking
+\cite{Wagner2020SciData_PTBXL,StrodthoffWagnerSchaeffterSamek2021JBHI_PTBXL_Benchmarks}, whereas the
+PTB Diagnostic ECG Database remains a useful target-domain dataset for clinically oriented MI
+evaluation \cite{Bousseljot1995PTB,Goldberger2000PhysioBank}. Nevertheless, transfer between these
+datasets is non-trivial because acquisition conditions, annotation granularity, patient composition,
+and class priors differ across cohorts. In the present prepared dataset, lateral-involved MI remains
+difficult because its available records are heterogeneous and include lateral, antero-lateral,
+infero-lateral, postero-lateral, and infero-postero-lateral patterns. This grouping is clinically
+motivated because isolated lateral wall infarction is uncommon and frequently appears as part of
+multiterritorial anterolateral, inferolateral, or posterolateral involvement
+\cite{Ludhwani2024LateralWallMI}.
 
-This study addresses that question by reformulating the previously used channel-attention pipeline into a more explicit Lead-Wise Channel Attention (LWCA) framework. LWCA is designed to learn sample-specific lead importance before convolutional morphology extraction. The term ``lead-wise'' is used because the attention weights are assigned to the 12 physiological ECG leads, while ``channel attention'' reflects their role as input channels in the neural network. This distinction is important: LWCA acts on the raw lead dimension, whereas squeeze-and-excitation (SE) blocks act later on learned convolutional feature channels. SE is therefore not used merely as an additional attention layer; it is used to preserve and refine lead-aware information after LWCA has modulated the input, allowing the network to recalibrate latent representations at multiple abstraction levels \cite{Sun2024Sensors_CNNLSTMSE,QuFu2025JSMU_ResLSTM_TemporalSE}.
+Recent ECG models have explored convolutional, recurrent, attention-based, and foundation-model
+approaches
+\cite{FengPiLiuSun2019ApplSci_MI_CNN_RNN,Hasbullah2023BioMedInformatics_MI_Hybrid_CNN_RNN,Cao2022FrontPhysiol_MSResNet_Attn_MI,HuBERTECG2024,McKeen2024ECGFM}.
+These methods can be effective, but many treat the 12 leads as generic channels or rely on latent
+attention maps that are not explicitly tied to clinical lead territories. This limitation is
+especially relevant when class labels are heterogeneous. Lateral-wall involvement, for example, may
+appear as isolated lateral MI or as part of antero-lateral, infero-lateral, postero-lateral, or
+infero-postero-lateral patterns. A classifier that ignores this structure may obtain reasonable
+aggregate performance while offering limited physiological transparency.
 
-The contributions of this paper are summarized as follows:
+This motivates anatomy-guided attention: rather than allowing all lead weights to emerge without
+prior structure, the model can be initialized with clinically informed lead priors for each
+localization class. Such priors do not replace empirical learning; they provide an inductive bias
+that reflects standard ECG localization knowledge and can make the resulting attention maps easier
+to audit. This is valuable in biomedical machine learning, where a model's usefulness depends not
+only on its score but also on whether its evidence pattern is plausible to clinical readers.
+
+This study presents an ALPA-focused framework for MI localization. ALPA-Net denotes an Anatomical
+Lead Prior Attention Network that computes class-specific lead attention using learnable class
+queries and lead-prior logit bias. The current experiments use a softmax four-class formulation and
+CrossEntropy loss. The evidence is interpreted conservatively: ALPA produces interpretable
+class-specific attention diagnostics, but the no-attention ablation slightly outperforms ALPA on
+aggregate mean macro-F1. The contribution of this paper is therefore a careful evaluation of
+anatomy-guided lead attention under a controlled PTB-XL to PTB Diagnostic transfer-learning
+protocol, not an unsupported claim that attention always improves performance.
+
+The main contributions are as follows:
 \begin{itemize}
-  \item A compact LWCA module is introduced to estimate per-lead relevance from statistical lead descriptors and to adaptively reweight raw 12-lead ECG signals before feature extraction.
-  \item SE blocks are repositioned as multi-stage latent channel recalibration units that operate after LWCA, clarifying their role in refining lead-modulated convolutional representations rather than replacing lead attention.
-  \item The proposed LWCA--CNN--LSTM--SE architecture is evaluated under PTB-XL to PTB Diagnostic fine-tuning with scratch, frozen-backbone, partial fine-tuning, and full fine-tuning settings.
-  \item A comprehensive comparison is reported against local pretrained CNN1D, CNN--LSTM, GRU, and LSTM baselines, and against large external pretrained HuBERT-ECG and ECG-FM models.
-  \item The analysis reports average macro-F1 across folds, fold-level details, best-fold behavior, parameter counts, and the effect of GAN-assisted LMI augmentation.
+  \item We formulate ALPA-Net, a compact CNN--Transformer architecture with class-specific anatomical lead-prior attention for four-class MI localization.
+  \item We harmonize PTB-XL and PTB Diagnostic into a beat-level 100 Hz representation with a four-class operational label space: NORM, AMI, IMI, and lateral-involved MI.
+  \item We evaluate PTB-XL pretraining and PTB Diagnostic transfer learning using scratch training, frozen-backbone transfer, partial fine-tuning, and full fine-tuning.
+  \item We compare ALPA-Net against a no-attention ablation, local CNN/RNN baselines, and external ECG foundation-model baselines using the saved experimental CSV outputs.
+  \item We report macro-F1, weighted-F1, balanced accuracy, macro-AUC, class-wise F1, and attention diagnostics, and we explicitly discuss the limitation that the current ALPA branch is not yet optimized by an explicit attention-alignment loss.
 \end{itemize}
 
 \section{Related Work and Research Gap}
 \subsection{Deep Learning for ECG and MI Analysis}
-ECG interpretation has progressively shifted from handcrafted feature pipelines toward representation learning directly from raw or minimally processed signals. Large-scale benchmarking studies on PTB-XL show that deep architectures can learn clinically meaningful ECG representations when diagnostic labels and evaluation protocols are standardized \cite{Wagner2020SciData_PTBXL,StrodthoffWagnerSchaeffterSamek2021JBHI_PTBXL_Benchmarks}. PTB-XL has also encouraged few-shot and low-resource ECG research, where limited labeled examples create conditions similar to target-domain clinical adaptation \cite{PalczynskiSmigielLedzinskiBujnowski2022Sensors_FewShot_PTBXL}. Earlier PTB-XL classification studies further demonstrate that model performance depends strongly on label granularity and class imbalance \cite{SmigielPalczynskiLedzinski2021Entropy_DL_PTBXL}.
+ECG interpretation has progressively shifted from handcrafted descriptors toward representation
+learning from raw signals. PTB-XL has enabled large-scale supervised benchmarking and has
+highlighted the influence of label design, diagnostic granularity, and class imbalance on ECG
+performance
+\cite{Wagner2020SciData_PTBXL,StrodthoffWagnerSchaeffterSamek2021JBHI_PTBXL_Benchmarks,PalczynskiSmigielLedzinskiBujnowski2022Sensors_FewShot_PTBXL,SmigielPalczynskiLedzinski2021Entropy_DL_PTBXL}.
+MI-specific studies have used convolutional and recurrent networks for MI detection and localization
+tasks
+\cite{Gustafsson2022SciRep_MI_ED,Pham2023Sensors_Heartbeat_ArrMI,FengPiLiuSun2019ApplSci_MI_CNN_RNN,LuiChow2019IMU_MI_CNN_RNN_Portable,Hasbullah2023BioMedInformatics_MI_Hybrid_CNN_RNN}.
+These studies motivate hybrid architectures because MI-related evidence can involve local waveform
+morphology, cross-lead differences, and temporal variation.
 
-MI-focused ECG studies have investigated both binary detection and localization-oriented formulations. Deep learning has been used for emergency-department MI prediction \cite{Gustafsson2022SciRep_MI_ED}, heartbeat-level classification involving MI and arrhythmia categories \cite{Pham2023Sensors_Heartbeat_ArrMI}, and multi-class MI classification using convolutional and recurrent components \cite{FengPiLiuSun2019ApplSci_MI_CNN_RNN,LuiChow2019IMU_MI_CNN_RNN_Portable,Hasbullah2023BioMedInformatics_MI_Hybrid_CNN_RNN}. These studies motivate hybrid architectures because MI-related ECG evidence may involve both local waveform morphology and temporal evolution over a recording window. However, many existing pipelines treat the 12 leads primarily as homogeneous input channels, whereas clinical MI localization depends on lead-territory relationships. The present work addresses this gap by making lead relevance an explicit learnable component through LWCA.
+However, MI localization has an additional anatomical structure that generic classification networks
+may not exploit explicitly. Anterior involvement is expected to be reflected primarily in precordial
+leads, inferior involvement in leads II, III, and aVF, and lateral involvement in leads I, aVL, V5,
+and V6, with overlap patterns in antero-lateral or infero-lateral cases. This lead-territory
+structure motivates ALPA: class-specific attention is initialized from anatomical prior
+distributions rather than from an uninformed attention state. The goal is not to hard-code the
+diagnosis, but to make the first attention state compatible with the diagnostic geometry of the
+12-lead ECG and then allow data-driven fine-tuning to modify it.
 
-Beyond MI, broader cardiovascular disease diagnosis has benefited from hybrid deep networks and attention modules. CNN--CBAM--GRU models have been proposed for general cardiovascular disease diagnosis \cite{Gong2025PLOSone_CNN_CBAM_GRU_CVD}, and ensemble-based ECG approaches have been shown to improve arrhythmia detection robustness across multi-lead recordings \cite{MandalaRizalAdiwijayaNurmainiAminiSudarismanHauAbdullah2024PLOSone_Arrhythmia_Ensemble}. These works support the view that multi-lead ECG problems require not only stronger feature extractors but also mechanisms for selective evidence aggregation. The present study follows this direction but focuses specifically on MI localization under severe LMI scarcity.
+\subsection{Attention, Recalibration, and ECG Transfer Learning}
+Attention mechanisms are widely used to emphasize discriminative components of ECG signals.
+Multi-scale ResNet with attention has been used for MI detection and localization
+\cite{Cao2022FrontPhysiol_MSResNet_Attn_MI}, and attention-enhanced multi-scale feature optimization
+has been explored for silent MI and atrial fibrillation detection
+\cite{Cheng2024AIMLR_Attn_MultiScale_SilentMI_AF}. Other studies use multi-domain fusion and
+channel-temporal attention to improve physiological-signal representation
+\cite{Chen2025Biosensors_MDF_Fusion_MI,LimKim2025ApplSci_SpikeCAN}. SE-based recalibration has also
+been used in ECG models to adaptively weight learned feature channels
+\cite{Sun2024Sensors_CNNLSTMSE,QuFu2025JSMU_ResLSTM_TemporalSE}.
 
-ECG modeling has also been studied in adjacent cardiovascular screening and deployment contexts. Machine learning has been evaluated for early coronary artery disease prediction \cite{ChenHengjinda2021JAICN_CAD_ML}, wearable systems have been proposed for real-time heart-attack detection and warning \cite{Chowdhury2019Sensors_HeartAttack_Wearable}, and LSTM-based ECG models have been used for personal authentication and continuous wearable monitoring \cite{KimPyun2020Sensors_ECG_Auth_LSTM,SaadatnejadOveisiHashemi2020JBHI_LSTM_Wearable}. These studies reinforce the need for ECG models that are not only accurate but also compact, stable, and suitable for constrained clinical or edge-oriented use cases.
+Transfer learning is important because labeled clinical ECG datasets are often small relative to
+model capacity. Prior ECG transfer-learning studies show that reusable source-domain representations
+can improve downstream classification, but only when preprocessing, label space, and fine-tuning
+depth are aligned
+\cite{WeimannConrad2021SciRep_TL_ECG,JangKimYoon2021HIR_TL_ECG,ChuiGuptaZhaoMalibariAryaAlhalabiRuiz2022Bioengineering_DistantTL_ECG,LopesBleijendaalRamosVerstraelenAminWildePintoDeMolMarquering2021CBM_TL_PLN,NguyenDo2025PLOSone_TL_ECG_Effective}.
+Large ECG foundation models such as HuBERT-ECG and ECG-FM extend this idea
+\cite{HuBERTECG2024,McKeen2024ECGFM}; however, their downstream utility depends on compatibility
+between pretrained representations and the target task.
 
-\subsection{Attention, Channel Recalibration, and Temporal Selectivity}
-Attention mechanisms have been widely adopted because they provide a learnable strategy for emphasizing discriminative components of high-dimensional signals. In MI detection and localization, multi-scale ResNet with attention has been used to capture infarct-related morphology across temporal resolutions \cite{Cao2022FrontPhysiol_MSResNet_Attn_MI}, while attention-enhanced multi-scale feature optimization has been explored for silent MI and atrial fibrillation detection \cite{Cheng2024AIMLR_Attn_MultiScale_SilentMI_AF}. Multi-domain feature fusion has also been proposed to improve MI detection and localization by integrating complementary representations \cite{Chen2025Biosensors_MDF_Fusion_MI}. These studies indicate that MI evidence is rarely captured optimally by a single uniform feature stream.
-
-Squeeze-and-excitation mechanisms have become important in ECG classification because they allow channel-wise recalibration of learned feature maps. CNN--LSTM--SE models have been used for arrhythmia classification \cite{Sun2024Sensors_CNNLSTMSE}, and ResLSTM-TemporalSE has demonstrated the value of coupling recurrent modeling with SE-style recalibration for multi-lead ECG classification \cite{QuFu2025JSMU_ResLSTM_TemporalSE}. Channel-temporal attention has also been explored in other sequential signal domains, showing that combining channel selectivity with temporal saliency can strengthen discriminative representation learning \cite{LimKim2025ApplSci_SpikeCAN}. In the proposed framework, SE is retained not as a generic attention add-on but as a latent channel recalibration mechanism after explicit physiological lead weighting. This separation is the core distinction of LWCA: lead-level attention and feature-channel recalibration are treated as complementary, not interchangeable.
-
-\subsection{Transfer Learning, Fine-Tuning, and Limited-Label ECG Settings}
-Transfer learning is well motivated for ECG because labeled clinical datasets are often smaller than the model capacity required for robust feature extraction. ECG transfer learning has been shown to improve classification performance when source and target domains share relevant morphology \cite{WeimannConrad2021SciRep_TL_ECG,JangKimYoon2021HIR_TL_ECG}. Distant transfer learning across multiple datasets further suggests that representation reuse can improve generalization when domain differences are carefully managed \cite{ChuiGuptaZhaoMalibariAryaAlhalabiRuiz2022Bioengineering_DistantTL_ECG}. Transfer learning has also been applied to rare ECG-related conditions, illustrating its relevance when target labels are scarce \cite{LopesBleijendaalRamosVerstraelenAminWildePintoDeMolMarquering2021CBM_TL_PLN}. Recent evaluations continue to question when ECG transfer learning is effective, emphasizing that source-target alignment and the selected fine-tuning depth remain critical \cite{NguyenDo2025PLOSone_TL_ECG_Effective}.
-
-The broader machine learning literature reinforces the importance of reusable representations in low-resource target tasks. Unified transfer learning frameworks in natural language processing show that pretraining can be highly effective when downstream adaptation is carefully designed \cite{RaffelShazeerRobertsLeeNarangMatenaZhouLiLiu2020JMLR_T5}. Similar principles have been adopted in physiological signal research, including MI identification from phonocardiogram signals using segmented features and transfer learning \cite{MandalaAminiAdiwijayaSyaifullahPramudyoNurmainiAbdullah2023IEEEAccess_PCG_MI_TL}. Although such works differ in modality, they support the general hypothesis that source-domain representation learning can stabilize target-domain classifiers when fine-tuning is matched to the downstream task. This paper tests that hypothesis specifically for 12-lead MI localization, while also comparing LWCA fine-tuning against large imported ECG foundation models.
-
-\subsection{Signal Processing Context and Broader Feature-Learning Evidence}
-Reliable physiological classification depends not only on model architecture but also on signal representation, denoising, and feature stability. Prior work on ECG denoising with Daubechies wavelets \cite{MandalaFuadahArzakiPambudi2017ICoICT_ECG_Denoising,MandalaTresnasariLestari2022ICICyTA_ECG_Daubechies} and analysis of wavelet basis functions for ECG-based artificial intelligence \cite{MandalaWibowoAdiwijayaSuyantoZahidRizal2023ApplSci_DWBF_AF} shows that preprocessing choices can materially affect downstream model behavior. Related work on malignant ventricular arrhythmia prediction and review of ECG parameters further highlights the clinical importance of robust ECG feature selection \cite{MandalaCaiDiSunarAdiwijaya2020PLOSone_MVA_DecisionTree,MandalaCaiDi2017JMBE_MVA_Review}. Adjacent physiological-signal studies using PPG and PCG demonstrate that denoising, segmentation, and handcrafted feature design remain valuable references for deep-learning pipelines \cite{ParsaoranMandalaPramudyo2022ICoDSA_PPG_Denoising,IhsanMandalaPramudyo2022ICoDSA_PPG_CHD,IqtidarQamarAzizKhan2021CBM_PCG_CAD}.
-
-Feature learning principles also extend beyond cardiac signals. Hybrid feature extraction for facial expression recognition \cite{KommineniMandalaSunarChakravarthy2021JSC_FER_Hybrid}, image preprocessing for content-based retrieval \cite{KommineniMandala2014ICACCI_CBirPreprocess}, CNN-based smart home recognition \cite{MandalaRamadhanIrsan2023COMNETSAT_SmartHome_CNN}, LSTM transfer learning for building energy demand \cite{Kim2023Sustainability_LSTMTL_Energy}, and LSTM-based radio-frequency signal identification \cite{Wang2020CSSP_LSTM_TL_RF} all indicate that selective representation learning and domain adaptation are recurring issues across signal-processing applications. These studies provide broader methodological context for the present work: LWCA is a task-specific instance of selective representation learning, designed for the anatomical and diagnostic structure of 12-lead ECG.
+\subsection{Signal Processing Context}
+Robust physiological classification also depends on preprocessing and representation stability.
+Prior studies on ECG denoising, wavelet features, and broader physiological signal classification
+show that preprocessing choices can materially affect downstream learning
+\cite{MandalaFuadahArzakiPambudi2017ICoICT_ECG_Denoising,MandalaTresnasariLestari2022ICICyTA_ECG_Daubechies,MandalaWibowoAdiwijayaSuyantoZahidRizal2023ApplSci_DWBF_AF,MandalaCaiDiSunarAdiwijaya2020PLOSone_MVA_DecisionTree,MandalaCaiDi2017JMBE_MVA_Review}.
+Related work on PPG, PCG, image, and sequential signal learning further supports the value of
+selective representation learning and domain adaptation
+\cite{ParsaoranMandalaPramudyo2022ICoDSA_PPG_Denoising,IhsanMandalaPramudyo2022ICoDSA_PPG_CHD,IqtidarQamarAzizKhan2021CBM_PCG_CAD,KommineniMandalaSunarChakravarthy2021JSC_FER_Hybrid,KommineniMandala2014ICACCI_CBirPreprocess,MandalaRamadhanIrsan2023COMNETSAT_SmartHome_CNN,Kim2023Sustainability_LSTMTL_Energy,Wang2020CSSP_LSTM_TL_RF}.
+In this context, ALPA-Net is a task-specific attempt to align learned ECG representations with
+clinically meaningful lead priors.
 
 \subsection{Research Gap}
-The literature suggests four unresolved gaps. First, MI localization remains more difficult than general MI detection because lead-territory relationships must be modeled explicitly. Second, many attention-based ECG models emphasize latent feature maps but do not distinguish physiological lead weighting from learned feature-channel recalibration. Third, imported foundation models may provide strong representations, but their effectiveness depends on downstream fine-tuning and task alignment. Fourth, rare-class behavior, especially LMI, requires reporting beyond accuracy and should be evaluated using fold-level macro-F1 and augmentation-aware protocols. The proposed LWCA framework is designed around these gaps by combining explicit lead attention, SE-based latent recalibration, PTB-XL pretraining, controlled fine-tuning strategies, and no-GAN/GAN comparative evaluation.
+The literature leaves three gaps. First, many ECG attention models do not explicitly encode the
+anatomical relationship between MI territory and ECG leads. Second, transfer learning studies often
+report aggregate performance but provide limited analysis of attention behavior and class-wise
+minority performance. Third, foundation-model scale does not guarantee downstream success when the
+target label space and preprocessing differ. ALPA-Net addresses these gaps by introducing
+class-specific anatomical lead-prior attention and by evaluating it against no-attention, local
+baseline, and external pretrained baselines under the same generated dataset.
 
 \section{Data Resources and Experimental Protocol}
 \subsection{Source and Target ECG Datasets}
-The source domain is PTB-XL, a large clinical 12-lead ECG dataset with standardized diagnostic annotations and sufficient scale for representation learning \cite{Wagner2020SciData_PTBXL}. The target domain is the PTB Diagnostic ECG Database, a smaller clinical ECG collection that is suitable for evaluating target-domain adaptation under sample scarcity and class imbalance \cite{Bousseljot1995PTB}. Both datasets are harmonized into four MI localization categories: NORM, AMI, IMI, and LMI.
+The source dataset is PTB-XL, and the target dataset is PTB Diagnostic. Both datasets are mapped to
+four mutually exclusive operational classes: NORM, AMI, IMI, and LMI. In this manuscript, LMI is
+used as the abbreviation for \emph{lateral-involved MI}, not only strict isolated lateral MI. The
+broader label is used because lateral-wall evidence can occur alone or as part of antero-lateral,
+infero-lateral, postero-lateral, or infero-postero-lateral infarction patterns. PTB-XL contains
+11,722 prepared records and 132,028 extracted beats. PTB Diagnostic contains 273 prepared records
+and 2,958 extracted beats. Table~\ref{tab:training_config} summarizes the prepared beat-level
+distribution.
 
-All ECGs are represented as raw 12-lead time-series segments with a sampling frequency of 100 Hz and a fixed duration of 10 s, resulting in 1000 samples per lead. This unified representation ensures that the source and target models share an identical input dimensionality. The use of raw 10 s windows is intentionally retained to avoid dependence on beat segmentation, which can introduce additional failure modes when QRS detection is affected by noise, baseline drift, or abnormal morphology. The input tensor therefore preserves the complete temporal context available to the model.
+\begin{table*}[!t]
+\centering
+\caption{Prepared beat-level dataset summary used in the final ALPA experiments.}
+\label{tab:training_config}
+\begin{tabular*}{\textwidth}{@{\extracolsep{\fill}}l r r r r r r r@{}}
+\toprule
+\textbf{Dataset} & \textbf{Records} & \textbf{Patients} & \textbf{Beats} & \textbf{NORM} & \textbf{AMI} & \textbf{IMI} & \textbf{LMI} \\
+\midrule
+PTB-XL & 11,722 & 11,136 & 132,028 & 100,582 & 6,743 & 12,300 & 12,403 \\
+PTB Diagnostic & 273 & 185 & 2,958 & 762 & 501 & 942 & 753 \\
+\bottomrule
+\end{tabular*}
+\end{table*}
 
-The reported target-domain experiments use a held-out test set of 42 ECG recordings with class support NORM=16, AMI=9, IMI=16, and LMI=1. The remaining target-domain data are used for fold-wise model development. Because the held-out LMI support contains one sample, all LMI-specific conclusions are interpreted cautiously; macro-F1 is emphasized to reduce majority-class dominance. This setting is deliberately stringent: it reflects the practical situation in which a model may have to adapt to a small clinical cohort where one infarct territory is severely under-represented. Fig.~\ref{fig:data_distribution_ring} summarizes the class distribution used in the data-understanding stage for PTB Diagnostic and PTB-XL.
+Fig.~\ref{fig:data_distribution_ring} visualizes the class distribution. The prepared data are not
+perfectly balanced, and the target-domain dataset remains small compared with PTB-XL. Therefore,
+macro-F1 is used as the primary metric, supplemented by balanced accuracy, weighted-F1, macro-AUC,
+and class-wise F1.
+
+\subsection{Definition of the Lateral-Involved MI Label}
+The lateral-involved label is defined transparently to avoid conflating a scarce strict
+isolated-lateral subtype with a clinically broader lateral-wall involvement category.
+Table~\ref{tab:lateral_involved_definition} lists the codes and sublabels included in this group. In
+the current processed PTB-XL metadata, the final lateral-involved class contains 1,020 unique
+records from 870 patients. This class is produced from PTB-XL diagnostic statements containing
+lateral-wall MI codes: LMI, ALMI, ILMI, and IPLMI. The corresponding record counts are 201, 290,
+478, and 51, respectively; patient counts are 185, 245, 416, and 50, respectively. Patient counts
+are not additive because the same patient can contribute records with different lateral-related
+statements. An archival data-preparation distribution further shows that the strict isolated
+\texttt{lateral} clinical sublabel accounted for 105 PTB-XL records from 99 patients. Thus, the
+previously assumed value of three PTB-XL records from one patient was not supported by the available
+files. In the current PTB Diagnostic metadata, strict \texttt{lateral} appears in one record from
+one patient, while \texttt{postero-lateral} appears in three records from one patient.
+
+\begin{table*}[!t]
+\centering
+\caption{Lateral-involved MI definitions used for label harmonization. Counts are unique record and patient counts from the processed metadata or archived data-preparation summaries.}
+\label{tab:lateral_involved_definition}
+\begin{tabular*}{\textwidth}{@{\extracolsep{\fill}}p{0.15\textwidth} p{0.16\textwidth} p{0.18\textwidth} p{0.31\textwidth} r r@{}}
+\toprule
+\textbf{Dataset} & \textbf{Code/sublabel} & \textbf{Expanded meaning} & \textbf{Rationale for lateral-involved grouping} & \textbf{Records} & \textbf{Patients} \\
+\midrule
+PTB-XL & LMI & Lateral MI & Isolated or predominantly lateral-wall MI evidence. & 201 & 185 \\
+PTB-XL & ALMI & Antero-lateral MI & Involves anterior and lateral territories; lateral leads remain clinically relevant. & 290 & 245 \\
+PTB-XL & ILMI & Infero-lateral MI & Involves inferior and lateral territories; lateral-wall involvement is explicit. & 478 & 416 \\
+PTB-XL & IPLMI & Infero-postero-lateral MI & Extends inferior and posterior involvement to the lateral wall. & 51 & 50 \\
+PTB Diagnostic & lateral & Lateral MI & Strict lateral-wall localization in the target dataset. & 1 & 1 \\
+PTB Diagnostic & antero-lateral & Antero-lateral MI & Combined anterior and lateral localization. & 20 & 14 \\
+PTB Diagnostic & infero-lateral & Infero-lateral MI & Combined inferior and lateral localization. & 29 & 16 \\
+PTB Diagnostic & postero-lateral & Postero-lateral MI & Posterior and lateral localization; included because posterior extension commonly co-occurs with lateral-wall involvement. & 3 & 1 \\
+PTB Diagnostic & infero-postero-lateral & Infero-postero-lateral MI & Inferior, posterior, and lateral involvement. & 6 & 6 \\
+\bottomrule
+\end{tabular*}
+\end{table*}
+
+This grouping strategy reduces extreme sparsity while preserving clinically meaningful localization.
+It is not intended to claim that all lateral-involved sublabels are identical. Rather, it defines
+the fourth output class as the presence of lateral-wall involvement in any recognized
+lateral-related pattern. The design also keeps the target label space compatible across PTB-XL and
+PTB Diagnostic, where the available lateral-related statements differ in wording and frequency. This
+choice is consistent with standard ECG localization knowledge, in which lateral involvement is
+associated with leads I, aVL, V5, and V6, while overlap patterns may also include anterior,
+inferior, or posterior lead territories
+\cite{Ludhwani2024LateralWallMI,Thygesen2018FourthUniversalMI}. The limitation is that an error
+within this class may mix several clinically distinct lateral-wall patterns; this is addressed in
+the Discussion by interpreting LMI results as lateral-involvement performance rather than isolated
+lateral MI performance.
 
 \begin{figure}
 \centering
 \maybeincludegraphics[width=0.86\columnwidth]{figs/data_distribution_ring_chart.png}
-\caption{Ring-chart visualization of class distribution in the prepared PTB Diagnostic and PTB-XL datasets. The chart highlights the minority status of LMI relative to the remaining classes and motivates the use of macro-F1 and GAN-assisted LMI evaluation.}
+\caption{Beat-level class distribution of the prepared PTB-XL and PTB Diagnostic datasets.}
 \label{fig:data_distribution_ring}
 \end{figure}
 
-\subsection{Label Harmonization and Input Standardization}
-The label harmonization procedure maps dataset-specific annotations into the shared four-class target space. NORM represents ECGs without MI evidence, whereas AMI, IMI, and LMI correspond to anterior, inferior, and lateral infarct territories. This mapping is necessary because source and target datasets differ in annotation granularity and class availability. Labels outside the aligned MI localization formulation are excluded to prevent inconsistent supervision during transfer learning.
+\subsection{Preprocessing and Beat Extraction}
+All ECGs are represented at 100 Hz. PTB Diagnostic records were downsampled from 1000 Hz to 100 Hz,
+and final beat windows contain 65 samples and 12 leads. A Pan--Tompkins-style R-peak detector was
+applied on Lead II, and each beat was cropped using a 0.20 s pre-peak and 0.45 s post-peak window.
+Beat extraction increases the number of training instances, but it also creates correlated samples
+because multiple beats can originate from the same recording. To reduce this risk, the split
+protocol keeps beats from the same record within the same split. For PTB Diagnostic, the first and
+last detected beats were removed to reduce boundary artifacts caused by incomplete windows or
+unstable detector behavior near record boundaries.
 
-Before model training, each ECG record is arranged in a fixed lead order corresponding to the standard 12-lead configuration. Records are checked to ensure that the final signal shape is $1000\times12$; transposed files are converted when necessary, and files with incompatible shapes are excluded. In the fold-specific training pipeline, normalization is estimated from the training split only and then applied to validation and test data. This prevents test leakage and ensures that each fold simulates realistic target-domain deployment, where normalization parameters must be learned from available training data.
-
-\subsection{Butterworth Bandpass Inspection}
-Butterworth bandpass filtering was used in the data-understanding notebook to inspect the effect of suppressing non-diagnostic frequency components while preserving ECG morphology. A fourth-order Butterworth bandpass with passband 0.5--40 Hz was applied using zero-phase forward--backward filtering. The lower cutoff attenuates baseline wander and slow drift, while the upper cutoff suppresses high-frequency noise that may arise from muscle activity, electrode contact, or acquisition artifacts. The maximally flat Butterworth response is useful for ECG because it avoids passband ripples that can distort morphology-sensitive segments such as QRS complexes, ST-segments, and T-waves. Fig.~\ref{fig:butterworth_raw} shows an example raw Lead II signal and its filtered version, and Fig.~\ref{fig:butterworth_response} shows the corresponding passband behavior.
+Butterworth bandpass filtering was used for signal inspection and visualization. A fourth-order
+0.5--40 Hz Butterworth filter suppresses baseline drift and high-frequency noise while preserving
+dominant ECG morphology. Fig.~\ref{fig:butterworth_raw} and Fig.~\ref{fig:butterworth_response} show
+the filtering example and frequency response.
 
 \begin{figure*}
 \centering
 \maybeincludegraphics[width=0.88\textwidth]{figs/ecg_raw_vs_butterworth_lead_ii.png}
-\caption{Example Lead II ECG visualization before and after fourth-order Butterworth bandpass filtering with a 0.5--40 Hz passband. The filtered signal suppresses slow baseline drift and high-frequency noise while preserving the dominant ECG waveform morphology.}
+\caption{Example PTB Diagnostic Lead II ECG before and after fourth-order Butterworth bandpass filtering.}
 \label{fig:butterworth_raw}
 \end{figure*}
 
 \begin{figure}
 \centering
-\includegraphics[width=\columnwidth]{figs/butterworth_bandpass_response.png}
-\caption{Frequency response of the fourth-order Butterworth bandpass filter used for signal inspection. The 0.5--40 Hz passband retains the main clinical ECG morphology band while attenuating lower-frequency drift and higher-frequency noise.}
+\maybeincludegraphics[width=\columnwidth]{figs/butterworth_bandpass_response.png}
+\caption{Butterworth bandpass response for the 0.5--40 Hz ECG preprocessing inspection.}
 \label{fig:butterworth_response}
 \end{figure}
 
+\subsection{Evaluation Protocol}
+ALPA-Net is pretrained on PTB-XL and then fine-tuned on PTB Diagnostic. The fine-tuning notebook
+combines the PTB Diagnostic training and validation records into a five-fold cross-validation pool
+and evaluates each selected checkpoint on the same fixed held-out test split. Four transfer
+strategies are evaluated: no pretraining, frozen-backbone transfer, partial fine-tuning, and full
+fine-tuning. Model selection uses validation macro-F1 because the classes are imbalanced and because
+minority-class errors are clinically relevant. Because all folds share the same held-out test set,
+the reported fold mean reflects checkpoint variability across validation folds rather than
+independent test partitions. The protocol is therefore best interpreted as a transfer-learning
+stability analysis over five validation folds with a fixed target-domain test cohort.
 
+\subsection{Evaluation Metrics and Reporting}
+The primary metric is macro-F1, which gives equal weight to NORM, AMI, IMI, and lateral-involved MI.
+This choice is important because a model can obtain acceptable accuracy while still underperforming
+on minority infarct territories. Weighted-F1 is reported to show performance under the empirical
+class distribution, balanced accuracy summarizes class-normalized recall, and macro-AUC measures
+ranking quality across the four one-vs-rest class comparisons. Class-wise F1 is reported for
+interpretability because it reveals whether the aggregate score is driven by NORM or by genuine
+infarct-territory performance.
 
+The reported mean and standard deviation are computed across the five validation folds evaluated on
+the same fixed test set. This design should not be interpreted as five independent test cohorts.
+Rather, it quantifies how validation-fold selection and fine-tuning strategy influence the final
+checkpoint when the target-domain test set is held constant. No statistical significance test is
+reported; therefore, differences between models are described using cautious language such as
+slightly higher, competitive, or more variable.
 
-\subsection{No-GAN and GAN-Assisted Protocols}
-Two experimental regimes are reported. The first regime is the no-GAN setting, where all models are trained or fine-tuned using the available target-domain training folds without synthetic minority augmentation. This regime is used for the main comparison against local pretrained baselines and imported foundation models.
+\section{Methodology}
+\subsection{Overall ALPA-Net Architecture}
+The final model is ALPA-Net: Anatomical Lead Prior Attention Network. It receives a beat-level ECG
+tensor $\mathbf{X}\in\mathbb{R}^{T\times L}$, where $T=65$ and $L=12$. The model uses a lead-wise
+shared CNN stem, a multi-scale residual CNN block with kernels $3$, $7$, $15$, and $31$, a
+lead-token builder, the ALPA module, a cross-lead Transformer encoder, a temporal Transformer
+encoder, lead-time attention pooling, and a softmax classification head. The output classes are
+NORM, AMI, IMI, and lateral-involved MI.
 
-The second regime is a GAN-assisted leave-one-LMI protocol. In this setting, LMI augmentation is used to address the extremely limited LMI availability while preserving an unseen LMI case for evaluation. The protocol evaluates three LMI-centered folds and compares scratch training, frozen-backbone transfer, partial fine-tuning, and full fine-tuning for the LWCA architecture. The purpose is not to claim definitive LMI generalization from a single held-out LMI case, but to quantify whether targeted synthetic augmentation improves fold stability and macro-F1 under a controlled minority-class stress test.
+The architecture is designed around two complementary requirements. First, it must extract
+beat-level morphology from each lead, because MI-related information can be expressed as localized
+waveform changes. Second, it must preserve lead identity, because the same morphology has different
+diagnostic meaning depending on the lead in which it appears. The shared CNN stem encourages
+consistent morphology extraction across leads, whereas the lead-token and Transformer stages allow
+the model to represent cross-lead relationships after lead-specific features have been built. ALPA
+is inserted at the lead-token level so that anatomical prior information is applied to explicit lead
+representations rather than to anonymous latent feature channels.
 
-Table~\ref{tab:training_config} summarizes the main training configuration for the no-GAN and GAN-assisted regimes. The same four-class target formulation, validation-based checkpoint selection, and macro-F1-oriented evaluation are retained in both regimes. The key distinction is that the GAN-assisted protocol increases minority-class exposure through LMI synthesis while using a leave-one-LMI evaluation design.
+\subsection{Class-Specific Anatomical Lead Prior Attention}
+Let $\mathbf{h}_l\in\mathbb{R}^{d}$ denote the token for lead $l$. ALPA defines one learnable query
+$\mathbf{q}_k$ for each class $k$. Class-specific attention scores are computed as
+\begin{equation}
+s_{k,l}=d^{-1/2}\mathbf{q}_k^{\top}\mathbf{h}_l + b_{k,l},
+\label{eq:lwca_descriptor}
+\end{equation}
+where $b_{k,l}$ is a prior logit bias derived from an anatomical lead-prior matrix. The attention
+distribution is
+\begin{equation}
+\alpha_{k,l}=\frac{\exp(s_{k,l})}{\sum_{j=1}^{L}\exp(s_{k,j})},
+\label{eq:lwca_softmax}
+\end{equation}
+and the class-specific context is
+\begin{equation}
+\mathbf{c}_k=\sum_{l=1}^{L}\alpha_{k,l}\mathbf{h}_l.
+\label{eq:lwca_scale}
+\end{equation}
+The lead priors follow standard clinical territory assumptions derived from 12-lead ECG
+localization: anterior involvement is primarily represented in the precordial leads V1--V4, inferior
+involvement in leads II, III, and aVF, and lateral involvement in leads I, aVL, V5, and V6
+\cite{Ludhwani2024LateralWallMI,Thygesen2018FourthUniversalMI}. These relationships are converted
+into an initial attention-prior matrix over the lead order [I, aVL, II, III, aVF, aVR, V1, V2, V3,
+V4, V5, V6]. NORM is initialized uniformly with $1/12$ mass per lead. AMI assigns 0.225 mass to each
+of V1--V4 and small nonzero mass to the remaining leads. IMI assigns 0.30 mass to each of II, III,
+and aVF and small nonzero mass to the remaining non-target leads. LMI uses a lateral-involved prior:
+I, aVL, V5, and V6 each receive 0.1375 mass, auxiliary weights of 0.0667 are assigned to II, III,
+aVF, V1, V2, and V3, V4 receives 0.05, and aVR receives zero. This design reflects the inclusion of
+antero-lateral, infero-lateral, and infero-postero-lateral patterns while preserving the highest
+weights on canonical lateral leads.
+
+The prior matrix is used as a learnable logit-bias initialization rather than as a fixed constraint.
+Consequently, ALPA provides a clinically motivated inductive bias and an interpretable starting
+point for class-specific lead attention, but it does not guarantee improved predictive performance.
+Final utility is evaluated empirically through the no-attention ablation and transfer-learning
+results. Table~\ref{tab:alpa_prior_initialization} summarizes the implemented prior in a compact
+form; the complete numeric matrix is stored with the manuscript figures as
+\texttt{alpa\_initial\_attention\_prior\_matrix.csv}.
 
 \begin{table*}[!t]
 \centering
-\caption{Training configuration for no-GAN and GAN-assisted experiments.}
-\label{tab:training_config}
-\begin{tabular*}{\textwidth}{@{\extracolsep{\fill}}l l l@{}}
+\caption{Clinical interpretation of the ALPA attention-prior initialization. The prior is used to initialize learnable attention-bias logits and is not a fixed rule during training.}
+\label{tab:alpa_prior_initialization}
+\begin{tabular*}{\textwidth}{@{\extracolsep{\fill}}p{0.16\textwidth} p{0.30\textwidth} p{0.25\textwidth} p{0.21\textwidth}@{}}
 \toprule
-\textbf{Configuration item} & \textbf{No-GAN protocol} & \textbf{GAN-assisted protocol} \\
+\textbf{Class} & \textbf{Primary lead prior} & \textbf{Auxiliary prior} & \textbf{Interpretation} \\
 \midrule
-Target classes & NORM, AMI, IMI, LMI & NORM, AMI, IMI, LMI \\
-Input representation & 12 leads, 1000 samples, 10 s & 12 leads, 1000 samples, 10 s \\
-Source initialization & PTB-XL pretraining for transfer variants & PTB-XL pretraining for transfer variants \\
-Target-domain data & PTB Diagnostic ECG & PTB Diagnostic ECG with synthetic LMI augmentation \\
-Fold design & Five validation folds with fixed held-out test set & Three leave-one-LMI folds \\
-Adaptation modes & Scratch, frozen, partial, full fine-tuning & Scratch, frozen, partial, full fine-tuning \\
-Selection metric & Validation macro-F1 & Validation macro-F1 \\
-Primary test metric & Test macro-F1 & Test macro-F1 \\
+NORM & Uniform over all 12 leads & None & No infarct territory is privileged at initialization. \\
+AMI & V1--V4 receive 0.225 each & Other leads receive small residual mass & Emphasizes anterior and septal-precordial evidence. \\
+IMI & II, III, and aVF receive 0.30 each & Other non-target leads receive small residual mass & Emphasizes inferior limb-lead evidence. \\
+Lateral-involved MI & I, aVL, V5, and V6 receive 0.1375 each & II, III, aVF, V1--V3 receive 0.0667 each; V4 receives 0.05; aVR receives 0 & Preserves lateral dominance while allowing overlap patterns. \\
 \bottomrule
 \end{tabular*}
 \end{table*}
 
-\subsection{Comparison Scope}
-The comparison is organized into three levels. The first level evaluates LWCA fine-tuning strategies: scratch training, frozen-backbone transfer, partial fine-tuning, and full fine-tuning. The second level compares LWCA against compact local baselines pretrained or fine-tuned under the same target-domain protocol, including CNN1D, CNN--LSTM, GRU, and LSTM. The third level compares against imported ECG foundation models, namely HuBERT-ECG and ECG-FM. This structure separates three questions: whether LWCA benefits from PTB-XL initialization, which fine-tuning depth is most effective for PTB Diagnostic localization, and how a lead-aware fine-tuned model compares with large pretrained foundation models under the same evaluation metric.
-
-All results are reported at fold level and as mean $\pm$ standard deviation across folds. The best fold is reported separately because it identifies the checkpoint that achieves the strongest target-domain behavior after validation-based selection. The primary comparison is based on test macro-F1 rather than accuracy because the target-domain class distribution is imbalanced and because missing a rare class can have limited effect on accuracy but large clinical relevance.
-
-\section{Methodology}
-\subsection{Overall Architecture}
-The proposed model receives a raw ECG segment $\mathbf{X}\in\mathbb{R}^{T\times C}$, where $T=1000$ and $C=12$. The architecture consists of four functional components: LWCA for raw-lead weighting, a CNN encoder for morphology extraction, SE blocks for latent feature-channel recalibration, and stacked LSTMs followed by temporal attention pooling for sequence aggregation. Fig.~\ref{fig:lwca_framework} illustrates the full pipeline, and Fig.~\ref{fig:lwca_architecture} summarizes the model components.
-
-The architecture follows a clinically motivated signal-processing order. First, the model estimates which leads are most relevant for the current ECG instance. This is done before convolution because lead importance is a property of the observed 12-lead signal and should influence subsequent morphology extraction. Second, a CNN encoder extracts local waveform patterns such as QRS morphology, ST-segment deviations, and T-wave changes. Third, SE blocks recalibrate the learned feature maps at multiple depths, allowing the network to suppress weak or noisy latent channels and amplify channels that preserve diagnostic evidence. Fourth, LSTM layers integrate the encoded temporal sequence, and temporal attention pooling selects the most informative time regions for classification. The final classifier maps the pooled representation to the four MI localization classes.
+The current softmax implementation uses CrossEntropy loss for the four mutually exclusive classes.
+The ALPA branch records class-specific attention and initializes the anatomical attention bias, but
+no explicit KL-divergence attention-alignment loss is used in the final run. This implementation
+detail is central to the interpretation of the results: the ALPA heatmap should be read as an
+anatomical attention diagnostic, and the no-attention ablation is necessary to determine whether the
+current branch improves predictive performance. Equations~\ref{eq:lwca_descriptor},
+\ref{eq:lwca_softmax}, and~\ref{eq:lwca_scale} formalize the class-specific attention calculation,
+and Fig.~\ref{fig:lwca_architecture} shows the resulting lead-attention diagnostic.
 
 \begin{figure}
 \centering
-\maybeincludegraphics[width=\linewidth]{figs/lwca_framework.png}
-\caption{Proposed transfer-learning framework for MI localization. PTB-XL is used for source-domain pretraining, and PTB Diagnostic ECG is used for target-domain adaptation. The reported comparison includes no-GAN training, GAN-assisted LMI augmentation, local pretrained baselines, and imported ECG foundation models.}
-\label{fig:lwca_framework}
-\end{figure}
-
-\begin{figure}
-\centering
-\maybeincludegraphics[width=\linewidth]{figs/lwca_architecture.png}
-\caption{LWCA--CNN--LSTM--SE architecture. LWCA first assigns sample-specific weights to physiological ECG leads. Convolutional blocks then extract morphology-aware features, SE blocks recalibrate latent feature channels, and temporal attention pooling aggregates LSTM outputs into a class-discriminative representation.}
+\maybeincludegraphics[width=\linewidth]{figs/alpa_lead_attention_heatmap.png}
+\caption{Class-specific ALPA lead-attention heatmap from the PTB-XL pretraining run. Rows correspond to the four output classes and columns correspond to the 12-lead ECG order.}
 \label{fig:lwca_architecture}
 \end{figure}
 
-\subsection{Lead-Wise Channel Attention}
-LWCA is introduced to model the fact that different MI territories are expressed through different lead groups. For each lead $c$, a compact descriptor $\mathbf{g}_c$ is computed from the raw signal:
-\begin{equation}
-\mathbf{g}_c =
-\left[
-\frac{1}{T}\sum_{t=1}^{T}X_{t,c},\;
-\sqrt{\frac{1}{T}\sum_{t=1}^{T}(X_{t,c}-\bar{X}_{c})^2},\;
-\frac{1}{T}\sum_{t=1}^{T}|X_{t,c}|
-\right].
-\label{eq:lwca_descriptor}
-\end{equation}
-The descriptor summarizes lead-level offset, variability, and absolute amplitude. A lightweight multilayer perceptron maps each descriptor to an attention logit:
-\begin{equation}
-e_c=\mathbf{w}_2^{\top}\sigma(\mathbf{W}_1\mathbf{g}_c+\mathbf{b}_1)+b_2,
-\label{eq:lwca_logit}
-\end{equation}
-where $\sigma(\cdot)$ denotes a nonlinear activation. The lead weights are normalized across the 12 leads using softmax:
-\begin{equation}
-\alpha_c=\frac{\exp(e_c)}{\sum_{j=1}^{C}\exp(e_j)}, \quad
-\sum_{c=1}^{C}\alpha_c=1.
-\label{eq:lwca_softmax}
-\end{equation}
-The reweighted signal is then obtained by
-\begin{equation}
-\tilde{X}_{t,c}=\alpha_c X_{t,c}.
-\label{eq:lwca_scale}
-\end{equation}
-This formulation makes LWCA explicitly interpretable at the input-lead level. In contrast with generic feature-channel attention, LWCA operates before the CNN encoder, thereby encouraging the network to adapt its morphology extraction to diagnostically relevant leads for each ECG instance.
+\subsection{CNN--Transformer Backbone and Softmax Head}
+Each lead is first processed by a shared one-dimensional CNN stem. The resulting features are
+projected to a common channel dimension and passed through a multi-scale residual CNN block. Lead
+tokens are then constructed and passed to a cross-lead Transformer encoder. In parallel, pooled
+temporal segments are processed by a temporal Transformer encoder. Lead and temporal representations
+are aggregated by attention pooling and concatenated before the final softmax classification head.
 
-The descriptor design is intentionally compact to avoid increasing model size. Mean, standard deviation, and mean absolute amplitude provide a low-dimensional summary of baseline shift, signal variability, and overall activity for each lead. Although these descriptors do not replace morphological analysis, they provide sufficient information for the attention network to estimate whether a lead should be emphasized before convolution. The softmax constraint encourages relative competition among leads, which is appropriate for 12-lead ECG because infarct localization is often expressed by a subset of leads rather than by all leads equally.
-
-\subsection{CNN Morphological Encoder}
-After LWCA reweighting, the signal $\tilde{\mathbf{X}}$ is passed to a 1-D CNN encoder. A convolutional stage computes
 \begin{equation}
-\mathbf{Y}_{m}(t)=\sum_{c=1}^{C_m}\sum_{k=0}^{K-1}W_{m,c,k}\tilde{X}_{c}(t-k)+b_m,
+\hat{\mathbf{y}}=\mathrm{softmax}(\mathbf{W}\mathbf{z}+\mathbf{b}),
 \label{eq:conv_encoder}
 \end{equation}
-where $K$ is the kernel size, $m$ indexes output feature channels, and $C_m$ is the number of input channels to the stage. Each convolutional stage is followed by batch normalization, nonlinear activation, and temporal downsampling. The staged design increases representational abstraction gradually: early filters capture local waveform morphology, while deeper filters encode more complex combinations of lead-modulated waveform patterns.
-
-The CNN encoder is important for two reasons. First, it reduces the burden on recurrent layers by converting raw ECG waveforms into compact morphology-aware sequences. Second, it provides the latent feature maps on which SE recalibration can operate. Without this convolutional stage, recurrent models must learn morphology and temporal context simultaneously, which is difficult in small and imbalanced target-domain data.
-
-\subsection{SE-Based Latent Channel Recalibration}
-SE blocks are used after convolutional stages to recalibrate learned feature channels \cite{Sun2024Sensors_CNNLSTMSE,QuFu2025JSMU_ResLSTM_TemporalSE}. Let $\mathbf{F}\in\mathbb{R}^{D\times T'}$ denote an intermediate convolutional feature map with $D$ latent channels. SE first compresses the temporal dimension using global average pooling:
+where $\mathbf{z}$ is the pooled lead-time representation. The training objective is CrossEntropy
+loss:
 \begin{equation}
-z_d=\frac{1}{T'}\sum_{t=1}^{T'}F_d(t), \quad d=1,\ldots,D.
-\label{eq:se_squeeze}
-\end{equation}
-The channel descriptor is transformed through a bottleneck gating function:
-\begin{equation}
-\mathbf{s}=\mathrm{sigmoid}\left(\mathbf{W}_{2}^{se}\delta(\mathbf{W}_{1}^{se}\mathbf{z})\right),
-\label{eq:se_gate}
-\end{equation}
-and the feature maps are recalibrated as
-\begin{equation}
-\hat{F}_d(t)=s_dF_d(t).
-\label{eq:se_recalibration}
-\end{equation}
-The role of SE in this work is therefore complementary to LWCA. LWCA determines which physiological leads should receive higher input emphasis, while SE determines which learned feature channels should be amplified or suppressed after convolutional abstraction. This two-level channel selectivity is important for MI localization because infarct-related evidence can depend simultaneously on anatomical lead groups and learned waveform morphology.
-
-Multi-stage SE placement is used instead of a single late SE block. This choice is motivated by the hierarchical nature of CNN features. In shallow stages, SE can suppress noisy local filters or enhance lead-modulated waveform detectors. In deeper stages, SE can recalibrate more abstract combinations of morphology, temporal context, and inter-lead patterns. The repeated placement therefore supports progressive refinement of lead-aware features before recurrent temporal modeling.
-
-\subsection{Temporal Modeling and Attention Pooling}
-The SE-recalibrated CNN output is rearranged into a temporal sequence and processed by stacked LSTMs. Given hidden states $\mathbf{H}=[\mathbf{h}_1,\ldots,\mathbf{h}_{T'}]$, temporal attention pooling assigns a relevance score to each time step:
-\begin{equation}
-q_t=\mathbf{u}^{\top}\tanh(\mathbf{W}\mathbf{h}_t+\mathbf{b}),
-\quad
-\beta_t=\frac{\exp(q_t)}{\sum_{\tau=1}^{T'}\exp(q_{\tau})}.
-\label{eq:temporal_attention}
-\end{equation}
-The final representation is computed as
-\begin{equation}
-\mathbf{v}=\sum_{t=1}^{T'}\beta_t\mathbf{h}_t.
-\label{eq:temporal_context}
-\end{equation}
-Temporal attention is retained because MI evidence may be concentrated around specific waveform regions, and uniform averaging can dilute subtle ST-segment, T-wave, or QRS-related features.
-
-\subsection{Fine-Tuning Strategy and Model Selection}
-The proposed LWCA model is evaluated under four training and fine-tuning settings: scratch training, frozen-backbone transfer, partial fine-tuning, and full fine-tuning. In frozen-backbone transfer, only a small classifier head is updated. In partial fine-tuning, the classifier and selected upper-level temporal or attention components are updated while preserving much of the pretrained encoder. In full fine-tuning, all model parameters are trainable.
-
-Model selection is performed independently within each fold using validation macro-F1. The selected checkpoint is subsequently evaluated on the held-out test set. Because the same held-out test set is evaluated after each fold-specific checkpoint selection, the average test macro-F1 reflects checkpoint variability across folds rather than independent test partitions. This reporting is intentionally retained to make all fold outcomes visible.
-
-The four settings are included to separate the effect of representation reuse from the effect of fine-tuning depth. Scratch training tests whether the target-domain data alone are sufficient. Frozen-backbone transfer tests whether the pretrained representation is directly reusable with minimal target updates. Partial fine-tuning tests whether selected task-specific layers can adjust the decision boundary while preserving the source-domain morphology prior. Full fine-tuning tests the upper limit of target-domain flexibility but may increase overfitting risk because all parameters are updated using limited target data.
-
-\subsection{Evaluation Metrics}
-The primary metric is macro-F1, computed as the unweighted average of class-wise F1 scores:
-\begin{equation}
-\mathrm{MacroF1}=\frac{1}{K}\sum_{k=1}^{K}
-\frac{2\mathrm{Prec}_{k}\mathrm{Rec}_{k}}{\mathrm{Prec}_{k}+\mathrm{Rec}_{k}},
+\mathcal{L}_{CE}=-\sum_{k=1}^{4} y_k\log(\hat{y}_k).
 \label{eq:macro_f1}
 \end{equation}
-where $K=4$. Macro-F1 is emphasized because the target-domain test set is imbalanced and contains only one LMI instance. Accuracy is also reported, but it is treated as a secondary metric.
+Equations~\ref{eq:conv_encoder} and~\ref{eq:macro_f1} define the final softmax output and the
+corresponding training objective.
+
+\subsection{Transfer-Learning Strategies}
+Four adaptation strategies are evaluated. In no-pretrain training, all parameters are initialized
+randomly. In frozen-backbone transfer, the pretrained backbone is loaded and frozen while the
+classification head is trained. In partial fine-tuning, the early CNN feature extractor is frozen
+and the higher-level attention, Transformer, pooling, and head components are trainable. In full
+fine-tuning, all model parameters are updated. These strategies separate representation reuse,
+adaptation depth, and overfitting risk.
 
 \section{Results}
-\subsection{Parameter Budget}
-Table~\ref{tab:param_budget} summarizes the parameter counts used in the comparison. The proposed LWCA architecture contains 951,341 parameters. In the partial fine-tuning configuration, 449,892 parameters are trainable. By contrast, ECG-FM and HuBERT-ECG contain 90.89M and 93.13M parameters, respectively, and are fully trainable in the reported comparison. The table is used to contextualize the fine-tuning burden of each strategy and to clarify how many parameters are updated during target-domain adaptation.
+\subsection{PTB-XL Pretraining}
+Table~\ref{tab:param_budget} summarizes PTB-XL pretraining performance. ALPA-Net reaches 0.6356 test
+macro-F1 and 0.9267 macro-AUC. The no-attention pretraining ablation reaches 0.6540 macro-F1 and
+0.9293 macro-AUC. The difference is modest, but it is consistent across the reported source-domain
+metrics: the no-attention ablation also has higher weighted-F1 and balanced accuracy. This indicates
+that, in the present implementation, ALPA attention does not improve PTB-XL source-domain
+classification by itself.
 
-Parameter count is included as a core result rather than as an implementation detail because the main comparison concerns fine-tuning behavior. A high-capacity model can benefit from broad pretraining but may also require more memory, longer fine-tuning time, and stronger regularization. The comparison therefore evaluates not only which model attains the highest macro-F1, but also how different fine-tuning depths and trainable-parameter budgets affect target-domain performance.
+The class-wise values show why macro-F1 is necessary. NORM is learned more reliably than infarct
+classes in both pretraining settings, whereas AMI and IMI remain substantially lower. This behavior
+is compatible with the data distribution in Table~\ref{tab:training_config}, where NORM beats
+dominate the source dataset. Lateral-involved MI is stronger than AMI and IMI in this pretraining
+run, but its interpretation is affected by the broader lateral-involved label definition rather than
+a strict isolated-lateral target.
 
 \begin{table*}[!t]
 \centering
-\caption{Parameter budget of evaluated models.}
+\caption{PTB-XL pretraining results on the held-out test split.}
 \label{tab:param_budget}
-\begin{tabular*}{\textwidth}{@{\extracolsep{\fill}}l r r l@{}}
+\begin{tabular*}{\textwidth}{@{\extracolsep{\fill}}l r r r r r r r@{}}
 \toprule
-\textbf{Model} & \textbf{Total params} & \textbf{Trainable params} & \textbf{Setting} \\
+\textbf{Model} & \textbf{Macro-F1} & \textbf{Weighted-F1} & \textbf{Balanced Acc.} & \textbf{Macro-AUC} & \textbf{NORM F1} & \textbf{AMI F1} & \textbf{LMI F1} \\
 \midrule
-CNN1D & 10,260 & 10,260 & Local pretrained baseline \\
-CNN--LSTM & 117,700 & 117,700 & Local pretrained baseline \\
-GRU & 261,188 & 261,188 & Local pretrained baseline \\
-LSTM & 345,412 & 345,412 & Local pretrained baseline \\
-LWCA--CNN--LSTM--SE & 951,341 & 516 & Frozen backbone \\
-LWCA--CNN--LSTM--SE & 951,341 & 449,892 & Partial fine-tuning \\
-LWCA--CNN--LSTM--SE & 951,341 & 951,341 & Scratch/full fine-tuning \\
-ECG-FM & 90,886,148 & 90,886,148 & Imported foundation model \\
-HuBERT-ECG & 93,126,788 & 93,126,788 & Imported foundation model \\
+ALPA-Net & 0.6356 & 0.8091 & 0.7009 & 0.9267 & 0.8880 & 0.4845 & 0.6716 \\
+No-attention ALPA-Net & 0.6540 & 0.8134 & 0.7234 & 0.9293 & 0.8867 & 0.5269 & 0.7236 \\
 \bottomrule
 \end{tabular*}
 \end{table*}
 
-\subsection{No-GAN Comparison}
-Table~\ref{tab:nogan_summary} reports the no-GAN fold-averaged comparison across LWCA fine-tuning variants, local pretrained baselines, and external ECG foundation models. Among the LWCA variants, partial fine-tuning provides the strongest average test macro-F1 (0.7889), while full fine-tuning obtains a comparable average (0.7795) and the highest LWCA best-fold test macro-F1 (0.9143). Scratch training collapses under the small target-domain setting, confirming the importance of source-domain initialization.
+\subsection{PTB Diagnostic Transfer Learning}
+Table~\ref{tab:nogan_summary} reports the five-fold transfer-learning results on PTB Diagnostic.
+Among ALPA-Net strategies, full fine-tuning is the strongest, achieving $0.8596\pm0.0165$ macro-F1,
+$0.8583\pm0.0174$ weighted-F1, $0.8588\pm0.0174$ balanced accuracy, and $0.9682\pm0.0075$ macro-AUC.
+Frozen-backbone and no-pretrain settings are weaker, indicating that the target task benefits from
+both source-domain initialization and sufficient adaptation capacity.
 
-The fold-level behavior of LWCA is detailed separately in Table~\ref{tab:nogan_lwca_folds}. The table shows that scratch training remains unstable across all folds, whereas frozen-backbone transfer produces a fixed test macro-F1 of 0.6022 because only the classifier head is updated. Partial fine-tuning improves both average performance and fold stability, reaching 0.8954 in fold 2. Full fine-tuning reaches a stronger best fold (0.9143 in fold 2), but its fold-to-fold variability is larger, indicating that updating all layers can improve target adaptation in some folds while destabilizing others.
-
-The fold-level behavior of the local pretrained baselines and external foundation models is reported in Table~\ref{tab:nogan_comparison_folds}. Among local pretrained baselines, CNN--LSTM achieves the strongest average test macro-F1 (0.7158), whereas LSTM and GRU remain more variable across folds. ECG-FM obtains the highest no-GAN average test macro-F1 (0.8334) and a best fold of 0.8671, but this is achieved with a substantially larger trainable-parameter budget. HuBERT-ECG obtains a lower average macro-F1 (0.6524), suggesting that foundation-model transfer remains sensitive to preprocessing alignment, fine-tuning depth, and the downstream localization label space.
-
-For the no-GAN LWCA configuration, the best validation-selected test result is obtained by full fine-tuning in fold 2 with epoch 94, validation macro-F1 of 0.8928, and test macro-F1 of 0.9143. The diagnostic visualizations of the best no-GAN LWCA model are presented in Fig.~\ref{fig:nogan_confusion_matrix}, \ref{fig:nogan_training_curve}, and \ref{fig:nogan_roc_pr_curve}. Fig.~\ref{fig:nogan_confusion_matrix} illustrates the test confusion matrix for class-level error analysis, whereas Fig.~\ref{fig:nogan_training_curve} and \ref{fig:nogan_roc_pr_curve} depict the training dynamics and ROC/PR performance, respectively, demonstrating the stability of optimization and the model's discriminative capability.
+The strategy ranking is informative. Frozen-backbone transfer does not provide enough flexibility
+for the target-domain distribution, while full fine-tuning allows the pretrained representation to
+adapt to PTB Diagnostic morphology and label composition. Partial fine-tuning has a high standard
+deviation for ALPA-Net, suggesting that its success depends strongly on which target records are
+used for validation. This variability is important because the test set is fixed, and the fold
+average therefore reflects checkpoint selection variability rather than independent test resampling.
 
 \begin{table*}[!t]
 \centering
-\caption{No-GAN fold-averaged comparison. The primary metric is test macro-F1.}
+\caption{PTB Diagnostic transfer-learning results for ALPA-Net and no-attention ablation. Values are mean $\pm$ standard deviation across five validation folds evaluated on the fixed test set.}
 \label{tab:nogan_summary}
-\begin{tabular*}{\textwidth}{@{\extracolsep{\fill}}l r r r r l@{}}
+\begin{tabular*}{\textwidth}{@{\extracolsep{\fill}}l l r r r r@{}}
 \toprule
-\textbf{Model} & \textbf{Params} & \textbf{Trainable} & \textbf{Val Macro-F1} & \textbf{Test Macro-F1} & \textbf{Best test fold} \\
+\textbf{Model} & \textbf{Strategy} & \textbf{Macro-F1} & \textbf{Weighted-F1} & \textbf{Balanced Acc.} & \textbf{Macro-AUC} \\
 \midrule
-LWCA scratch & 0.95M & 0.95M & $0.1977\pm0.0884$ & $0.1356\pm0.0470$ & F2: 0.1812 \\
-LWCA frozen backbone & 0.95M & 516 & $0.7091\pm0.1431$ & $0.6022\pm0.0000$ & F1--F5: 0.6022 \\
-LWCA partial fine-tune & 0.95M & 0.45M & $0.8412\pm0.1031$ & $0.7889\pm0.0840$ & F2: 0.8954 \\
-LWCA full fine-tune & 0.95M & 0.95M & $0.8841\pm0.0260$ & $0.7795\pm0.1589$ & F2: 0.9143 \\
-TL CNN1D & 0.01M & 0.01M & $0.7433\pm0.1221$ & $0.5724\pm0.0219$ & F2/F4/F5: 0.5869 \\
-TL CNN--LSTM & 0.12M & 0.12M & $0.7731\pm0.1313$ & $0.7158\pm0.1395$ & F1: 0.9144 \\
-TL GRU & 0.26M & 0.26M & $0.7814\pm0.1201$ & $0.6661\pm0.1517$ & F3: 0.8507 \\
-TL LSTM & 0.35M & 0.35M & $0.7978\pm0.1240$ & $0.6786\pm0.1505$ & F3/F5: 0.8219 \\
-HuBERT-ECG & 93.13M & 93.13M & $0.6711\pm0.1140$ & $0.6524\pm0.0851$ & F2: 0.7480 \\
-ECG-FM & 90.89M & 90.89M & $0.6709\pm0.0833$ & $\mathbf{0.8334\pm0.0229}$ & F2: 0.8671 \\
+ALPA-Net & Scratch & $0.6890\pm0.0560$ & $0.7187\pm0.0455$ & $0.6789\pm0.0475$ & $0.9388\pm0.0179$ \\
+ALPA-Net & Frozen backbone & $0.6932\pm0.0238$ & $0.7191\pm0.0228$ & $0.6768\pm0.0232$ & $0.9578\pm0.0045$ \\
+ALPA-Net & Partial fine-tune & $0.7322\pm0.1260$ & $0.7505\pm0.1073$ & $0.7251\pm0.1246$ & $0.9610\pm0.0153$ \\
+ALPA-Net & Full fine-tune & $\mathbf{0.8596\pm0.0165}$ & $0.8583\pm0.0174$ & $0.8588\pm0.0174$ & $0.9682\pm0.0075$ \\
+No-attention & Scratch & $0.7142\pm0.0825$ & $0.7412\pm0.0676$ & $0.7049\pm0.0828$ & $0.9375\pm0.0147$ \\
+No-attention & Frozen backbone & $0.7303\pm0.0695$ & $0.7422\pm0.0555$ & $0.7059\pm0.0673$ & $0.9679\pm0.0062$ \\
+No-attention & Partial fine-tune & $\mathbf{0.8698\pm0.0208}$ & $0.8728\pm0.0201$ & $0.8783\pm0.0190$ & $0.9835\pm0.0032$ \\
+No-attention & Full fine-tune & $0.8538\pm0.0237$ & $0.8591\pm0.0249$ & $0.8689\pm0.0198$ & $0.9801\pm0.0032$ \\
 \bottomrule
 \end{tabular*}
 \end{table*}
 
-\begin{figure}
-\centering
-\maybeincludegraphics[width=\columnwidth]{figs/nogan_best_confusion_matrix.png}
-\caption{Test confusion matrix of the best no-GAN LWCA model from full fine-tuning fold 2.}
-\label{fig:nogan_confusion_matrix}
-\end{figure}
-
-\begin{figure}
-\centering
-\maybeincludegraphics[width=\columnwidth]{figs/nogan_best_training_curve.png}
-\caption{Training accuracy and loss curves of the best no-GAN LWCA model from full fine-tuning fold 2.}
-\label{fig:nogan_training_curve}
-\end{figure}
-
-\begin{figure}
-\centering
-\maybeincludegraphics[width=\columnwidth]{figs/nogan_best_roc_pr_curve.png}
-\caption{ROC and Precision-Recall curves of the best no-GAN LWCA model from full fine-tuning fold 2.}
-\label{fig:nogan_roc_pr_curve}
-\end{figure}
+\subsection{Class-Wise Behavior}
+Table~\ref{tab:nogan_lwca_folds} reports class-wise F1 scores. ALPA full fine-tuning obtains the
+best ALPA class-wise balance, with LMI F1 of $0.9202\pm0.0200$. This high LMI score reflects the
+prepared lateral-involved protocol, but it should be interpreted with caution because the fixed test
+set contains few lateral records and multiple beats from a small number of records. The no-attention
+partial fine-tuning ablation achieves higher NORM, AMI, and IMI F1 values and slightly lower LMI F1
+than ALPA full fine-tuning.
 
 \begin{table*}[!t]
 \centering
-\caption{No-GAN fold-level details for LWCA fine-tuning variants.}
+\caption{Class-wise test F1 for the strongest ALPA strategy and the strongest no-attention ablation.}
 \label{tab:nogan_lwca_folds}
-\begin{tabular*}{\textwidth}{@{\extracolsep{\fill}}l c r r r r r@{}}
+\begin{tabular*}{\textwidth}{@{\extracolsep{\fill}}l l r r r r@{}}
 \toprule
-\textbf{Model} & \textbf{Fold} & \textbf{Epoch} & \textbf{Val Macro-F1} & \textbf{Test Macro-F1} & \textbf{Test Acc} & \textbf{Trainable} \\
+\textbf{Model} & \textbf{Strategy} & \textbf{NORM F1} & \textbf{AMI F1} & \textbf{IMI F1} & \textbf{LMI F1} \\
 \midrule
-LWCA scratch & 1 & 13 & 0.1400 & 0.1690 & 0.2381 & 951,341 \\
-LWCA scratch & 2 & 25 & 0.2477 & 0.1812 & 0.2381 & 951,341 \\
-LWCA scratch & 3 & 19 & 0.3289 & 0.0816 & 0.1905 & 951,341 \\
-LWCA scratch & 4 & 8 & 0.1197 & 0.0882 & 0.2143 & 951,341 \\
-LWCA scratch & 5 & 18 & 0.1522 & 0.1580 & 0.2381 & 951,341 \\
-\midrule
-LWCA frozen & 1 & 3 & 0.6135 & 0.6022 & 0.7857 & 516 \\
-LWCA frozen & 2 & 1 & 0.6531 & 0.6022 & 0.7857 & 516 \\
-LWCA frozen & 3 & 4 & 0.5709 & 0.6022 & 0.7857 & 516 \\
-LWCA frozen & 4 & 1 & 0.9195 & 0.6022 & 0.7857 & 516 \\
-LWCA frozen & 5 & 1 & 0.7883 & 0.6022 & 0.7857 & 516 \\
-\midrule
-LWCA partial & 1 & 2 & 0.7266 & 0.6722 & 0.6905 & 449,892 \\
-LWCA partial & 2 & 65 & 0.9807 & 0.8954 & 0.8571 & 449,892 \\
-LWCA partial & 3 & 66 & 0.7600 & 0.7540 & 0.7619 & 449,892 \\
-LWCA partial & 4 & 3 & 0.8990 & 0.8341 & 0.7857 & 449,892 \\
-LWCA partial & 5 & 22 & 0.8397 & 0.7887 & 0.8095 & 449,892 \\
-\midrule
-LWCA full & 1 & 5 & 0.8487 & 0.8976 & 0.8571 & 951,341 \\
-LWCA full & 2 & 94 & 0.8928 & 0.9143 & 0.8810 & 951,341 \\
-LWCA full & 3 & 27 & 0.9037 & 0.6496 & 0.8333 & 951,341 \\
-LWCA full & 4 & 3 & 0.9095 & 0.5690 & 0.7381 & 951,341 \\
-LWCA full & 5 & 5 & 0.8658 & 0.8671 & 0.8095 & 951,341 \\
+ALPA-Net & Full fine-tune & $0.8862\pm0.0102$ & $0.7847\pm0.0233$ & $0.8472\pm0.0255$ & $0.9202\pm0.0200$ \\
+No-attention & Partial fine-tune & $0.9229\pm0.0300$ & $0.8101\pm0.0370$ & $0.8621\pm0.0234$ & $0.8843\pm0.0250$ \\
 \bottomrule
 \end{tabular*}
 \end{table*}
 
+The best ALPA fold is partial fine-tuning fold 5 with 0.8900 macro-F1, 0.8856 accuracy, 0.8811
+balanced accuracy, and 0.9797 macro-AUC. Its class-wise F1 scores are 0.8914 for NORM, 0.8817 for
+AMI, 0.8702 for IMI, and 0.9167 for LMI. These values indicate that ALPA can achieve strong
+per-class behavior in selected folds even though its mean performance is slightly below the
+no-attention ablation. The best-fold result should not be interpreted as the primary estimate of
+generalization; it is more appropriately used to show the upper range of observed ALPA behavior
+under validation-based model selection.
+
+\subsection{Comparison with Baseline and Foundation Models}
+Table~\ref{tab:nogan_comparison_folds} summarizes the final model comparison. The highest mean
+macro-F1 in the current artifact set is obtained by no-attention ALPA-Net partial fine-tuning
+(0.8698). ALPA-Net full fine-tuning is second (0.8596), followed by no-attention full fine-tuning
+(0.8538) and the fine-tuned LSTM baseline (0.8443). CNN1D pretraining obtains 0.7356 macro-F1, while
+HuBERT-ECG and ECG-FM fine-tuning obtain 0.6581 and 0.1331 macro-F1, respectively. The low ECG-FM
+result in this run should be interpreted as an implementation- and preprocessing-specific outcome
+rather than as a general statement about the foundation model. Fig.~\ref{fig:final_bar_comparison}
+provides the corresponding macro-F1 ranking plot.
+
 \begin{table*}[!t]
 \centering
-\caption{No-GAN fold-level details for local baselines and external foundation models.}
+\caption{Final comparison from the generated summary CSV.}
 \label{tab:nogan_comparison_folds}
-\begin{tabular*}{\textwidth}{@{\extracolsep{\fill}}l c r r r r r@{}}
+\begin{tabular*}{\textwidth}{@{\extracolsep{\fill}}l l r r r@{}}
 \toprule
-\textbf{Model} & \textbf{Fold} & \textbf{Epoch} & \textbf{Val Macro-F1} & \textbf{Test Macro-F1} & \textbf{Test Acc} & \textbf{Trainable} \\
+\textbf{Experiment group} & \textbf{Model} & \textbf{Macro-F1} & \textbf{Balanced Acc.} & \textbf{Macro-AUC} \\
 \midrule
-TL CNN1D & 1 & 1 & 0.6384 & 0.5377 & 0.7143 & 10,260 \\
-TL CNN1D & 2 & 1 & 0.5854 & 0.5869 & 0.7619 & 10,260 \\
-TL CNN1D & 3 & 1 & 0.8472 & 0.5636 & 0.7381 & 10,260 \\
-TL CNN1D & 4 & 1 & 0.8102 & 0.5869 & 0.7619 & 10,260 \\
-TL CNN1D & 5 & 1 & 0.8351 & 0.5869 & 0.7619 & 10,260 \\
-\midrule
-TL CNN--LSTM & 1 & 36 & 0.6664 & 0.9144 & 0.8810 & 117,700 \\
-TL CNN--LSTM & 2 & 3 & 0.5982 & 0.5606 & 0.7381 & 117,700 \\
-TL CNN--LSTM & 3 & 1 & 0.8716 & 0.6104 & 0.7857 & 117,700 \\
-TL CNN--LSTM & 4 & 99 & 0.8818 & 0.7723 & 0.8333 & 117,700 \\
-TL CNN--LSTM & 5 & 26 & 0.8475 & 0.7214 & 0.8095 & 117,700 \\
-\midrule
-TL GRU & 1 & 4 & 0.6708 & 0.4596 & 0.5238 & 261,188 \\
-TL GRU & 2 & 2 & 0.6460 & 0.6177 & 0.6905 & 261,188 \\
-TL GRU & 3 & 19 & 0.8865 & 0.8507 & 0.8095 & 261,188 \\
-TL GRU & 4 & 23 & 0.9074 & 0.6287 & 0.8095 & 261,188 \\
-TL GRU & 5 & 8 & 0.7963 & 0.7740 & 0.8095 & 261,188 \\
-\midrule
-TL LSTM & 1 & 38 & 0.9231 & 0.5958 & 0.7857 & 345,412 \\
-TL LSTM & 2 & 7 & 0.6720 & 0.6812 & 0.7619 & 345,412 \\
-TL LSTM & 3 & 30 & 0.9372 & 0.8219 & 0.8571 & 345,412 \\
-TL LSTM & 4 & 1 & 0.7069 & 0.4719 & 0.6190 & 345,412 \\
-TL LSTM & 5 & 38 & 0.7497 & 0.8219 & 0.8571 & 345,412 \\
-\midrule
-HuBERT-ECG & 1 & 15 & 0.8390 & 0.6092 & 0.6190 & 93,126,788 \\
-HuBERT-ECG & 2 & 12 & 0.6639 & 0.7480 & 0.7619 & 93,126,788 \\
-HuBERT-ECG & 3 & 33 & 0.6857 & 0.7319 & 0.7381 & 93,126,788 \\
-HuBERT-ECG & 4 & 23 & 0.5195 & 0.6251 & 0.6905 & 93,126,788 \\
-HuBERT-ECG & 5 & 18 & 0.6472 & 0.5479 & 0.6905 & 93,126,788 \\
-\midrule
-ECG-FM & 1 & 12 & 0.6549 & 0.8048 & 0.7381 & 90,886,148 \\
-ECG-FM & 2 & 15 & 0.5918 & 0.8671 & 0.8095 & 90,886,148 \\
-ECG-FM & 3 & 58 & 0.6145 & 0.8388 & 0.7857 & 90,886,148 \\
-ECG-FM & 4 & 93 & 0.8041 & 0.8225 & 0.7619 & 90,886,148 \\
-ECG-FM & 5 & 15 & 0.6892 & 0.8335 & 0.7857 & 90,886,148 \\
-\bottomrule
-\end{tabular*}
-\end{table*}
-
-\subsection{Effect of GAN-Assisted LMI Augmentation}
-Table~\ref{tab:gan_summary} summarizes the GAN-assisted leave-one-LMI protocol. The effect of augmentation is substantial. Scratch training, which fails in the no-GAN setting, becomes competitive with an average test macro-F1 of 0.8479. Full fine-tuning achieves the highest average test macro-F1 (0.8653), while partial fine-tuning provides the highest average validation macro-F1 (0.9298) and the best validation-selected fold (fold 2, validation macro-F1=0.9496, test macro-F1=0.9531). These findings indicate that targeted minority augmentation reduces the instability caused by scarce LMI samples.
-
-The improvement under GAN-assisted training suggests that the dominant bottleneck is not only architecture capacity but also the availability of minority-class evidence. When synthetic LMI samples are added, even scratch training becomes competitive, indicating that the target-domain training distribution becomes more informative. However, the frozen-backbone setting remains weak because only 516 parameters are trainable. This shows that augmentation alone is insufficient when the model lacks enough adaptation capacity to reshape the target-domain decision boundary.
-
-The best GAN-assisted full fine-tuning fold is fold 2, selected at epoch 20, with validation macro-F1 of 0.8889 and test macro-F1 of 0.9688. Fig. ~\ref{fig:gan_confusion_matrix}, \ref{fig:gan_training_curve}, and \ref{fig:gan_roc_pr_curve} present the confusion matrix, training curve, and ROC/PR curve of the best GAN-assisted LWCA checkpoint. Compared with the best no-GAN fold, the GAN-assisted model achieves a stronger test macro-F1 under the LMI-centered protocol, supporting the effectiveness of minority-class augmentation when sufficient fine-tuning capacity is available. is sufficient.
-
-\begin{table*}[!t]
-\centering
-\caption{GAN-assisted leave-one-LMI summary.}
-\label{tab:gan_summary}
-\begin{tabular*}{\textwidth}{@{\extracolsep{\fill}}l r r r r l@{}}
-\toprule
-\textbf{Model} & \textbf{Params} & \textbf{Trainable} & \textbf{Val Macro-F1} & \textbf{Test Macro-F1} & \textbf{Best test fold} \\
-\midrule
-GAN LWCA scratch & 0.95M & 0.95M & $0.8824\pm0.0532$ & $0.8479\pm0.1655$ & F1: 0.9688 \\
-GAN LWCA frozen backbone & 0.95M & 516 & $0.6799\pm0.0298$ & $0.4321\pm0.0170$ & F2: 0.4517 \\
-GAN LWCA partial fine-tune & 0.95M & 0.45M & $\mathbf{0.9298\pm0.0172}$ & $0.8574\pm0.1459$ & F2: 0.9531 \\
-GAN LWCA full fine-tune & 0.95M & 0.95M & $0.9095\pm0.0179$ & $\mathbf{0.8653\pm0.1607}$ & F2: 0.9688 \\
-\bottomrule
-\end{tabular*}
-\end{table*}
-
-\begin{figure}
-\centering
-\maybeincludegraphics[width=\columnwidth]{figs/gan_best_confusion_matrix.png}
-\caption{Test confusion matrix of the best GAN-assisted LWCA model from full fine-tuning fold 2.}
-\label{fig:gan_confusion_matrix}
-\end{figure}
-
-\begin{figure}
-\centering
-\maybeincludegraphics[width=\columnwidth]{figs/gan_best_training_curve.png}
-\caption{Training accuracy and loss curves of the best GAN-assisted LWCA model from full fine-tuning fold 2.}
-\label{fig:gan_training_curve}
-\end{figure}
-
-\begin{figure}
-\centering
-\maybeincludegraphics[width=\columnwidth]{figs/gan_best_roc_pr_curve.png}
-\caption{ROC and Precision-Recall curves of the best GAN-assisted LWCA model from full fine-tuning fold 2.}
-\label{fig:gan_roc_pr_curve}
-\end{figure}
-
-\begin{table*}[!t]
-\centering
-\caption{GAN-assisted fold-level details.}
-\label{tab:gan_folds}
-\begin{tabular*}{\textwidth}{@{\extracolsep{\fill}}l c r r r r r@{}}
-\toprule
-\textbf{Model} & \textbf{Fold} & \textbf{Epoch} & \textbf{Val Macro-F1} & \textbf{Test Macro-F1} & \textbf{Test Acc} & \textbf{Trainable} \\
-\midrule
-GAN LWCA scratch & 1 & 61 & 0.8214 & 0.9688 & 0.9524 & 951,341 \\
-GAN LWCA scratch & 2 & 26 & 0.9059 & 0.9156 & 0.8810 & 951,341 \\
-GAN LWCA scratch & 3 & 38 & 0.9198 & 0.6593 & 0.8571 & 951,341 \\
-\midrule
-GAN LWCA frozen & 1 & 15 & 0.6627 & 0.4222 & 0.4286 & 516 \\
-GAN LWCA frozen & 2 & 72 & 0.7143 & 0.4517 & 0.4524 & 516 \\
-GAN LWCA frozen & 3 & 23 & 0.6627 & 0.4222 & 0.4286 & 516 \\
-\midrule
-GAN LWCA partial & 1 & 23 & 0.9198 & 0.9297 & 0.9048 & 449,892 \\
-GAN LWCA partial & 2 & 45 & 0.9496 & 0.9531 & 0.9286 & 449,892 \\
-GAN LWCA partial & 3 & 11 & 0.9198 & 0.6896 & 0.9048 & 449,892 \\
-\midrule
-GAN LWCA full & 1 & 16 & 0.9198 & 0.9470 & 0.9286 & 951,341 \\
-GAN LWCA full & 2 & 20 & 0.8889 & 0.9688 & 0.9524 & 951,341 \\
-GAN LWCA full & 3 & 7 & 0.9198 & 0.6803 & 0.8810 & 951,341 \\
-\bottomrule
-\end{tabular*}
-\end{table*}
-
-\subsection{No-GAN versus GAN-Assisted LWCA}
-Table~\ref{tab:nogan_gan_direct} directly compares the LWCA variants across the no-GAN and GAN-assisted regimes. The gain is largest for scratch training, where average test macro-F1 increases from 0.1356 to 0.8479. This confirms that the target-domain imbalance is severe enough to prevent reliable scratch optimization without minority augmentation. Partial fine-tuning improves from 0.7889 to 0.8574, while full fine-tuning improves from 0.7795 to 0.8653. The frozen-backbone setting deteriorates under the GAN protocol because only 516 parameters are trainable; the model cannot sufficiently adapt the decision boundary to the augmented distribution.
-
-Fig.~\ref{fig:final_bar_comparison} summarizes the final model-level comparison using average test macro-F1. These plots provide a visual comparison between LWCA fine-tuning variants, compact local baselines, external ECG foundation models, and GAN-assisted LWCA variants.
-
-\begin{table*}[!t]
-\centering
-\caption{Direct comparison of no-GAN and GAN-assisted LWCA variants.}
-\label{tab:nogan_gan_direct}
-\begin{tabular*}{\textwidth}{@{\extracolsep{\fill}}l r r r@{}}
-\toprule
-\textbf{LWCA setting} & \textbf{No-GAN avg. test Macro-F1} & \textbf{GAN avg. test Macro-F1} & \textbf{Absolute change} \\
-\midrule
-Scratch & 0.1356 & 0.8479 & +0.7123 \\
-Frozen backbone & 0.6022 & 0.4321 & -0.1701 \\
-Partial fine-tune & 0.7889 & 0.8574 & +0.0685 \\
-Full fine-tune & 0.7795 & 0.8653 & +0.0858 \\
+No-attention transfer & No-attention ALPA-Net partial fine-tune & $0.8698\pm0.0208$ & 0.8783 & 0.9835 \\
+ALPA transfer & ALPA-Net full fine-tune & $0.8596\pm0.0165$ & 0.8588 & 0.9682 \\
+No-attention transfer & No-attention ALPA-Net full fine-tune & $0.8538\pm0.0237$ & 0.8689 & 0.9801 \\
+Baseline fine-tune & LSTM & 0.8443 & 0.8597 & 0.9572 \\
+Baseline pretrain & CNN1D & 0.7356 & 0.7086 & 0.9535 \\
+Baseline fine-tune & HuBERT-ECG & 0.6581 & 0.6533 & 0.8591 \\
+Baseline fine-tune & ECG-FM & 0.1331 & 0.2500 & 0.5031 \\
 \bottomrule
 \end{tabular*}
 \end{table*}
 
 \begin{figure*}[!t]
 \centering
-\maybeincludegraphics[width=0.88\textwidth]{figs/final_macro_f1_model_comparison_bar.png}
-\caption{Final bar-chart comparison of average test macro-F1 across no-GAN LWCA variants, local pretrained baselines, external foundation models, and GAN-assisted LWCA variants.}
+\maybeincludegraphics[width=0.90\textwidth]{figs/final_macro_f1_model_comparison_bar.png}
+\caption{Final macro-F1 comparison across ALPA-Net, no-attention ablation, local baselines, and external pretrained models.}
 \label{fig:final_bar_comparison}
 \end{figure*}
 
+\subsection{Diagnostic Figures}
+The best available artifact copied for manuscript visualization corresponds to the highest macro-F1
+candidate with existing ROC, PR, and confusion-matrix figures. In the current artifact set, this is
+the no-attention ALPA-Net partial fine-tuning fold. These figures are retained because they show the
+strongest observed test behavior, but they are interpreted as an ablation result rather than as ALPA
+evidence. The confusion matrix, training curve, ROC curve, and precision--recall curve are shown in
+Figs.~\ref{fig:nogan_confusion_matrix}, \ref{fig:nogan_training_curve},
+\ref{fig:nogan_roc_pr_curve}, and~\ref{fig:gan_roc_pr_curve}.
 
+\begin{figure}
+\centering
+\maybeincludegraphics[width=\columnwidth]{figs/best_confusion_matrix.png}
+\caption{Test confusion matrix of the best available model artifact selected from the final comparison summary.}
+\label{fig:nogan_confusion_matrix}
+\end{figure}
+
+\begin{figure}
+\centering
+\maybeincludegraphics[width=\columnwidth]{figs/best_training_curve.png}
+\caption{Training curve of the best available model artifact selected from the final comparison summary.}
+\label{fig:nogan_training_curve}
+\end{figure}
+
+\begin{figure}
+\centering
+\maybeincludegraphics[width=\columnwidth]{figs/best_roc_curve.png}
+\caption{Test ROC curve of the best available model artifact.}
+\label{fig:nogan_roc_pr_curve}
+\end{figure}
+
+\begin{figure}
+\centering
+\maybeincludegraphics[width=\columnwidth]{figs/best_pr_curve.png}
+\caption{Test precision--recall curve of the best available model artifact.}
+\label{fig:gan_roc_pr_curve}
+\end{figure}
 
 \section{Discussion}
-The results show that the proposed LWCA formulation is most useful when interpreted as part of a multi-level selectivity pipeline. LWCA operates at the physiological lead level and encourages the model to attend to relevant lead groups before convolutional extraction. SE blocks then act at the latent channel level, recalibrating learned morphology features after each convolutional stage. Finally, temporal attention identifies informative time regions after recurrent modeling. These mechanisms are complementary: lead selection alone cannot guarantee robust morphology extraction, and SE alone cannot explicitly distinguish the physiological meaning of the 12 input leads.
+The results provide a nuanced view of anatomical lead-prior attention. ALPA-Net full fine-tuning
+performs strongly and is competitive with the best no-attention ablation, but it is not the
+top-performing configuration in the present run. This finding is scientifically useful because it
+separates two questions that are often conflated in attention-based biomedical models: whether an
+attention mechanism improves aggregate prediction, and whether it provides a clinically
+interpretable evidence pathway. In the current implementation, ALPA is valuable for the second
+question and competitive for the first, but it does not yet establish a consistent performance
+advantage.
 
-This interpretation is important for positioning the contribution. The proposed model should not be described merely as a CNN--LSTM with attention, because its attention mechanisms operate at different semantic levels. LWCA is input-level and lead-aware; it is designed around the anatomical organization of 12-lead ECG. SE is feature-level and abstraction-aware; it recalibrates learned convolutional filters after morphology extraction. Temporal attention is sequence-level; it selects time intervals after recurrent modeling. The resulting architecture therefore decomposes MI localization into lead selection, morphology extraction, latent channel refinement, temporal context modeling, and final evidence pooling.
+This suggests that the current ALPA design is useful as an interpretable anatomical attention
+branch, yet its attention signal is not sufficiently coupled to the classification objective to
+consistently improve macro-F1. This interpretation is supported by the implementation: ALPA computes
+class-specific lead attention and class-context vectors, but the final softmax classifier is
+optimized only by CrossEntropy loss on the pooled lead-time representation.
 
-The no-GAN experiments demonstrate that fine-tuning from PTB-XL initialization is essential for the LWCA architecture. Scratch training performs poorly, whereas partial and full fine-tuning substantially improve macro-F1. This behavior is consistent with the small target-domain setting, where a randomly initialized network can converge to unstable or majority-biased solutions. Partial fine-tuning provides the best no-GAN balance among LWCA variants by updating enough parameters to adapt to PTB Diagnostic while preserving the source-domain morphology prior learned from PTB-XL.
+The strongest ALPA result is full fine-tuning, not frozen transfer. This indicates that the
+pretrained PTB-XL representation must be adapted substantially for PTB Diagnostic. Frozen-backbone
+transfer is limited because only the classification head adapts, whereas the target data differ in
+label distribution, beat extraction, and lateral-involved definitions. Partial fine-tuning shows
+high variability, suggesting that freezing the early CNN while updating higher modules may sometimes
+preserve useful morphology but can also restrict the model when the target domain differs strongly
+from PTB-XL.
 
-The external foundation-model comparison provides a nuanced result. ECG-FM obtains the best no-GAN average test macro-F1, indicating that large-scale self-supervised ECG pretraining can transfer effectively even under a different downstream label formulation. However, this performance is obtained under a much larger fine-tuning burden than LWCA partial fine-tuning. HuBERT-ECG, despite having 93.13M parameters and being pretrained on large 12-lead ECG resources, does not outperform the task-aligned LWCA fine-tuning variants in this protocol. These findings suggest that the practical value of a pretrained representation depends not only on scale, but also on preprocessing alignment, lead handling, fine-tuning depth, and the downstream clinical label space.
+The no-attention ablation is important for scientific interpretation. It outperforms ALPA by
+approximately 0.0102 macro-F1 in the best mean comparison (0.8698 versus 0.8596), which is small but
+non-negligible. No statistical significance test was performed, so this difference should be
+described as an observed aggregate difference rather than a confirmed superiority claim. Therefore,
+the manuscript should not claim that ALPA improves aggregate classification performance in its
+current form. Instead, the appropriate conclusion is that ALPA provides a physiologically structured
+attention mechanism and competitive performance, while the current evidence motivates future work on
+stronger integration, such as adding an explicit attention-prior loss, feeding class-context vectors
+into the classifier, or using territory-aware auxiliary supervision.
 
-The foundation-model comparison also clarifies the role of task alignment. ECG-FM appears to transfer better than HuBERT-ECG in the no-GAN setting, but both imported models require substantially larger downstream updates than the proposed LWCA partial fine-tuning setting. This does not imply that foundation models are ineffective; rather, it indicates that model scale alone is not a sufficient explanation of downstream performance. A lead-aware architecture can remain competitive when its fine-tuning strategy is aligned with the target-domain label structure and paired with targeted minority augmentation.
+The class-wise results are also informative. ALPA full fine-tuning achieves high LMI F1, but
+lateral-involved performance must be interpreted cautiously because the PTB Diagnostic lateral test
+records are limited and beat-level samples are not independent at the patient level. The
+lateral-involved class also aggregates several anatomical patterns. This improves feasibility for
+learning but reduces label granularity, so a correct prediction only indicates lateral-wall
+involvement, not necessarily correct discrimination between isolated lateral, antero-lateral,
+infero-lateral, and postero-lateral variants. NORM, AMI, and IMI performance is more stable across
+models, whereas LMI is more sensitive to split design and lateral-involved label definitions. This
+class-wise behavior reinforces the need to report macro-F1 and balanced accuracy rather than
+accuracy alone.
 
-The GAN-assisted protocol highlights the importance of minority-class intervention for fine-tuning. Once targeted LMI augmentation is introduced, the proposed LWCA model exceeds the no-GAN ECG-FM average macro-F1. Full fine-tuning achieves the highest average test macro-F1 (0.8653), and partial fine-tuning reaches a best validation-selected fold with test macro-F1 of 0.9531. This indicates that LWCA fine-tuning becomes most effective when its lead-wise inductive bias is aligned with the task and the minority-class data regime is explicitly addressed.
+Several limitations remain. First, the final dataset is beat-level and record-wise; beats from the
+same record are kept within one split, but beat-level samples are correlated. Second, the fixed PTB
+Diagnostic test set is small, especially for strict lateral-only records. Third, ALPA attention is
+initialized from anatomical priors but is not currently supervised by a dedicated
+attention-alignment loss. Fourth, the lateral-involved label is clinically motivated but still
+coarse; it cannot replace finer clinical annotation when the research question requires separating
+lateral-only from multiterritorial involvement. Fifth, the current external foundation-model
+comparison depends on local preprocessing and wrapper implementation; it should not be interpreted
+as a universal benchmark of HuBERT-ECG or ECG-FM.
 
-Several limitations remain. First, the held-out test set includes only one LMI sample; therefore, LMI-specific precision, recall, and F1 are high-variance estimates. Second, the fold-averaged test results evaluate multiple fold-selected checkpoints on the same held-out test set, so they should be interpreted as checkpoint-stability estimates rather than independent test-fold estimates. Third, the GAN-assisted improvement depends on the realism and diversity of generated LMI samples. Future work should evaluate the framework on larger patient-level splits, incorporate additional LMI records, and analyze whether LWCA weights correspond to clinically expected lead territories.
-
-Another limitation concerns interpretability. Although LWCA produces explicit lead weights, this paper primarily evaluates predictive performance. Future studies should compare LWCA weights against clinically expected lead-territory patterns, for example anterior leads for AMI, inferior leads for IMI, and lateral leads for LMI. Such analysis would help determine whether the attention mechanism is clinically meaningful or only statistically useful. In addition, patient-level external validation on independent cohorts would be required before any deployment-oriented claim can be made.
+These limitations point to concrete next steps. ALPA should be evaluated on larger external cohorts
+with patient-level splitting and independent test sets. The attention branch should be coupled more
+directly to prediction, for example through explicit prior-alignment loss, class-context
+classification, or territory-aware auxiliary objectives. The lateral-involved label should be
+revisited when more records are available, allowing a hierarchical formulation that first detects
+MI, then identifies territory involvement, and finally separates overlap patterns. Model calibration
+and uncertainty estimation should also be examined because a clinically useful localization system
+should communicate when evidence is weak or conflicting. Finally, ALPA heatmaps should be reviewed
+with cardiology expertise to determine whether the learned lead emphasis is clinically plausible
+beyond numerical performance.
 
 \section{Conclusion}
-This paper presents an LWCA-centered fine-tuning framework for four-class MI localization from 12-lead ECGs. The main contribution is the explicit separation of physiological lead-wise attention and latent feature-channel recalibration: LWCA learns sample-specific lead importance before the CNN encoder, while SE blocks recalibrate the learned convolutional channels after lead-modulated feature extraction. Across no-GAN, GAN-assisted, local baseline, and external foundation-model comparisons, macro-F1 analysis shows that fine-tuning depth strongly affects target-domain MI localization. Without GAN augmentation, ECG-FM achieves the highest average macro-F1, whereas LWCA partial fine-tuning provides the strongest LWCA no-GAN result. With GAN-assisted LMI augmentation, LWCA full fine-tuning reaches average macro-F1 up to 0.8653 and best-fold macro-F1 up to 0.9688. These findings support LWCA with SE recalibration as a practical and interpretable fine-tuning strategy for imbalanced MI localization in 12-lead ECG datasets.
+This paper presents an ALPA-focused study for MI localization from 12-lead ECGs. The clinical
+motivation is that MI localization is inherently spatial: anterior, inferior, and lateral
+involvement are expressed through different lead groups, and a useful model should account for this
+structure rather than treat all leads as interchangeable channels. ALPA-Net addresses this problem
+by introducing class-specific anatomical lead-prior attention into a compact CNN--Transformer
+architecture and by evaluating PTB-XL pretraining followed by PTB Diagnostic transfer learning.
+
+The strongest ALPA configuration is full fine-tuning, achieving $0.8596\pm0.0165$ test macro-F1,
+$0.8588\pm0.0174$ balanced accuracy, and $0.9682\pm0.0075$ macro-AUC. The no-attention partial
+fine-tuning ablation slightly outperforms ALPA with $0.8698\pm0.0208$ macro-F1, indicating that the
+current ALPA branch provides interpretability and anatomical structure but has not yet produced a
+consistent aggregate performance advantage. This mixed result is central to the contribution of the
+paper: clinically informed attention can make model behavior more transparent, but its predictive
+value depends on how strongly the attention pathway is integrated with the training objective.
+
+Future research should validate ALPA-Net on larger and more diverse ECG cohorts, use stricter
+patient-level external evaluation, and refine the lateral-involved label when more granular clinical
+annotation is available. Methodologically, adaptive clinical priors, explicit attention-alignment
+objectives, territory-aware auxiliary heads, uncertainty estimation, and cardiologist review of
+attention maps are natural extensions. These directions directly follow from the present findings:
+ALPA provides a plausible anatomical inductive bias, but stronger coupling between prior-guided
+attention and class prediction is needed before anatomy-guided attention can be claimed to improve
+MI localization performance consistently.
+
 
 %% The Appendices part is started with the command \appendix;
 %% appendix sections are then done as normal sections

@@ -1,9 +1,0 @@
-split,label,internal_label,f1_score,sensitivity,specificity,auc,support
-val,NORM,Normal,0.0,0.0,1.0,0.6064429530201343,75
-val,AMI,Anterior,0.0,0.0,1.0,0.8218495934959349,60
-val,IMI,Inferior,0.5686900958466453,1.0,0.0,0.5015813566375364,89
-val,LMI,Lateral,0.0,0.0,1.0,,0
-test,NORM,Normal,0.0,0.0,1.0,0.6213064713064713,135
-test,AMI,Anterior,0.0,0.0,1.0,0.7065830640611377,97
-test,IMI,Inferior,0.5387994143484627,1.0,0.0,0.5194271911663216,184
-test,LMI,Lateral,0.0,0.0,1.0,0.5095429796107507,83

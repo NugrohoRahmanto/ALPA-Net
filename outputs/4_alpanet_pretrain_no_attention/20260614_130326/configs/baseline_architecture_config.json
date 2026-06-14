@@ -1,0 +1,26 @@
+{
+  "model_name": "Standard CNN-Transformer Baseline",
+  "baseline_variant": "standard_temporal_cnn_transformer_cls",
+  "pooling_type": "cls_token",
+  "uses_alpa_module": false,
+  "uses_anatomical_lead_prior": false,
+  "uses_class_specific_attention": false,
+  "uses_attention_context": false,
+  "uses_learnable_attention_pooling": false,
+  "aggregation": "CLS token pooling after a single temporal Transformer encoder",
+  "lead_order": [
+    "I",
+    "aVL",
+    "II",
+    "III",
+    "aVF",
+    "aVR",
+    "V1",
+    "V2",
+    "V3",
+    "V4",
+    "V5",
+    "V6"
+  ],
+  "note": "This baseline uses a conventional 12-channel CNN followed by one temporal Transformer stack and CLS-token pooling. It does not define anatomical lead priors or interpretable attention maps."
+}

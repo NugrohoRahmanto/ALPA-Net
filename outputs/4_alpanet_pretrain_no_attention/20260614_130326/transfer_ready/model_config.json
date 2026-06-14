@@ -1,0 +1,20 @@
+{
+  "input_leads": 12,
+  "signal_length": 65,
+  "stem_channels": 32,
+  "cnn_channels": 64,
+  "token_dim": 128,
+  "num_heads": 4,
+  "transformer_layers": 2,
+  "cnn_blocks": 2,
+  "max_sequence_tokens": 65,
+  "transformer_ff_dim": 256,
+  "dropout": 0.2,
+  "main_outputs": 4,
+  "sub_outputs": 0,
+  "model_name": "Standard CNN-Transformer Baseline",
+  "baseline_variant": "standard_temporal_cnn_transformer_cls",
+  "pooling_type": "cls_token",
+  "task_type": "single_label_4_class_softmax_architecture_ablation",
+  "classification_head": "softmax"
+}
